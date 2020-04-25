@@ -5,6 +5,8 @@ import { StopPropagationDirective } from './directives/stop-propagation.directiv
 import { PageNoFoundComponent } from './components/page-no-found/page-no-found.component';
 import { ModalComponent } from './components/modal/modal.component';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -21,12 +23,14 @@ import { ModalComponent } from './components/modal/modal.component';
   declarations: [
     StopPropagationDirective,
     PageNoFoundComponent,
-    ModalComponent
+    ModalComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+
     // NgbModule,
     // FontAwesomeModule,
     // NgxPaginationModule,
@@ -36,6 +40,8 @@ import { ModalComponent } from './components/modal/modal.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+
     // NgbModule,
     // FontAwesomeModule,
     // NgxPaginationModule,

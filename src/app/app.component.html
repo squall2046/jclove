@@ -1,3 +1,7 @@
+<!-- MODAL WINDOW BEGIN-->
+<app-modal></app-modal>
+<!-- MODAL WINDOW END-->
+
 <div class="page-wrapper" id="page-wrapper">
   <header>
     <app-header [header]='header' (showSidebar)="showSidebar()"></app-header>
@@ -17,6 +21,7 @@
 
       <div class="page">
         <router-outlet></router-outlet>
+        <!-- <app-modal></app-modal> -->
       </div>
 
       <footer>
