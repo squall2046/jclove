@@ -1,0 +1,47 @@
+<div class="sidebar-container">
+    <div class="sidebar-links">
+        <div *ngFor="let tab of sidebar.tabs" class="sidebar-tabs">
+            <a *ngIf="!tab.subTabs.length" class="sidebar-lvl-one" [routerLink]="tab.path" (click)="clickTab(tab.name)">
+                <span class="sidebar-icon">
+                    <i class="fa fa-lg" [ngClass]="tab.icon" aria-hidden="true"></i>
+                </span>
+                <span class="sidebar-text" [routerLinkActive]="['font-blue']">{{tab.name}}</span>
+                <span class="sidebar-active" [routerLinkActive]="['is-active']"></span>
+            </a>
+
+            <a *ngIf="tab.subTabs.length" class="sidebar-lvl-one"
+                [ngClass]="{'font-blue':drop,'sidebar-btns-lvl-expand':drop}" (click)="toggleDrop(tab.name)"
+                appStoppropagation>
+                <span class="sidebar-icon">
+                    <i class="fa fa-lg" [ngClass]="tab.icon" aria-hidden="true"></i>
+                </span>
+                <span class="sidebar-text" [ngClass]="{'font-blue': drop}">{{tab.name}}</span>
+                <span class="sidebar-icon sidebar-dropdown-icon">
+                    <span>
+                        <i class="fa" [ngClass]="drop? 'fa-angle-up' : 'fa-angle-down'" aria-hidden="true"></i>
+                    </span>
+                </span>
+                <div *ngIf="drop" class="sidebar-lvl-one-expanded pt-2">
+                    <a *ngFor="let subTab of tab.subTabs" class="sidebar-lvl-two" [routerLink]="subTab.path"
+                        [routerLinkActive]="['bg-gray']" (click)="toggleDrop(tab.name)" (click)="clickTab(subTab.name)">
+                        <span class="sidebar-text sidebar-text-sm">{{subTab.name}}</span>
+                        <span class="sidebar-active" [routerLinkActive]="['is-active']"></span>
+                    </a>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="sidebar-collapse">
+        <div class="sidebar-tabs">
+            <a class="sidebar-collapse-btn" (click)="toggleCollapse()">
+                <span>
+                    <span class="sidebar-icon collapse-icon" [ngClass]="collapse? '' : 'pl-5'">
+                        <i class="fa fa-sm" [ngClass]="collapse? 'fa-angle-double-right' : 'fa-angle-double-left'"
+                            aria-hidden="true"></i>
+                    </span>
+                    <span *ngIf="!collapse" class="sidebar-text">Collapse</span>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
