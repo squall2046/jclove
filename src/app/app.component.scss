@@ -61,7 +61,8 @@
             }
 
             .page {
-                min-height: 90vh;
+                height: auto;
+                margin-top: 50px;
             }
         }
         section::-webkit-scrollbar {

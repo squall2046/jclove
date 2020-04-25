@@ -47,15 +47,17 @@
         color: #333333;
         position: absolute;
         left: 70px;
-        font-size: 14px;
+        font-size: 16px;
         white-space: nowrap;
         // overflow: hidden;
         // text-overflow: clip;
+        font-family: "Frijole", cursive;
     }
 
     .sidebar-text-sm {
-        font-size: 12px;
+        font-size: 14px;
         line-height: 25px;
+        font-family: "Frijole", cursive;
     }
 
     .sidebar-lvl-one:hover {

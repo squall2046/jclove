@@ -50,15 +50,15 @@ export class AppComponent implements OnInit {
         subTabs: []
       },
       {
-        name: 'English',
-        path: '/english',
+        name: 'Mandarin',
+        path: '/mandarin',
         icon: 'fa-inbox',
         level: 1,
         subTabs: []
       },
       {
-        name: '语文',
-        path: '/mandarin',
+        name: 'English',
+        path: '/english',
         icon: 'fa-inbox',
         level: 1,
         subTabs: []

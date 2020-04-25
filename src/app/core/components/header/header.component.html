@@ -5,7 +5,10 @@
     </div>
     <!-- title -->
     <div class="nav flex3 app-title">
-        <span>{{header.title}}</span>
+        <span>
+            <i class="material-icons">face</i>
+            {{header.title}}
+        </span>
     </div>
     <!-- user -->
     <ul class="nav flex3 app-user">
@@ -46,6 +49,7 @@
             <div class="dropdown-menu">
                 <a [href]="header.route.profile" class="dropdown-item">
                     <!-- <fa-icon [icon]="fa.user"></fa-icon> -->
+                    <i class="material-icons">face</i>
                     My Profile
                 </a>
                 <a [href]="header.route.settings" class="dropdown-item">
@@ -53,10 +57,10 @@
                     Settings
                 </a>
                 <a [href]="header.route.activity" class="dropdown-item">
-                    <!-- <i class="fal fa-list-alt"></i> -->
+                    <i class="fal fa-list-alt"></i>
                     Activity</a>
                 <a [href]="header.route.logout" class="dropdown-item">
-                    <!-- <i class="fal fa-unlock"></i> -->
+                    <i class="fal fa-unlock"></i>
                     Logout</a>
             </div>
         </li>

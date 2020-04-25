@@ -7,6 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MathComponent implements OnInit {
 
+  math = [
+    {
+      operation: "+"
+    },
+    {
+      operation: "-"
+    },
+    {
+      operation: "x"
+    },
+    {
+      operation: "÷"
+    },
+    {
+      operation: "?"
+    },
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
