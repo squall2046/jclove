@@ -47,9 +47,25 @@ export class MathPlusTensComponent implements OnInit {
     },
   }
 
+  correctAns = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  reload() {
+    this.qNumOne = Math.floor(Math.random() * 9) + 10;
+    this.qNumTwo = Math.floor(Math.random() * 9) + 1;
+
+    const space = Object.entries(this.space)
+    space.forEach(([sp]) => {
+      this.space[sp].fill = "";
+    });
+  }
+
+  closeSelect() {
+    this.selectOn = false;
   }
 
   selectSpace(space) {
@@ -64,13 +80,34 @@ export class MathPlusTensComponent implements OnInit {
         this.space[sp].fill = num;
       }
     });
-
-    this.selectOn = false;
+    this.closeSelect();
+    this.checkAnswer();
   }
 
-  reload() {
-    this.qNumOne = Math.floor(Math.random() * 9) + 10;
-    this.qNumTwo = Math.floor(Math.random() * 9) + 1;
+  deleteUnit() {
+    const space = Object.entries(this.space)
+    space.forEach(([sp]) => {
+      if (this.space[sp].id === this.selectSp) {
+        this.space[sp].fill = "";
+      }
+    });
+  }
+
+  checkAnswer() {
+    let expect: number = this.qNumOne + this.qNumTwo;
+    let answer: number = parseInt([this.space.c1.fill, this.space.c2.fill, this.space.c3.fill].join(""))
+    console.log(expect, answer);
+    if (expect === answer) {
+      this.correctAns = true;
+    }
+    setTimeout(() => {
+      if (this.correctAns) {
+        setTimeout(() => {
+          this.correctAns = false;
+          this.reload();
+        }, 3000);
+      }
+    });
   }
 
 }

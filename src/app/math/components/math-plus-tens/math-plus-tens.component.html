@@ -1,4 +1,4 @@
-<div class="math-tens" (click)="selectUnit(0)">
+<div class="math-tens" (click)="closeSelect()">
     <article>
         <table class="qsTable">
             <tr>
@@ -9,9 +9,6 @@
                 <td class="unit">?</td>
             </tr>
         </table>
-        <div class="reloadBtn" (click)="reload()">
-            <i class="material-icons reloadIcon pointer">autorenew</i>
-        </div>
     </article>
 
     <form action="" stopPropagation>
@@ -81,6 +78,7 @@
         <div [ngStyle]="{'right': selectOn ? '0':'-1000px'}" class="select">
             <div class="option">
                 <div *ngFor="let num of numbers" class="unit pointer" (click)="selectUnit(num)">{{num}}</div>
+                <div class="del-unit pointer" (click)="deleteUnit()">Del</div>
             </div>
             <!-- <div class="option">
                 <div class="d-flex flex-row justify-content-around">
@@ -91,4 +89,13 @@
         </div>
     </section>
 
+    <!-- reload btn -->
+    <div class="reload-btn" (click)="reload()">
+        <i class="material-icons reloadIcon pointer">autorenew</i>
+    </div>
+
+    <!-- success gif -->
+    <div class="success-gif" *ngIf="correctAns">
+        <img src="../../../../assets/images/gif/olaf.gif" alt="">
+    </div>
 </div>

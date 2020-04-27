@@ -18,7 +18,7 @@ export class MathComponent implements OnInit {
       operation: "-"
     },
     {
-      operation: "x"
+      operation: "×"
     },
     {
       operation: "÷"
