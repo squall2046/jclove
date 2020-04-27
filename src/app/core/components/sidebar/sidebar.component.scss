@@ -17,6 +17,7 @@
         height: 45px;
         padding: 10px;
         box-sizing: border-box;
+        white-space: nowrap;
     }
 
     .sidebar-lvl-one {
@@ -99,4 +100,15 @@
             display: none;
         }
     }
+}
+
+.material-icons {
+    color: black;
+}
+
+.collapse-icon {
+    font-size: 30px;
+    height: 25px;
+    line-height: 25px;
+    color: black;
 }

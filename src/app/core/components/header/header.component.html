@@ -1,21 +1,22 @@
 <nav>
-    <!-- logo -->
+    <!-- logo (left)-->
     <div class="nav flex3 app-logo pl-3">
-        <img [src]="header.logo">
-    </div>
-    <!-- title -->
-    <div class="nav flex3 app-title">
+        <!-- <img [src]="header.logo"> -->
         <span>
-            <i class="material-icons">face</i>
-            {{header.title}}
+            <i class="material-icons">{{app.header.headIcon}}</i>
         </span>
     </div>
-    <!-- user -->
+    <!-- title (center)-->
+    <div class="nav flex3 app-title">{{app.header.headText}}</div>
+
+    <!-- user (right)-->
     <ul class="nav flex3 app-user">
-        <div class="d-flex flex-row dropdown-icons">
+        <div class="d-flex flex-row justify-content-start dropdown-icons">
             <!-- toggle sidebar (tablet view only)  -->
             <li class="nav-item dropdown-icon-hide">
-                <a class="nav-link" data-toggle="collapse" (click)="toggleSidebar()">
+                <a class="nav-link" data-toggle="collapse" (click)="toggleSidebarInPhoneApp()">
+                    <i class="material-icons pointer" *ngIf="app.sidebar.show">close</i>
+                    <i class="material-icons pointer" *ngIf="!app.sidebar.show">reorder</i>
                     <!-- <i class="fa fa-lg" [ngClass]="sidebarInTablet ? 'fa-times' : 'fa-bars'" aria-hidden="true"> </i> -->
                 </a>
             </li>
@@ -24,16 +25,13 @@
             <!-- <li *ngIf="showSettings" class="nav-item dropdown-icon">
                 <a class="nav-link" href="javascript:void(0)">
                     <span class="sr-only">Administration</span>
-                    <i class="fa fa-cog fa-lg" aria-hidden="true"> </i>
                 </a>
                 <div class="dropdown-menu">
                     <span class="font600 mb-0 text-title">Administration</span>
-                    <a [href]="header.route.userManagement" class="dropdown-item">
-                        <i class="fa fa-user fa-sm" aria-hidden="true"> </i> 
+                    <a [href]="app.header.route.profile" class="dropdown-item">
                         User Management
                     </a>
-                    <a [href]="header.route.companySettings" class="dropdown-item">
-                        <i class="fa fa-user fa-sm" aria-hidden="true"> </i> 
+                    <a [href]="app.header.route.activity" class="dropdown-item">
                         Company Settings
                     </a>
                 </div>
@@ -43,23 +41,23 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-user" id="dropdown-user" role="button" data-toggle="dropdown"
                 href="javascript:void(0)">
-                <img [src]="header.user.img">
-                <span class="dropdown-toggle">Hi, {{header.user.name}}</span>
+                <img class="profile-photo" [src]="app.header.user.img">
+                <span class="dropdown-toggle">Hi, {{app.header.user.name}}</span>
             </a>
             <div class="dropdown-menu">
-                <a [href]="header.route.profile" class="dropdown-item">
+                <a [href]="app.header.route.profile" class="dropdown-item">
                     <!-- <fa-icon [icon]="fa.user"></fa-icon> -->
                     <i class="material-icons">face</i>
                     My Profile
                 </a>
-                <a [href]="header.route.settings" class="dropdown-item">
+                <a [href]="app.header.route.settings" class="dropdown-item">
                     <!-- <fa-icon [icon]="fa.cog"></fa-icon> -->
                     Settings
                 </a>
-                <a [href]="header.route.activity" class="dropdown-item">
+                <a [href]="app.header.route.activity" class="dropdown-item">
                     <i class="fal fa-list-alt"></i>
                     Activity</a>
-                <a [href]="header.route.logout" class="dropdown-item">
+                <a [href]="app.header.route.logout" class="dropdown-item">
                     <i class="fal fa-unlock"></i>
                     Logout</a>
             </div>

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-// import {
-//   faCoffee, faQuestionCircle, faUser, faCog, faAngleDoubleLeft, faAngleDoubleRight, faChevronUp, faChevronDown
-// } from '@fortawesome/free-solid-svg-icons';
+import { AppService } from 'src/app/app.service';
+import { App } from 'src/app/app.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,13 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  @Input() sidebar;
-  @Output() sidebarCollapse = new EventEmitter();
-  @Output() pageTitle = new EventEmitter();
-
-  collapse = false;
-  drop = false;
-  dropA = false;
+  app: App;
 
   // fa = {
   //   coffee: faCoffee,
@@ -28,29 +21,25 @@ export class SidebarComponent implements OnInit {
   //   chevronDown: faChevronDown
   // };
 
-
-
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
+    this.app = this.appService.app;
   }
 
   toggleCollapse() {
-    this.sidebarCollapse.emit();
-    // setTimeout(() => {
-    this.collapse = !this.collapse;
-    // }, 200);
+    this.app.sidebar.isCollapsed = !this.app.sidebar.isCollapsed;
   }
 
   toggleDrop(name) {
-    this.drop = !this.drop;
-    if (name === 'Administration') {
-      this.dropA = !this.dropA;
-    }
+    this.app.sidebar.drop = !this.app.sidebar.drop;
   }
 
-  clickTab(name) {
-    this.pageTitle.emit(name);
+  clickTab(icon, name) {
+    this.app.main.headIcon = icon;
+    this.app.main.headText = name;
   }
+
+  clickSubTab(title) { }
 
 }

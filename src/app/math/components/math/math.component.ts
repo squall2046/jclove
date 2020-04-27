@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-// import { DialogComponent } from '../../../shared/components/dialog/dialog.component';
+import { modalMessage } from 'src/app/shared/models/modal-message';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   selector: 'app-math',
@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./math.component.scss']
 })
 export class MathComponent implements OnInit {
+  modalMessage: modalMessage;
 
   math = [
     {
@@ -26,29 +27,20 @@ export class MathComponent implements OnInit {
       operation: "?"
     },
   ]
-  // animal: string;
-  // name: string;
 
-  constructor(
-    // public dialog: MatDialog
-  ) { }
+  constructor(private modalService: ModalService) { }
 
   ngOnInit(): void {
+    this.modalMessage = this.modalService.modalMessage;
+    this.modalService.subsVar = this.modalService.modalConfirm.subscribe(() =>
+      this.modalConfirm());
+    this.modalService.subsVar = this.modalService.modalCancel.subscribe(() =>
+      this.modalCancel());
   }
-
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(DialogComponent, {
-  //     width: '250px',
-  //     data: { name: this.name, animal: this.animal }
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed', result);
-  //     this.animal = result;
-  //   });
-  // }
 
   modalOn() {
-
+    this.modalService.modalMessage.showMathOption = true;
   }
+  modalConfirm() { }
+  modalCancel() { }
 }

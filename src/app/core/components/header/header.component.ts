@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-// import { faCoffee, faQuestionCircle, faUser, faCog, faTimes, faClipboardCheck } from '@fortawesome/free-solid-svg-icons';
-
+import { AppService } from 'src/app/app.service';
+import { App } from 'src/app/app.model';
 
 @Component({
   selector: 'app-header',
@@ -8,31 +8,22 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Input() header: any;
+  app: App;
+
   @Output() showSidebar = new EventEmitter();
 
-  // fa = {
-  //   coffee: faCoffee,
-  //   questionCircle: faQuestionCircle,
-  //   user: faUser,
-  //   cog: faCog,
-  //   times: faTimes,
-  //   check: faClipboardCheck
-  // };
-
-  sidebarInTablet = false;
   showSettings = true;
   showNotifications = true;
   showHelp = true;
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
+    this.app = this.appService.app;
   }
 
-  toggleSidebar() {
-    this.showSidebar.emit();
-    this.sidebarInTablet = !this.sidebarInTablet;
+  toggleSidebarInPhoneApp() {
+    this.app.sidebar.show = !this.app.sidebar.show;
+    // this.app.sidebar.isCollapsed = !this.app.sidebar.isCollapsed;
   }
-
 }

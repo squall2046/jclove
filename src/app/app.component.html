@@ -1,31 +1,29 @@
 <!-- MODAL WINDOW BEGIN-->
 <app-modal></app-modal>
 <!-- MODAL WINDOW END-->
+<!-- <app-chat [chat]='app.chat'></app-chat> -->
 
 <div class="page-wrapper" id="page-wrapper">
   <header>
-    <app-header [header]='header' (showSidebar)="showSidebar()"></app-header>
+    <app-header></app-header>
   </header>
   <main>
-    <aside [ngStyle]="{'width': sidebar.isCollapsed ? '70px':'239px'}" [ngClass]="{'aside-tablet': sidebar.show}">
-      <app-sidebar [sidebar]='sidebar' (sidebarCollapse)='sidebarCollapse()' (pageTitle)="newTitle($event)">
-      </app-sidebar>
+    <aside [ngStyle]="{'width': app.sidebar.isCollapsed ? '70px':'239px'}"
+      [ngClass]="{'aside-phone': app.sidebar.show}">
+      <app-sidebar> </app-sidebar>
     </aside>
 
-    <span>
-      <!-- <app-chat [chat]='chat'></app-chat> -->
-    </span>
-
-    <section [ngStyle]="{'margin-left': sidebar.isCollapsed ? '70px':'239px'}">
-      <div class="page-title">{{title}}</div>
-
-      <div class="page">
+    <section [ngStyle]="{'margin-left': app.sidebar.isCollapsed ? '70px':'239px'}">
+      <div class="page-title">
+        <i class="material-icons">{{app.main.headIcon}}</i>
+        <span>{{app.main.headText}}</span>
+      </div>
+      <div class="page-content">
         <router-outlet></router-outlet>
-        <!-- <app-modal></app-modal> -->
       </div>
 
       <footer>
-        <app-footer [footer]='footer'></app-footer>
+        <app-footer [footer]='app.footer'></app-footer>
       </footer>
     </section>
   </main>

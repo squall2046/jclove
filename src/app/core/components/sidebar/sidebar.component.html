@@ -1,29 +1,34 @@
 <div class="sidebar-container">
     <div class="sidebar-links">
-        <div *ngFor="let tab of sidebar.tabs" class="sidebar-tabs">
-            <a *ngIf="!tab.subTabs.length" class="sidebar-lvl-one" [routerLink]="tab.path" (click)="clickTab(tab.name)">
+        <div *ngFor="let tab of app.sidebar.tabs" class="sidebar-tabs">
+            <a *ngIf="!tab.subTabs.length" class="sidebar-lvl-one" [routerLink]="tab.path"
+                (click)="clickTab(tab.icon,tab.name)">
                 <span class="sidebar-icon">
-                    <i class="fa fa-lg" [ngClass]="tab.icon" aria-hidden="true"></i>
+                    <i class="material-icons">{{tab.icon}}</i>
                 </span>
-                <span class="sidebar-text" [routerLinkActive]="['font-blue']">{{tab.name}}</span>
+                <span class="sidebar-text" [routerLinkActive]="['font-blue']"
+                    *ngIf="!app.sidebar.isCollapsed">{{tab.name}}</span>
                 <span class="sidebar-active" [routerLinkActive]="['is-active']"></span>
             </a>
 
             <a *ngIf="tab.subTabs.length" class="sidebar-lvl-one"
-                [ngClass]="{'font-blue':drop,'sidebar-btns-lvl-expand':drop}" (click)="toggleDrop(tab.name)"
-                appStoppropagation>
+                [ngClass]="{'font-blue':app.sidebar.drop,'sidebar-btns-lvl-expand':app.sidebar.drop}"
+                (click)="toggleDrop(tab.name)" StopPropagationDirective>
                 <span class="sidebar-icon">
                     <i class="fa fa-lg" [ngClass]="tab.icon" aria-hidden="true"></i>
                 </span>
-                <span class="sidebar-text" [ngClass]="{'font-blue': drop}">{{tab.name}}</span>
+                <span class="sidebar-text" [ngClass]="{'font-blue': app.sidebar.drop}">{{tab.name}}</span>
                 <span class="sidebar-icon sidebar-dropdown-icon">
                     <span>
-                        <i class="fa" [ngClass]="drop? 'fa-angle-up' : 'fa-angle-down'" aria-hidden="true"></i>
+                        <i class="material-icons">
+                            <span *ngIf="app.sidebar.drop">arrow_down</span>
+                            <span *ngIf="!app.sidebar.drop">arrow_up</span>
+                        </i>
                     </span>
                 </span>
-                <div *ngIf="drop" class="sidebar-lvl-one-expanded pt-2">
+                <div *ngIf="app.sidebar.drop" class="sidebar-lvl-one-expanded pt-2">
                     <a *ngFor="let subTab of tab.subTabs" class="sidebar-lvl-two" [routerLink]="subTab.path"
-                        [routerLinkActive]="['bg-gray']" (click)="toggleDrop(tab.name)" (click)="clickTab(subTab.name)">
+                        [routerLinkActive]="['bg-gray']" (click)="toggleDrop(tab.name)" (click)="clickSubTab(subTab.name)">
                         <span class="sidebar-text sidebar-text-sm">{{subTab.name}}</span>
                         <span class="sidebar-active" [routerLinkActive]="['is-active']"></span>
                     </a>
@@ -33,14 +38,14 @@
     </div>
     <div class="sidebar-collapse">
         <div class="sidebar-tabs">
-            <a class="sidebar-collapse-btn" (click)="toggleCollapse()">
-                <span>
-                    <span class="sidebar-icon collapse-icon" [ngClass]="collapse? '' : 'pl-5'">
-                        <i class="fa fa-sm" [ngClass]="collapse? 'fa-angle-double-right' : 'fa-angle-double-left'"
-                            aria-hidden="true"></i>
-                    </span>
-                    <span *ngIf="!collapse" class="sidebar-text">Collapse</span>
+            <a class="sidebar-collapse-btn pointer d-inline-flex" (click)="toggleCollapse()">
+                <span class="sidebar-icon">
+                    <i class="material-icons collapse-icon">
+                        <span *ngIf="app.sidebar.isCollapsed">arrow_right</span>
+                        <span *ngIf="!app.sidebar.isCollapsed">arrow_left</span>
+                    </i>
                 </span>
+                <span *ngIf="!app.sidebar.isCollapsed" class="sidebar-text">Collapse</span>
             </a>
         </div>
     </div>

@@ -53,6 +53,11 @@ li {
   list-style-type: none;
 }
 
+.profile-photo {
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
 @media only screen and (max-width: 991px) {
   .app-title {
     font-size: 14px;

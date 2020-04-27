@@ -1,5 +1,4 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
-
 html,
 body {
     height: 100%;
@@ -8,6 +7,7 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
 // ===== scroll =====:
 /* width */
 ::-webkit-scrollbar {
@@ -76,10 +76,17 @@ body {
     font-feature-settings: "liga";
 }
 
-.modal-backdrop {
-    z-index: 1040 !important;
+.pointer {
+    cursor: pointer;
 }
-.modal-dialog {
-    margin: 2px auto;
-    z-index: 1100 !important;
-}
+
+// About Bootstrap modal backdrop over dialog issue:
+// The following are not working:
+// .modal-backdrop {
+//     z-index: 1040 !important;
+// }
+// .modal-dialog {
+//     margin: 2px auto;
+//     z-index: 1100 !important;
+// }
+// The right way is put dialog component at top of <body>, before angular app.
