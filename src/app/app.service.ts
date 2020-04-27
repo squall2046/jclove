@@ -29,9 +29,9 @@ export class AppService {
     },
     footer: {
       logo: './../assets/images/logo/logo2-transparent.png',
-      copyright: '2020 Isaac Wu',
+      copyright: '',
       content: 'footer',
-      message: ''
+      message: 'For my girls Joanna&Chloe'
     },
     sidebar: {
       show: false,
@@ -70,5 +70,8 @@ export class AppService {
     },
     chat: {},
   }
-  constructor() { }
+  constructor() {
+    this.app.footer.copyright = "©Copyright " + new Date().getFullYear() + " Isaac All Rights Reserved"
+  }
+
 }

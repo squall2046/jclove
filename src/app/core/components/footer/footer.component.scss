@@ -4,6 +4,7 @@
 
 .nav-link {
     display: block;
+    display: none;
     height: 18px;
     line-height: 15px;
     padding: 0 10px;
@@ -17,4 +18,18 @@
 
 .footer-logo {
     width: 35px;
+    height: 35px;
+}
+
+@media only screen and (max-width: 991px) {
+    .footer {
+        height: 20px;
+    }
+    .footer-logo {
+        width: 15px;
+        height: 15px;
+    }
+    .foot-msg {
+        display: none;
+    }
 }

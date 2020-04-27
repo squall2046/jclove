@@ -1,22 +1,25 @@
 <div class="footer bg-faded b-t">
     <div class="d-flex flex-row align-items-center">
-        <div class="flex mr-xl-auto p-2">
+        <div class="flex mr-xl-auto px-2">
             <img class="footer-logo" src="{{footer.logo}}">
+            <span>
+                {{footer.copyright}}
+                <!-- Copyright &copy; {{year}} Isaac All Rights Reserved -->
+            </span>
         </div>
-        <div class="d-flex flex-row m-auto justify-content-xl-center">
-            <nav class="footer-links nav flex-md-nowrap fs12">
+        <div class="d-flex flex-row m-auto justify-content-center">
+            <nav class="footer-links nav flex-md-nowrap">
                 <div class="br-1"><a href="#" class="nav-link">Privacy Policy</a></div>
                 <a href="#" class="nav-link">Terms of Use</a>
                 <a href="#" class="nav-link">Legal Notice</a>
                 <a href="#" class="nav-link no-border">Accessibility</a>
             </nav>
         </div>
-        <div class="justify-content-xl-end p-2">
-            <!-- <div>{{footer.message}} </div> -->
+        <div class="foot-msg justify-content-end px-2">
+            <div>{{footer.message}}</div>
         </div>
     </div>
-    <div class="copyright text-muted fs10 p-2">
-        <!-- <div>{{footer.copyright}}</div> -->
-        <!-- <div>{{footer.content}}</div> -->
-    </div>
+    <!-- <div class="copyright text-muted fs10 p-2">
+        <div>{{footer.copyright}}</div> <div>{{footer.content}}</div>
+    </div> -->
 </div>
