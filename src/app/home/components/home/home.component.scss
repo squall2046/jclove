@@ -1,6 +1,6 @@
 .user-card-container {
-    min-height: 84vh;
-    padding: 10px;
+    width: 100%;
+    padding: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -13,8 +13,7 @@
         flex-direction: column;
         justify-content: space-between;
         position: relative;
-        margin: 25px;
-        padding: 10px;
+        margin: 5px;
         height: 270px;
         width: 345px;
         border-radius: 5px;

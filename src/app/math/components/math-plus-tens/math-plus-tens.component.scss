@@ -1,21 +1,24 @@
 .math-tens {
-    padding: 39px;
-    height: auto;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: start;
+    text-align: start;
 }
 
 .qsTable {
-    width: auto;
+    width: 20vw;
     // max-width: 1000px;
-    margin: auto;
+    // margin: auto;
     margin-bottom: 80px;
 }
 .calTable {
     width: 20vw;
     height: 20vw;
     max-width: 800px;
-    margin: auto;
     margin-bottom: 50px;
-    // text-align: center;
 }
 
 .space {
@@ -42,28 +45,36 @@ hr {
 }
 
 .select {
-    position: relative;
-    width: 650px;
-    height: 280px;
+    position: fixed;
+    top: 160px;
+    width: 230px;
+    height: 580px;
     padding-top: 10px;
     border-radius: 10px;
     // border: 5px solid rgb(149, 149, 149);
-    margin: auto;
     background-color: rgb(240, 240, 240);
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
     transition: 0.5s;
-}
 
-.bg-color {
-    background-color: rgb(250, 250, 250);
-    border-color: rgb(163, 40, 40, 0.8);
+    .bg-color {
+        background-color: rgb(250, 250, 250);
+        border-color: rgb(163, 40, 40, 0.8);
+    }
+
+    .option {
+        white-space: pre-wrap;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }
 
 .unit {
     width: 100px;
     height: 100px;
     line-height: 100px;
-    margin: 10px;
+    margin: 5px;
     border-radius: 10px;
     border: 5px solid rgb(230, 230, 230);
     background-color: rgb(230, 230, 230);

@@ -80,17 +80,14 @@
     <section stopPropagation>
         <div [ngStyle]="{'right': selectOn ? '0':'-1000px'}" class="select">
             <div class="option">
-                <div class="d-flex flex-row justify-content-around">
-                    <div class="unit pointer d-inline-flex justify-content-around"
-                        *ngFor=" let num of numbers | slice: 0:5" (click)="selectUnit(num)">{{num}}</div>
-                </div>
+                <div *ngFor="let num of numbers" class="unit pointer" (click)="selectUnit(num)">{{num}}</div>
             </div>
-            <div class="option">
+            <!-- <div class="option">
                 <div class="d-flex flex-row justify-content-around">
                     <div class="unit pointer d-inline-flex justify-content-around"
                         *ngFor=" let num of numbers | slice: 5:10" (click)="selectUnit(num)">{{num}}</div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 

@@ -80,17 +80,27 @@
             .page-content {
                 height: auto;
                 margin-top: 50px;
+                padding: 10px;
             }
         }
         section::-webkit-scrollbar {
             display: none;
+        }
+
+        footer {
+            box-sizing: border-box;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: 0.5s;
         }
     }
 
     @media only screen and (max-width: 991px) {
         main {
             aside {
-                padding-top: 99px;
+                padding-top: 100px;
                 width: 239px !important;
                 left: -239px !important;
                 // display: none;
@@ -102,6 +112,9 @@
 
             section {
                 padding-top: 100px;
+                margin-left: 0 !important;
+            }
+            footer {
                 margin-left: 0 !important;
             }
         }

@@ -38,6 +38,8 @@ export class SidebarComponent implements OnInit {
   clickTab(icon, name) {
     this.app.main.headIcon = icon;
     this.app.main.headText = name;
+
+    this.app.sidebar.show = false;
   }
 
   clickSubTab(title) { }
