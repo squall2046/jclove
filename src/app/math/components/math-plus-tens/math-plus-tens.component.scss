@@ -113,7 +113,10 @@ hr {
 
 .success-gif {
     position: fixed;
-    bottom: 10px;
+    width: 15vw;
+    height: 15vw;
+    top: 150px;
+    margin: auto;
     z-index: 1100;
 }
 
@@ -133,5 +136,8 @@ hr {
     }
     .del-unit {
         width: 105px;
+    }
+    .success-gif {
+        left: 0;
     }
 }
