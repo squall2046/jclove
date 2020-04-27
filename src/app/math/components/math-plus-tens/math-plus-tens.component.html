@@ -1,1 +1,97 @@
-<p>math-plus-tens works!</p>
+<div class="math-tens" (click)="selectUnit(0)">
+    <article>
+        <table class="qsTable">
+            <tr>
+                <td class="unit">{{qNumOne}}</td>
+                <td class="unit">+</td>
+                <td class="unit">{{qNumTwo}}</td>
+                <td class="unit">=</td>
+                <td class="unit">?</td>
+            </tr>
+        </table>
+        <div class="reloadBtn" (click)="reload()">
+            <i class="material-icons reloadIcon pointer">autorenew</i>
+        </div>
+    </article>
+
+    <form action="" stopPropagation>
+        <table class="calTable">
+            <thead></thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="pointer space" (click)="selectSpace(space.a1.id)"
+                            [ngClass]="{'bg-color': selectSp===11 }">
+                            {{space.a1.fill}}</div>
+                    </td>
+                    <td>
+                        <div class="pointer space" (click)="selectSpace(space.a2.id)"
+                            [ngClass]="{'bg-color': selectSp===12 }">
+                            {{space.a2.fill}}</div>
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td class="operation">+</td>
+                    <td>
+                        <div class="pointer space" (click)="selectSpace(space.b1.id)"
+                            [ngClass]="{'bg-color': selectSp===21 }">
+                            {{space.b1.fill}}</div>
+                    </td>
+                    <td>
+                        <div class="pointer space" (click)="selectSpace(space.b2.id)"
+                            [ngClass]="{'bg-color': selectSp===22 }">
+                            {{space.b2.fill}} </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr>
+                    </td>
+                    <td>
+                        <hr>
+                    </td>
+                    <td>
+                        <hr>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="pointer space" (click)="selectSpace(space.c1.id)"
+                            [ngClass]="{'bg-color': selectSp===31 }">
+                            {{space.c1.fill}} </div>
+                    </td>
+                    <td>
+                        <div class="pointer space" (click)="selectSpace(space.c2.id)"
+                            [ngClass]="{'bg-color': selectSp===32 }">
+                            {{space.c2.fill}} </div>
+                    </td>
+                    <td>
+                        <div class="pointer space" (click)="selectSpace(space.c3.id)"
+                            [ngClass]="{'bg-color': selectSp===33 }">
+                            {{space.c3.fill}} </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <section stopPropagation>
+        <div [ngStyle]="{'right': selectOn ? '0':'-1000px'}" class="select">
+            <div class="option">
+                <div class="d-flex flex-row justify-content-around">
+                    <div class="unit pointer d-inline-flex justify-content-around"
+                        *ngFor=" let num of numbers | slice: 0:5" (click)="selectUnit(num)">{{num}}</div>
+                </div>
+            </div>
+            <div class="option">
+                <div class="d-flex flex-row justify-content-around">
+                    <div class="unit pointer d-inline-flex justify-content-around"
+                        *ngFor=" let num of numbers | slice: 5:10" (click)="selectUnit(num)">{{num}}</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

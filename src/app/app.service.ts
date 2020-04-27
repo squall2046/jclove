@@ -7,6 +7,7 @@ import { App } from './app.model';
 export class AppService {
   app: App = {
     phoneApp: false,
+    path: "",
     header: {
       headIcon: 'face',
       headText: 'JClove',

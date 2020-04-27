@@ -1,5 +1,5 @@
 <!-- MODAL WINDOW BEGIN-->
-<app-modal></app-modal>
+<app-modal [app]="app"></app-modal>
 <!-- MODAL WINDOW END-->
 <!-- <app-chat [chat]='app.chat'></app-chat> -->
 
@@ -14,9 +14,12 @@
     </aside>
 
     <section [ngStyle]="{'margin-left': app.sidebar.isCollapsed ? '70px':'239px'}">
-      <div class="page-title">
-        <i class="material-icons">{{app.main.headIcon}}</i>
-        <span>{{app.main.headText}}</span>
+      <div class="page-title d-inline-flex">
+        <div class="p-icon">
+          <i class="material-icons pointer picon" *ngIf="app.path" (click)="backTo(app.path)">arrow_back</i>
+          <i class="material-icons pointer picon" *ngIf="!app.path">{{app.main.headIcon}}</i>
+        </div>
+        <div class="p-text">{{app.main.headText}}</div>
       </div>
       <div class="page-content">
         <router-outlet></router-outlet>

@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'math', component: MathComponent },
   { path: 'math-plus-units', component: MathPlusUnitsComponent },
   { path: 'math-plus-tens', component: MathPlusTensComponent },
-  { path: 'math-plus-review', component: MathPlusQuizComponent },
+  { path: 'math-plus-quiz', component: MathPlusQuizComponent },
 ];
 
 @NgModule({

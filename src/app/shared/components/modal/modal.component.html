@@ -3,8 +3,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title" id="modalTitle">
-                    <i class="material-icons">looks_one</i>
-                    <!-- {{modalMessage.title | titlecase}} -->
+                    <i class="material-icons">{{modal.icon}}</i>
+                    {{modal.title}}
+                    {{modal.msgA}}
                 </div>
                 <button type="button" class="close" id="close-btn" data-dismiss="modal" aria-label="close"
                     (click)="modalOff()">
@@ -12,15 +13,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="math card-container" *ngIf="modalMessage.showMathOption">
-                    <div class="card pointer units" (click)="goPlusUnits()">
-                        <div class="text">0~9</div>
-                    </div>
-                    <div class="card pointer tens" (click)="goPlusTens()">
-                        <div class="text">10~99</div>
-                    </div>
-                    <div class="card pointer quiz" (click)="goPlusQuiz()">
-                        <div class="text">Quiz</div>
+                <div class="math card-container" *ngIf="modal.math.show">
+                    <div *ngFor="let mathSec of modal.math.section" class="card pointer"
+                        (click)="goMathPath(mathSec.name)">
+                        <div class="text">{{mathSec.text}}</div>
                     </div>
                 </div>
             </div>
@@ -28,10 +24,10 @@
             <!-- <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-hidden="true"
                     (click)="modalCancel()">
-                    {{modalMessage.btnCancel}}
+                    {{modal.btnCancel}}
                 </button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="modalSubmit()">
-                    {{modalMessage.btnConfirm}}
+                    {{modal.btnConfirm}}
                 </button>
             </div> -->
         </div>

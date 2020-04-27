@@ -13,7 +13,7 @@
 
             <a *ngIf="tab.subTabs.length" class="sidebar-lvl-one"
                 [ngClass]="{'font-blue':app.sidebar.drop,'sidebar-btns-lvl-expand':app.sidebar.drop}"
-                (click)="toggleDrop(tab.name)" StopPropagationDirective>
+                (click)="toggleDrop(tab.name)" stopPropagation>
                 <span class="sidebar-icon">
                     <i class="fa fa-lg" [ngClass]="tab.icon" aria-hidden="true"></i>
                 </span>

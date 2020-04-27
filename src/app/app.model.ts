@@ -1,5 +1,6 @@
 export class App {
   phoneApp: boolean;
+  path: string;
   header: {
     headIcon: string;
     headText: string;

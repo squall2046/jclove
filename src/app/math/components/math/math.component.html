@@ -2,20 +2,20 @@
     <!-- =============== math Card ================= -->
     <div class="math-card-container">
         <div class="math-card" *ngFor="let card of math | slice: 0:2">
-            <div class="operation pointer" data-toggle="modal" data-target="#modal" (click)="modalOn()">
+            <div class="operation pointer" data-toggle="modal" data-target="#modal" (click)="modalOn(card.operation)">
                 {{card.operation}}
             </div>
         </div>
     </div>
     <div class="math-card-container">
         <div class="math-card" *ngFor="let card of math | slice: 2:4">
-            <div class="operation pointer" data-toggle="modal" data-target="#modal" (click)="modalOn()">
+            <div class="operation pointer" data-toggle="modal" data-target="#modal" (click)="modalOn(card.operation)">
                 {{card.operation}} </div>
         </div>
     </div>
     <div class="math-card-container">
         <div class="math-card" *ngFor="let card of math | slice: 4:5">
-            <div class="operation pointer" data-toggle="modal" data-target="#modal" (click)="modalOn()">
+            <div class="operation pointer" data-toggle="modal" data-target="#modal" (click)="modalOn(card.operation)">
                 {{card.operation}} </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { modalMessage } from 'src/app/shared/models/modal-message';
+import { Modal } from 'src/app/shared/models/modal.model';
 import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { ModalService } from 'src/app/shared/services/modal.service';
   styleUrls: ['./math.component.scss']
 })
 export class MathComponent implements OnInit {
-  modalMessage: modalMessage;
+  modal: Modal;
 
   math = [
     {
@@ -31,15 +31,26 @@ export class MathComponent implements OnInit {
   constructor(private modalService: ModalService) { }
 
   ngOnInit(): void {
-    this.modalMessage = this.modalService.modalMessage;
+    this.modal = this.modalService.modal;
     this.modalService.subsVar = this.modalService.modalConfirm.subscribe(() =>
       this.modalConfirm());
     this.modalService.subsVar = this.modalService.modalCancel.subscribe(() =>
       this.modalCancel());
   }
 
-  modalOn() {
-    this.modalService.modalMessage.showMathOption = true;
+  modalOn(operation) {
+    // switch (operation) {
+    //   case "+":
+    //     this.modal.icon = "add"
+    //     break;
+    //   case "-":
+    //     this.modal.icon = "remove"
+    //     break;
+    //   case "x":
+    //     this.modal.icon = "clear"
+    //     break;
+    // }
+    this.modalService.modal.math.show = true;
   }
   modalConfirm() { }
   modalCancel() { }

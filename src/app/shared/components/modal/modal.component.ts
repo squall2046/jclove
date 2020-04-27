@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { modalMessage } from 'src/app/shared/models/modal-message';
+import { Modal } from 'src/app/shared/models/modal.model';
 import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
@@ -9,9 +9,8 @@ import { ModalService } from 'src/app/shared/services/modal.service';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
-  modalMessage: modalMessage;
-
-  path = "math-plus-units";
+  @Input() app;
+  modal: Modal;
 
   constructor(
     private router: Router,
@@ -19,27 +18,32 @@ export class ModalComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.modalMessage = this.modalService.modalMessage;
+    this.modal = this.modalService.modal;
   }
 
-  modalSubmit() {
-  }
+  modalSubmit() { }
+  modalCancel() { }
+  modalOff() { }
 
-  modalCancel() {
-
-  }
-
-  modalOff() {
-
-  }
-
-  goPlusUnits() {
-    this.router.navigate(['/math-plus-units'])
+  goMathPath(section) {
     // document.getElementById('close-btn').click();
-    let modalOffBtn: HTMLElement = document.getElementById('close-btn') as HTMLElement;
+    const modalOffBtn: HTMLElement = document.getElementById('close-btn') as HTMLElement;
     modalOffBtn.click();
+
+    this.app.path = "math";
+
+    switch (section) {
+      case "units":
+        this.router.navigate(['/math-plus-units'])
+        break;
+      case "tens":
+        this.router.navigate(['/math-plus-tens'])
+        break;
+      case "quiz":
+        this.router.navigate(['/math-plus-quiz'])
+        break;
+    }
+
   }
-  goPlusTens() { }
-  goPlusQuiz() { }
 
 }
