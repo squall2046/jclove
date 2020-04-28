@@ -95,7 +95,10 @@
     </div>
 
     <!-- success gif -->
-    <div class="success-gif" *ngIf="correctAns">
-        <img src="../../../../assets/images/gif/olaf.gif" alt="">
+    <div *ngIf="correctAns">
+        <img class="success-gif" src="../../../../assets/images/gif/olaf.gif" alt="">
+    </div>
+    <div *ngIf="answered && !correctAns">
+        <img class="success-gif" src="../../../../assets/images/gif/olaf3.gif" alt="">
     </div>
 </div>

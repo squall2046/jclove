@@ -47,6 +47,7 @@ export class MathPlusTensComponent implements OnInit {
     },
   }
 
+  answered = false;
   correctAns = false;
 
   constructor() { }
@@ -96,18 +97,22 @@ export class MathPlusTensComponent implements OnInit {
   checkAnswer() {
     let expect: number = this.qNumOne + this.qNumTwo;
     let answer: number = parseInt([this.space.c1.fill, this.space.c2.fill, this.space.c3.fill].join(""))
-    console.log(expect, answer);
+    // console.log(expect, answer);
+    if (this.space.c2.fill && this.space.c3.fill) {
+      this.answered = true;
+    }
     if (expect === answer) {
       this.correctAns = true;
     }
+
     setTimeout(() => {
-      if (this.correctAns) {
+      if ((this.answered && !this.correctAns) || this.correctAns) {
         setTimeout(() => {
+          this.answered = false;
           this.correctAns = false;
           this.reload();
         }, 3000);
       }
     });
   }
-
 }
