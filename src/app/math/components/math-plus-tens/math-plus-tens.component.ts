@@ -1,84 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Math as MathModal } from '../../math.model';
+import { MathService } from '../../math.service';
 @Component({
   selector: 'app-math-plus-tens',
   templateUrl: './math-plus-tens.component.html',
   styleUrls: ['./math-plus-tens.component.scss']
 })
 export class MathPlusTensComponent implements OnInit {
+  math: any;
 
-  numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  qNumOne = Math.floor(Math.random() * 9) + 10;
-  qNumTwo = Math.floor(Math.random() * 9) + 1;
-  selectOn = false;
-  selectSp: number;
-  space = {
-    a1: {
-      id: 11,
-      fill: "",
-    },
-    a2: {
-      id: 12,
-      fill: "",
-    },
-    b1: {
-      id: 21,
-      fill: "",
-    },
-    b2: {
-      id: 22,
-      fill: "",
-    },
-    b3: {
-      id: 23,
-      fill: "",
-    },
-    c1: {
-      id: 31,
-      fill: "",
-    },
-    c2: {
-      id: 32,
-      fill: "",
-    },
-    c3: {
-      id: 33,
-      fill: "",
-    },
-  }
-
-  answered = false;
-  correctAns = false;
-
-  constructor() { }
+  constructor(
+    private mathService: MathService,
+  ) { }
 
   ngOnInit(): void {
+    this.math = this.mathService.math;
+    this.reload();
   }
 
   reload() {
-    this.qNumOne = Math.floor(Math.random() * 9) + 10;
-    this.qNumTwo = Math.floor(Math.random() * 9) + 1;
+    this.mathService.math.qNumOne = Math.floor(Math.random() * 9) + 10;
+    this.mathService.math.qNumTwo = Math.floor(Math.random() * 9) + 1;
 
-    const space = Object.entries(this.space)
-    space.forEach(([sp]) => {
-      this.space[sp].fill = "";
+    this.mathService.math.space.forEach(space => {
+      space.fill = "";
     });
+    // const space = Object.entries(this.space)
+    // space.forEach(([sp]) => {
+    //   this.space[sp].fill = "";
+    // });
+
   }
 
   closeSelect() {
-    this.selectOn = false;
+    this.math.selShow = false;
   }
 
   selectSpace(space) {
-    this.selectOn = true;
-    this.selectSp = space;
+    this.math.selShow = true;
+    this.math.selSpace = space;
   }
 
   selectUnit(num) {
-    const space = Object.entries(this.space)
-    space.forEach(([sp]) => {
-      if (this.space[sp].id === this.selectSp) {
-        this.space[sp].fill = num;
+    this.math.space.forEach(space => {
+      if (space.id === this.math.selSpace) {
+        space.fill = num;
       }
     });
     this.closeSelect();
@@ -86,31 +52,54 @@ export class MathPlusTensComponent implements OnInit {
   }
 
   deleteUnit() {
-    const space = Object.entries(this.space)
-    space.forEach(([sp]) => {
-      if (this.space[sp].id === this.selectSp) {
-        this.space[sp].fill = "";
+    this.math.space.forEach(space => {
+      if (space.id === this.math.selSpace) {
+        space.fill = "";
       }
     });
+    this.closeSelect();
+    this.checkAnswer();
   }
 
   checkAnswer() {
-    let expect: number = this.qNumOne + this.qNumTwo;
-    let answer: number = parseInt([this.space.c1.fill, this.space.c2.fill, this.space.c3.fill].join(""))
+    let hundred, ten, unit;
+    this.math.space.forEach(space => {
+      switch (space.id) {
+        case 31:
+          hundred = space.fill;
+          break;
+        case 32:
+          ten = space.fill;
+          break;
+        case 33:
+          unit = space.fill;
+          break;
+      }
+    });
+
+    let answer: number = parseInt([hundred, ten, unit].join(""));
+    let expect: number = parseInt(this.math.qNumOne) + parseInt(this.math.qNumTwo);
     // console.log(expect, answer);
-    if (this.space.c2.fill && this.space.c3.fill) {
-      this.answered = true;
+    if (ten && unit) {
+      this.math.answered = true;
     }
     if (expect === answer) {
-      this.correctAns = true;
+      this.math.ansCorrect = true;
     }
 
     setTimeout(() => {
-      if ((this.answered && !this.correctAns) || this.correctAns) {
+      if (this.math.ansCorrect) {
         setTimeout(() => {
-          this.answered = false;
-          this.correctAns = false;
+          this.math.answered = false;
+          this.math.ansCorrect = false;
           this.reload();
+        }, 3000);
+      }
+
+      if (!this.math.ansCorrect && this.math.answered) {
+        setTimeout(() => {
+          this.math.answered = false;
+          this.math.ansCorrect = false;
         }, 3000);
       }
     });

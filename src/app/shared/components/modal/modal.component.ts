@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { Modal } from 'src/app/shared/models/modal.model';
 import { ModalService } from 'src/app/shared/services/modal.service';
 
+import { Math } from 'src/app/math/math.model';
+import { MathService } from 'src/app/math/math.service';
+
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -11,14 +14,17 @@ import { ModalService } from 'src/app/shared/services/modal.service';
 export class ModalComponent implements OnInit {
   @Input() app;
   modal: Modal;
+  math: any;
 
   constructor(
     private router: Router,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private mathService: MathService,
   ) { }
 
   ngOnInit(): void {
     this.modal = this.modalService.modal;
+    this.math = this.mathService.math;
   }
 
   modalSubmit() { }

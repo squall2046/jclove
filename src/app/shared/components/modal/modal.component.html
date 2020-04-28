@@ -13,8 +13,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="math card-container" *ngIf="modal.math.show">
-                    <div *ngFor="let mathSec of modal.math.section" class="card pointer"
+                <div class="math card-container" *ngIf="modal.showMathModal">
+                    <div *ngFor="let mathSec of math.section" class="card pointer"
                         (click)="goMathPath(mathSec.name)">
                         <div class="text">{{mathSec.text}}</div>
                     </div>

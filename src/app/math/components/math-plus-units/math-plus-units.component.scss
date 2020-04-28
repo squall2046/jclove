@@ -1,0 +1,169 @@
+.math-tens {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: start;
+    text-align: start;
+}
+
+.qsTable,
+.calTable {
+    width: 308px;
+    text-align: center;
+    margin: auto;
+    // margin: 0;
+    margin-bottom: 30px;
+}
+.calTable {
+    margin-bottom: 0;
+}
+
+.space {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border: 5px solid rgb(230, 230, 230);
+    border-radius: 3px;
+    font-size: 70px;
+    font-family: "Frijole", cursive;
+    text-align: center;
+}
+
+.operation {
+    font-size: 70px;
+    font-family: "Frijole", cursive;
+    text-align: center;
+}
+
+hr {
+    display: inline-block;
+    width: 100%;
+    border: 2px solid rgb(199, 199, 199);
+}
+
+.select {
+    position: fixed;
+    top: 110px;
+    width: 190px;
+    height: 500px;
+    border-radius: 10px;
+    // border: 5px solid rgb(149, 149, 149);
+    background-color: rgb(240, 240, 240);
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+    z-index: 1001;
+}
+
+.bg-color {
+    background-color: rgb(250, 250, 250);
+    border-color: rgb(163, 40, 40, 0.8);
+}
+
+.txt-color {
+    color: rgb(11, 102, 11, 0.8);
+}
+
+.option {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.unit,
+.del-unit {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    margin: 5px 3px;
+    border-radius: 10px;
+    border: 5px solid rgb(230, 230, 230);
+    background-color: rgb(230, 230, 230);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    font-size: 55px;
+    font-family: "Frijole", cursive;
+    text-align: center;
+}
+.del-unit {
+    width: 165px;
+    height: 60px;
+    line-height: 60px;
+    color: brown;
+}
+
+.reload-btn {
+    position: fixed;
+    right: -20px;
+    top: 180px;
+    width: 50px;
+    height: 50px;
+    padding-left: 3px;
+    border-radius: 50%;
+    background-color: cadetblue;
+    z-index: 1000;
+
+    .reloadIcon {
+        color: rgb(243, 243, 243);
+        font-size: 30px;
+        line-height: 50px;
+    }
+}
+
+.reload-btn:hover {
+    right: -19px;
+}
+
+.success-gif {
+    display: inline-block;
+    position: fixed;
+    // width: 90%;
+    top: 150px;
+    margin: auto;
+    z-index: 1100;
+}
+
+@media only screen and (max-width: 991px) {
+    .math-tens {
+        padding: 5px;
+    }
+    .select {
+        top: 160px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .qsTable,
+    .calTable {
+        width: 232px;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    .space {
+        width: 75px;
+        height: 75px;
+        line-height: 75px;
+        font-size: 55px;
+    }
+    .select {
+        position: fixed;
+        // top: 160px;
+        width: 120px;
+        height: 380px;
+    }
+
+    .unit,
+    .del-unit {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 40px;
+    }
+    .del-unit {
+        width: 105px;
+    }
+    .success-gif {
+        left: 0;
+    }
+}

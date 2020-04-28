@@ -14,23 +14,7 @@ export class ModalService {
     msgB: "",
     btnConfirm: "Yes",
     btnCancel: "No",
-    math: {
-      show: false,
-      section: [
-        {
-          name: "units",
-          text: "0~9"
-        },
-        {
-          name: "tens",
-          text: "10~99"
-        },
-        {
-          name: "quiz",
-          text: "quiz"
-        },
-      ]
-    }
+    showMathModal: false,
   }
 
   subsVar: Subscription;
