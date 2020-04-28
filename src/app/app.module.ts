@@ -9,7 +9,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ProfileModule } from './profile/profile.module';
 import { HomeModule } from './home/home.module';
-import { MathModule } from './math/math.module';
+import { MathematicsModule } from './mathematics/mathematics.module';
 import { MandarinModule } from './mandarin/mandarin.module';
 import { EnglishModule } from './english/english.module';
 
@@ -25,7 +25,7 @@ import { EnglishModule } from './english/english.module';
     SharedModule,
     ProfileModule,
     HomeModule,
-    MathModule,
+    MathematicsModule,
     MandarinModule,
     EnglishModule
   ],

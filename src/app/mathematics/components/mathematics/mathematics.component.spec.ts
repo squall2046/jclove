@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MathComponent } from './math.component';
+import { MathematicsComponent } from './mathematics.component';
 
 describe('MathComponent', () => {
-  let component: MathComponent;
-  let fixture: ComponentFixture<MathComponent>;
+  let component: MathematicsComponent;
+  let fixture: ComponentFixture<MathematicsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MathComponent ]
+      declarations: [ MathematicsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MathComponent);
+    fixture = TestBed.createComponent(MathematicsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

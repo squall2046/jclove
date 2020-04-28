@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Math as MathModal } from '../../math.model';
-import { MathService } from '../../math.service';
+import { Mathematics } from '../../mathematics.model';
+import { MathematicsService } from '../../mathematics.service';
 @Component({
   selector: 'app-math-plus-tens',
   templateUrl: './math-plus-tens.component.html',
@@ -10,7 +10,7 @@ export class MathPlusTensComponent implements OnInit {
   math: any;
 
   constructor(
-    private mathService: MathService,
+    private mathService: MathematicsService,
   ) { }
 
   ngOnInit(): void {

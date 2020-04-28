@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Math } from '../../math.model';
-import { MathService } from '../../math.service';
+import { Mathematics } from '../../mathematics.model';
+import { MathematicsService } from '../../mathematics.service';
 import { Modal } from 'src/app/shared/models/modal.model';
 import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   selector: 'app-math',
-  templateUrl: './math.component.html',
-  styleUrls: ['./math.component.scss']
+  templateUrl: './mathematics.component.html',
+  styleUrls: ['./mathematics.component.scss']
 })
-export class MathComponent implements OnInit {
+export class MathematicsComponent implements OnInit {
   modal: Modal;
   math: any;
 
   constructor(
-    private mathService: MathService,
+    private mathematicsService: MathematicsService,
     private modalService: ModalService
   ) { }
 
   ngOnInit(): void {
-    this.math = this.mathService.math;
+    this.math = this.mathematicsService.math;
     this.modal = this.modalService.modal;
     // this.modalService.subsVar = this.modalService.modalConfirm.subscribe(() =>
     //   this.modalConfirm());

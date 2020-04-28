@@ -1,15 +1,19 @@
 .math-home {
     width: 100%;
     padding: 30px;
+    text-align: center;
 }
 
 .math-card-container {
-    width: 100%;
+    width: 500px;
+    margin: auto;
 
     .math-card {
-        width: 225px;
-        height: 225px;
-        line-height: 225px;
+        display: inline-flex;
+        flex-wrap: wrap;
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
         // width: 22%;
         margin: 5px;
         border-radius: 5px;
@@ -17,9 +21,10 @@
         // background-color: rgb(255, 255, 255, 0.9);
     }
     .operation {
+        width: 100%;
+        text-align: center;
         font-family: "Frijole", cursive;
         font-size: 100px;
-        text-align: center;
     }
 }
 

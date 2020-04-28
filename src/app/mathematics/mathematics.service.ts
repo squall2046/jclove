@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Math } from './math.model';
+import { Mathematics } from './mathematics.model';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class MathService {
+export class MathematicsService {
   math = {
     operation: [
       {

@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { Modal } from 'src/app/shared/models/modal.model';
 import { ModalService } from 'src/app/shared/services/modal.service';
 
-import { Math } from 'src/app/math/math.model';
-import { MathService } from 'src/app/math/math.service';
+import { Mathematics } from 'src/app/mathematics/mathematics.model';
+import { MathematicsService } from 'src/app/mathematics/mathematics.service';
 
 @Component({
   selector: 'app-modal',
@@ -19,7 +19,7 @@ export class ModalComponent implements OnInit {
   constructor(
     private router: Router,
     private modalService: ModalService,
-    private mathService: MathService,
+    private mathService: MathematicsService,
   ) { }
 
   ngOnInit(): void {
