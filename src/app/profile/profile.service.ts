@@ -15,10 +15,10 @@ export class ProfileService {
   };
 
   rewards = {
-    stars: {
-      number: 0,
-      colors: ["red", "orange", "yellow", "green", "blue", "purple"],
-    }
+    star: 0,
+    rainbow: 0,
+    stars: [],
+    rainbows: [],
   }
 
   constructor() { }

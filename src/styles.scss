@@ -90,3 +90,65 @@ body {
 //     z-index: 1100 !important;
 // }
 // The right way is put dialog component at top of <body>, before angular app.
+
+.f-red {
+    color: red;
+}
+.f-orange {
+    color: orange;
+}
+.f-yellow {
+    color: yellow;
+}
+.f-green {
+    color: green;
+}
+.f-blue {
+    color: blue;
+}
+.f-indigo {
+    color: indigo;
+}
+.f-purple {
+    color: purple;
+}
+
+.f-rainbow {
+    -webkit-animation: rainbow 2s infinite alternate;
+}
+
+@-webkit-keyframes rainbow {
+    0% {
+        color: red;
+    }
+    10% {
+        color: orange;
+    }
+    20% {
+        color: rgb(212, 194, 29);
+    }
+    30% {
+        color: yellow;
+    }
+    40% {
+        color: rgb(162, 185, 33);
+    }
+    50% {
+        color: rgb(104, 240, 25);
+    }
+    60% {
+        color: green;
+    }
+    70% {
+        color: rgb(36, 92, 182);
+    }
+    80% {
+        color: blue;
+    }
+    90% {
+        color: rgb(211, 39, 202);
+    }
+    100% {
+        color: rgb(196, 56, 13);
+    }
+}

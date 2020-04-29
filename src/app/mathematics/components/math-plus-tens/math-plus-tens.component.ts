@@ -9,8 +9,10 @@ import { ProfileService } from '../../../profile/profile.service';
 })
 export class MathPlusTensComponent implements OnInit {
   math: any;
-  starNum = 0;
-  stars = [];
+  profile: any;
+
+  starArr = [];
+  rainbowArr = [];
 
   constructor(
     private mathService: MathematicsService,
@@ -19,16 +21,27 @@ export class MathPlusTensComponent implements OnInit {
 
   ngOnInit(): void {
     this.math = this.mathService.math;
+    this.profile = this.profileService.profile;
     this.reload();
-    this.checkStar();
+    // this.checkStar();
+
+    // console.log(15 % 7, 8 % 7, 2 % 7);
+
   }
 
   checkStar() {
-    this.stars = [];
-    for (let index = 0; index < this.profileService.rewards.stars.number; index++) {
-      this.stars.push(index);
+    if (this.profileService.rewards.star > 0 && this.profileService.rewards.star < 7) {
+      this.profileService.rewards.stars.push(this.profileService.rewards.star);
     }
-    return console.log(this.stars);
+    if (this.profileService.rewards.star === 7) {
+      this.profileService.rewards.star = 0;
+      this.profileService.rewards.stars = [];
+      this.profileService.rewards.rainbow++;
+      this.profileService.rewards.rainbows.push(this.profileService.rewards.rainbow);
+    }
+
+    this.starArr = this.profileService.rewards.stars;
+    this.rainbowArr = this.profileService.rewards.rainbows;
   }
 
   reload() {
@@ -103,8 +116,7 @@ export class MathPlusTensComponent implements OnInit {
 
     setTimeout(() => {
       if (this.math.ansCorrect) {
-        this.profileService.rewards.stars.number++;
-
+        this.profileService.rewards.star++;
         setTimeout(() => {
           this.reload();
           this.checkStar();
@@ -115,7 +127,7 @@ export class MathPlusTensComponent implements OnInit {
         setTimeout(() => {
           this.math.answered = false;
           this.math.ansCorrect = false;
-        }, 3000);
+        });
       }
     });
   }
