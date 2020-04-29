@@ -1,119 +1,87 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Mathematics } from '../../mathematics.model';
+import { MathematicsService } from '../../mathematics.service';
+import { ProfileService } from '../../../profile/profile.service';
 @Component({
   selector: 'app-math-plus-units',
   templateUrl: './math-plus-units.component.html',
   styleUrls: ['./math-plus-units.component.scss']
 })
 export class MathPlusUnitsComponent implements OnInit {
+  math: any;
+  profile: any;
 
-  numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  qNumOne: number;
-  qNumTwo: number;
-  selectOn = false;
-  selectSp: number;
-  space = {
-    a1: {
-      id: 11,
-      fill: "",
-    },
-    a2: {
-      id: 12,
-      fill: "",
-    },
-    b1: {
-      id: 21,
-      fill: "",
-    },
-    b2: {
-      id: 22,
-      fill: "",
-    },
-    b3: {
-      id: 23,
-      fill: "",
-    },
-    c1: {
-      id: 31,
-      fill: "",
-    },
-    c2: {
-      id: 32,
-      fill: "",
-    },
-    c3: {
-      id: 33,
-      fill: "",
-    },
-  }
+  starArr = [];
+  rainbowArr = [];
 
-  answered = false;
-  correctAns = false;
-
-  constructor() { }
+  constructor(
+    private mathService: MathematicsService,
+    private profileService: ProfileService,
+  ) { }
 
   ngOnInit(): void {
-    this.qNumOne = Math.floor(Math.random() * 9) + 10;
-    this.qNumTwo = Math.floor(Math.random() * 9) + 1;
+    this.math = this.mathService.math;
+    this.profile = this.profileService.profile;
+    this.reload();
+    // this.checkStar();
+
+    // console.log(15 % 7, 8 % 7, 2 % 7);
+
+  }
+
+  checkStar() {
+    if (this.profileService.rewards.star > 0 && this.profileService.rewards.star < 7) {
+      this.profileService.rewards.stars.push(this.profileService.rewards.star);
+    }
+    if (this.profileService.rewards.star === 7) {
+      this.profileService.rewards.star = 0;
+      this.profileService.rewards.stars = [];
+      this.profileService.rewards.rainbow++;
+      this.profileService.rewards.rainbows.push(this.profileService.rewards.rainbow);
+    }
+
+
+    this.starArr = this.profileService.rewards.stars;
+    this.rainbowArr = this.profileService.rewards.rainbows;
   }
 
   reload() {
-    this.qNumOne = Math.floor(Math.random() * 9) + 10;
-    this.qNumTwo = Math.floor(Math.random() * 9) + 1;
-
-    const space = Object.entries(this.space)
-    space.forEach(([sp]) => {
-      this.space[sp].fill = "";
-    });
+    this.mathService.math.unitRandom = Math.floor(Math.random() * 9) + 1;
+    this.mathService.math.unitRandomTwo = Math.floor(Math.random() * 9) + 1;
+    this.mathService.math.space[8].fill = "";
+    this.math.ansCorrect = false;
   }
 
-  closeSelect() {
-    this.selectOn = false;
-  }
-
-  selectSpace(space) {
-    this.selectOn = true;
-    this.selectSp = space;
-  }
-
-  selectUnit(num) {
-    const space = Object.entries(this.space)
-    space.forEach(([sp]) => {
-      if (this.space[sp].id === this.selectSp) {
-        this.space[sp].fill = num;
-      }
-    });
-    this.closeSelect();
+  selectNum(num) {
+    this.mathService.math.space[8].fill = num;
     this.checkAnswer();
   }
 
-  deleteUnit() {
-    const space = Object.entries(this.space)
-    space.forEach(([sp]) => {
-      if (this.space[sp].id === this.selectSp) {
-        this.space[sp].fill = "";
-      }
-    });
-  }
-
   checkAnswer() {
-    let expect: number = this.qNumOne + this.qNumTwo;
-    let answer: number = parseInt([this.space.c1.fill, this.space.c2.fill, this.space.c3.fill].join(""))
-    // console.log(expect, answer);
-    if (this.space.c2.fill && this.space.c3.fill) {
-      this.answered = true;
-    }
+    let answer: number = parseInt(this.mathService.math.space[8].fill);
+    let expect: number = parseInt(this.math.unitRandom) + parseInt(this.math.unitRandomTwo);
+    console.log(expect, answer);
+
     if (expect === answer) {
-      this.correctAns = true;
+      this.math.ansCorrect = true;
     }
 
     setTimeout(() => {
-      if ((this.answered && !this.correctAns) || this.correctAns) {
+      if (this.math.ansCorrect) {
+        this.profileService.rewards.star++;
         setTimeout(() => {
-          this.answered = false;
-          this.correctAns = false;
           this.reload();
+          this.checkStar();
         }, 3000);
+      }
+
+      if (!this.math.ansCorrect) {
+        setTimeout(() => {
+          this.math.ansCorrect = false;
+          setTimeout(() => {
+            this.mathService.math.space[8].fill = "";
+          }, 2000);
+        });
       }
     });
   }

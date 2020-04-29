@@ -1,0 +1,46 @@
+<div class="math-units">
+    <main>
+        <aside>
+            <div class="rewards">
+                <span *ngFor="let rainbow of rainbowArr">
+                    <span class="material-icons reward-rainbow f-rainbow">
+                        looks </span>
+                </span>
+                <span *ngFor="let star of starArr; index as key">
+                    <span *ngIf="star%7===1" class="material-icons reward-star f-red"> star </span>
+                    <span *ngIf="star%7===2" class="material-icons reward-star f-orange"> star </span>
+                    <span *ngIf="star%7===3" class="material-icons reward-star f-yellow"> star </span>
+                    <span *ngIf="star%7===4" class="material-icons reward-star f-green"> star </span>
+                    <span *ngIf="star%7===5" class="material-icons reward-star f-blue"> star </span>
+                    <span *ngIf="star%7===6" class="material-icons reward-star f-indigo"> star </span>
+                </span>
+            </div>
+        </aside>
+
+        <article class="qsTable">
+            <div class="space">{{math.unitRandom}}</div>
+            <div class="space">+</div>
+            <div class="space">{{math.unitRandomTwo}}</div>
+            <div class="space">=</div>
+            <div class="space space-border" *ngIf="!math.space[8].fill"> ? </div>
+            <div class="space space-border" *ngIf="math.space[8].fill"> {{math.space[8].fill}} </div>
+        </article>
+    </main>
+
+    <section class="select option">
+        <div *ngFor="let num of math.Twenty" class="unit pointer" (click)="selectNum(num)">{{num}}</div>
+    </section>
+
+    <!-- reload btn -->
+    <div class="reload-btn" (click)="reload()">
+        <i class="material-icons reloadIcon pointer">autorenew</i>
+    </div>
+
+    <!-- success gif -->
+    <div *ngIf="math.ansCorrect">
+        <img class="success-gif" src="../../../../assets/images/gif/olaf2.gif" alt="">
+    </div>
+    <div *ngIf="math.space[8].fill && !math.ansCorrect">
+        <img class="success-gif" src="../../../../assets/images/gif/olaf3.gif" alt="">
+    </div>
+</div>

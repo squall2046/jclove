@@ -46,8 +46,8 @@ export class MathPlusTensComponent implements OnInit {
   }
 
   reload() {
-    this.mathService.math.qNumOne = Math.floor(Math.random() * 9) + 10;
-    this.mathService.math.qNumTwo = Math.floor(Math.random() * 9) + 1;
+    this.mathService.math.tenRandom = Math.floor(Math.random() * 9) + 10;
+    this.mathService.math.unitRandom = Math.floor(Math.random() * 9) + 1;
 
     this.mathService.math.space.forEach(space => {
       space.fill = "";
@@ -106,7 +106,7 @@ export class MathPlusTensComponent implements OnInit {
     });
 
     let answer: number = parseInt([hundred, ten, unit].join(""));
-    let expect: number = parseInt(this.math.qNumOne) + parseInt(this.math.qNumTwo);
+    let expect: number = parseInt(this.math.tenRandom) + parseInt(this.math.unitRandom);
     // console.log(expect, answer);
     if (ten && unit) {
       this.math.answered = true;
@@ -128,7 +128,7 @@ export class MathPlusTensComponent implements OnInit {
         setTimeout(() => {
           this.math.answered = false;
           this.math.ansCorrect = false;
-        });
+        }, 2000);
       }
     });
   }

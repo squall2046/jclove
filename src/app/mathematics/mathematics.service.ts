@@ -48,44 +48,56 @@ export class MathematicsService {
       },
     ],
     units: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-    qNumOne: 0,
-    qNumTwo: 0,
+    Twenty: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    tenRandom: 0,
+    tenRandomTwo: 0,
+    unitRandom: 0,
+    unitRandomTwo: 0,
     selShow: false,
     selSpace: 0,
     space: [
       {
+        index: 0,
         id: "a-hundred",
         fill: "",
       },
       {
+        index: 1,
         id: "a-ten",
         fill: "",
       },
       {
+        index: 2,
         id: "a-unit",
         fill: "",
       },
       {
+        index: 3,
         id: "b-hundred",
         fill: "",
       },
       {
+        index: 4,
         id: "b-ten",
         fill: "",
       },
       {
+        index: 5,
         id: "b-unit",
         fill: "",
       },
       {
+        index: 6,
         id: "c-hundred",
         fill: "",
       },
       {
+        index: 7,
         id: "c-ten",
         fill: "",
       },
       {
+        index: 8,
         id: "c-unit",
         fill: "",
       },
@@ -99,7 +111,7 @@ export class MathematicsService {
   }
 
   // random() {
-  //   this.math.qNumOne = Math.floor(Math.random() * 9) + 10;
-  //   this.math.qNumTwo = Math.floor(Math.random() * 9) + 1;
+  //   this.math.tenRandom = Math.floor(Math.random() * 9) + 10;
+  //   this.math.unitRandom = Math.floor(Math.random() * 9) + 1;
   // }
 }
