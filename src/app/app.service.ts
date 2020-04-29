@@ -31,7 +31,7 @@ export class AppService {
       logo: './../assets/images/logo/logo2-transparent.png',
       copyright: '',
       content: 'footer',
-      message: 'For my girls Joanna&Chloe'
+      message: 'For my lovely girls Joanna & Chloe'
     },
     sidebar: {
       show: false,
