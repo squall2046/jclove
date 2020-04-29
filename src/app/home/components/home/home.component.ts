@@ -9,7 +9,6 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class HomeComponent implements OnInit {
   users = [];
-  path = 'profile';
 
   constructor(private userService: UserService) { }
 

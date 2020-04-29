@@ -40,6 +40,7 @@ export class MathPlusTensComponent implements OnInit {
       this.profileService.rewards.rainbows.push(this.profileService.rewards.rainbow);
     }
 
+
     this.starArr = this.profileService.rewards.stars;
     this.rainbowArr = this.profileService.rewards.rainbows;
   }

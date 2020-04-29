@@ -1,0 +1,47 @@
+.profile {
+    padding: 20px;
+    width: 100%;
+}
+
+.profile-img-container {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 30px;
+    border-bottom: 2px dashed lightgray;
+}
+
+.profile-img {
+    display: inline-block;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.rewards {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 50%;
+    height: 400px;
+    margin: auto;
+    // margin: 0;
+    margin-bottom: 30px;
+    border: 5px solid rgb(230, 230, 230);
+    border-radius: 10px;
+    font-family: "Frijole", cursive;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.rewards-head {
+    height: 65px;
+    line-height: 55px;
+    font-size: 50px;
+    text-align: center;
+}
+.rewards-body {
+    line-height: 55px;
+    font-size: 30px;
+    text-align: left;
+}

@@ -1,1 +1,31 @@
-<p>profile works!</p>
+<div class="profile">
+    <header class="profile-img-container">
+        <img class="profile-img" src="../../../../assets/images/logo/joanna.jpg" alt="">
+    </header>
+
+    <section class="rewards">
+        <div class="rewards-head">
+            Rewards
+        </div>
+        <div class="rewards-body">
+            <div class="rewards-rainbow">
+                Rainbows:
+                <span *ngFor="let rainbow of rainbowArr">
+                    <span class="material-icons reward-rainbow f-rainbow">
+                        looks </span>
+                </span>
+            </div>
+            <div class="rewards-star">
+                Stars:
+                <span *ngFor="let star of starArr; index as key">
+                    <span *ngIf="star%7===1" class="material-icons reward-star f-red"> star </span>
+                    <span *ngIf="star%7===2" class="material-icons reward-star f-orange"> star </span>
+                    <span *ngIf="star%7===3" class="material-icons reward-star f-yellow"> star </span>
+                    <span *ngIf="star%7===4" class="material-icons reward-star f-green"> star </span>
+                    <span *ngIf="star%7===5" class="material-icons reward-star f-blue"> star </span>
+                    <span *ngIf="star%7===6" class="material-icons reward-star f-indigo"> star </span>
+                </span>
+            </div>
+        </div>
+    </section>
+</div>
