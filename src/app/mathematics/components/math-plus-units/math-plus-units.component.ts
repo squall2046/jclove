@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Mathematics } from '../../mathematics.model';
+import { Modal } from 'src/app/shared/models/modal.model';
 import { MathematicsService } from '../../mathematics.service';
+import { ModalService } from 'src/app/shared/services/modal.service';
 import { ProfileService } from '../../../profile/profile.service';
 @Component({
   selector: 'app-math-plus-units',
@@ -9,6 +11,7 @@ import { ProfileService } from '../../../profile/profile.service';
 })
 export class MathPlusUnitsComponent implements OnInit {
   math: any;
+  modal: Modal;
   profile: any;
 
   starArr = [];
@@ -16,6 +19,7 @@ export class MathPlusUnitsComponent implements OnInit {
 
   constructor(
     private mathService: MathematicsService,
+    private modalService: ModalService,
     private profileService: ProfileService,
   ) { }
 
@@ -84,5 +88,11 @@ export class MathPlusUnitsComponent implements OnInit {
         });
       }
     });
+  }
+
+  modalOn() {
+    this.modalService.modal.showMathPlusModal = true;
+    this.modalService.modal.showMathModal = false;
+    this.modalService.modal.showMathTimesModal = false;
   }
 }

@@ -30,6 +30,8 @@ export class MathematicsComponent implements OnInit {
 
   modalOn(operation) {
     this.modalService.modal.showMathModal = true;
+    this.modalService.modal.showMathPlusModal = false;
+    this.modalService.modal.showMathTimesModal = false;
   }
   modalConfirm() { }
   modalCancel() { }
