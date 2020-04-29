@@ -30,10 +30,10 @@ export class MathematicsService {
       },
     ],
     section: [
-      {
-        name: "book",
-        text: ""
-      },
+      // {
+      //   name: "book",
+      //   text: ""
+      // },
       {
         name: "units",
         text: "0~9"
