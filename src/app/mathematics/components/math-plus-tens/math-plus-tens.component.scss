@@ -7,8 +7,9 @@
     justify-content: flex-start;
     text-align: start;
 
-    main {
-        display: inline-flex;
+    .main {
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -33,6 +34,7 @@
     text-align: left;
     // margin: auto;
     margin: 0;
+    margin-bottom: 10px;
 }
 .reward-star {
     height: 25px;
@@ -162,12 +164,8 @@ hr {
     .math-tens {
         padding: 0;
     }
-    main {
-        display: flex;
-        flex-direction: column;
-    }
     .rewards {
-        width: 100%;
+        margin-bottom: 0;
     }
     .qsTable,
     .calTable {
