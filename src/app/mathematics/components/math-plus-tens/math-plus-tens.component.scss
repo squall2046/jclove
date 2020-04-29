@@ -51,11 +51,23 @@
     width: 100px;
     height: 100px;
     line-height: 100px;
-    border: 5px solid rgb(230, 230, 230);
-    border-radius: 3px;
     font-size: 70px;
     font-family: "Frijole", cursive;
     text-align: center;
+}
+
+.space-border {
+    border: 5px solid rgb(230, 230, 230);
+    border-radius: 3px;
+}
+
+.space-focus {
+    border-color: rgb(163, 40, 40, 0.8);
+    background-color: rgb(250, 250, 250);
+}
+
+.txt-color {
+    color: rgb(11, 102, 11, 0.8);
 }
 
 .operation {
@@ -81,15 +93,6 @@ hr {
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
     transition: 0.5s;
     z-index: 1001;
-}
-
-.bg-color {
-    background-color: rgb(250, 250, 250);
-    border-color: rgb(163, 40, 40, 0.8);
-}
-
-.txt-color {
-    color: rgb(11, 102, 11, 0.8);
 }
 
 .option {
@@ -151,12 +154,31 @@ hr {
     z-index: 1100;
 }
 
+.showModalBtn {
+    position: fixed;
+    right: -40px;
+    bottom: -10px;
+    width: 90px;
+    height: 90px;
+    padding: 12px 14px;
+    border-radius: 100%;
+    background-color: rgb(214, 154, 23);
+    // z-index: 1000;
+    .showModalIcon {
+        font-size: 32px;
+        color: rgb(243, 243, 243);
+    }
+}
+
 @media only screen and (max-width: 991px) {
     .math-tens {
         padding: 5px;
     }
     .select {
         top: 160px;
+    }
+    .showModalBtn {
+        bottom: -20px;
     }
 }
 

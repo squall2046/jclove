@@ -7,4 +7,6 @@ export class Modal {
   btnConfirm?: string;
   btnCancel?: string;
   showMathModal?: boolean;
+  showMathPlusModal?: boolean;
+  showMathTimesModal?: boolean;
 }

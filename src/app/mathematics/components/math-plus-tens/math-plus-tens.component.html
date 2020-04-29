@@ -37,13 +37,13 @@
                         <tr>
                             <td></td>
                             <td>
-                                <div class="pointer space" (click)="selectSpace(math.space[1].id)"
-                                    [ngClass]="{'bg-color': math.selSpace==='a-ten' }">
+                                <div class="pointer space space-border " (click)="selectSpace(math.space[1].id)"
+                                    [ngClass]="{'space-focus': math.selSpace==='a-ten' }">
                                     {{math.space[1].fill}}</div>
                             </td>
                             <td>
-                                <div class="pointer space" (click)="selectSpace(math.space[2].id)"
-                                    [ngClass]="{'bg-color': math.selSpace==='a-unit' }">
+                                <div class="pointer space space-border " (click)="selectSpace(math.space[2].id)"
+                                    [ngClass]="{'space-focus': math.selSpace==='a-unit' }">
                                     {{math.space[2].fill}}</div>
                             </td>
                         </tr>
@@ -51,13 +51,13 @@
                         <tr>
                             <td class="operation">+</td>
                             <td>
-                                <div class="pointer space" (click)="selectSpace(math.space[4].id)"
-                                    [ngClass]="{'bg-color': math.selSpace==='b-ten' }">
+                                <div class="pointer space space-border " (click)="selectSpace(math.space[4].id)"
+                                    [ngClass]="{'space-focus': math.selSpace==='b-ten' }">
                                     {{math.space[4].fill}}</div>
                             </td>
                             <td>
-                                <div class="pointer space" (click)="selectSpace(math.space[5].id)"
-                                    [ngClass]="{'bg-color': math.selSpace==='b-unit' }">
+                                <div class="pointer space space-border " (click)="selectSpace(math.space[5].id)"
+                                    [ngClass]="{'space-focus': math.selSpace==='b-unit' }">
                                     {{math.space[5].fill}} </div>
                             </td>
                         </tr>
@@ -74,18 +74,18 @@
                         </tr>
                         <tr>
                             <td>
-                                <div class="pointer space" (click)="selectSpace(math.space[6].id)"
-                                    [ngClass]="{'bg-color': math.selSpace==='c-hundred'}">
+                                <div class="pointer space space-border " (click)="selectSpace(math.space[6].id)"
+                                    [ngClass]="{'space-focus': math.selSpace==='c-hundred'}">
                                     {{math.space[6].fill}} </div>
                             </td>
                             <td>
-                                <div class="pointer space" (click)="selectSpace(math.space[7].id)"
-                                    [ngClass]="{'bg-color': math.selSpace==='c-ten'}">
+                                <div class="pointer space space-border " (click)="selectSpace(math.space[7].id)"
+                                    [ngClass]="{'space-focus': math.selSpace==='c-ten'}">
                                     {{math.space[7].fill}} </div>
                             </td>
                             <td>
-                                <div class="pointer space" (click)="selectSpace(math.space[8].id)"
-                                    [ngClass]="{'bg-color': math.selSpace==='c-unit'}">
+                                <div class="pointer space space-border " (click)="selectSpace(math.space[8].id)"
+                                    [ngClass]="{'space-focus': math.selSpace==='c-unit'}">
                                     {{math.space[8].fill}} </div>
                             </td>
                         </tr>
@@ -121,5 +121,10 @@
     </div>
     <div *ngIf="math.answered && !math.ansCorrect">
         <img class="success-gif" src="../../../../assets/images/gif/olaf3.gif" alt="">
+    </div>
+
+    <!-- plus sheet modal btn -->
+    <div class="showModalBtn pointer" data-toggle="modal" data-target="#modal" (click)="modalOn()">
+        <i class="material-icons showModalIcon">assignment</i>
     </div>
 </div>

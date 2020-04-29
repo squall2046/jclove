@@ -13,8 +13,41 @@
                 </button>
             </div>
             <div class="modal-body">
+                <!-- math modal -->
                 <div class="math card-container" *ngIf="modal.showMathModal">
                     <div *ngFor="let mathSec of math.section" class="card pointer" (click)="goMathPath(mathSec.name)">
+                        <div class="text">
+                            <span *ngIf="!mathSec.text" class="material-icons flower"> local_florist </span>
+                            <span *ngIf="mathSec.text">{{mathSec.text}}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- math plus sheet modal -->
+                <div class="math card-container" *ngIf="modal.showMathPlusModal">
+                    <div class="d-flex-column">
+                        <div *ngFor="let plus of math.plusSheet | slice: 0:8" class="card-sm pointer">
+                            <span class="text-sm"> {{plus}} </span>
+                        </div>
+                    </div>
+                    <div class="d-flex-column">
+                        <div *ngFor="let plus of math.plusSheet | slice: 8:14" class="card-sm pointer">
+                            <span class="text-sm"> {{plus}} </span>
+                        </div>
+                    </div>
+                    <div class="d-flex-column">
+                        <div *ngFor="let plus of math.plusSheet | slice: 14:18" class="card-sm pointer">
+                            <span class="text-sm"> {{plus}} </span>
+                        </div>
+                    </div>
+                    <div class="d-flex-column">
+                        <div *ngFor="let plus of math.plusSheet | slice: 18:21" class="card-sm pointer">
+                            <span class="text-sm"> {{plus}} </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- math plus sheet modal -->
+                <div class="math card-container" *ngIf="modal.showMathTimesModal">
+                    <div *ngFor="let mathSec of math.section" class="card pointer">
                         <div class="text">
                             <span *ngIf="!mathSec.text" class="material-icons flower"> local_florist </span>
                             <span *ngIf="mathSec.text">{{mathSec.text}}</span>

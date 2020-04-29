@@ -15,6 +15,8 @@ export class ModalService {
     btnConfirm: "Yes",
     btnCancel: "No",
     showMathModal: false,
+    showMathPlusModal: false,
+    showMathTimesModal: false,
   }
 
   subsVar: Subscription;

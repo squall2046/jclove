@@ -39,8 +39,8 @@ export class ModalComponent implements OnInit {
     this.app.path = "math";
 
     switch (section) {
-      case "book":
-        this.router.navigate(['/math-book'])
+      case "theory":
+        this.router.navigate(['/math-theory'])
         break;
       case "units":
         this.router.navigate(['/math-units'])
