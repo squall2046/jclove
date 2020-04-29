@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Mathematics } from '../../mathematics.model';
 import { MathematicsService } from '../../mathematics.service';
+import { ProfileService } from '../../../profile/profile.service';
 @Component({
   selector: 'app-math-plus-tens',
   templateUrl: './math-plus-tens.component.html',
@@ -8,14 +9,26 @@ import { MathematicsService } from '../../mathematics.service';
 })
 export class MathPlusTensComponent implements OnInit {
   math: any;
+  starNum = 0;
+  stars = [];
 
   constructor(
     private mathService: MathematicsService,
+    private profileService: ProfileService,
   ) { }
 
   ngOnInit(): void {
     this.math = this.mathService.math;
     this.reload();
+    this.checkStar();
+  }
+
+  checkStar() {
+    this.stars = [];
+    for (let index = 0; index < this.profileService.rewards.stars.number; index++) {
+      this.stars.push(index);
+    }
+    return console.log(this.stars);
   }
 
   reload() {
@@ -29,7 +42,8 @@ export class MathPlusTensComponent implements OnInit {
     // space.forEach(([sp]) => {
     //   this.space[sp].fill = "";
     // });
-
+    this.math.answered = false;
+    this.math.ansCorrect = false;
   }
 
   closeSelect() {
@@ -65,13 +79,13 @@ export class MathPlusTensComponent implements OnInit {
     let hundred, ten, unit;
     this.math.space.forEach(space => {
       switch (space.id) {
-        case 31:
+        case 'c-hundred':
           hundred = space.fill;
           break;
-        case 32:
+        case 'c-ten':
           ten = space.fill;
           break;
-        case 33:
+        case 'c-unit':
           unit = space.fill;
           break;
       }
@@ -89,10 +103,11 @@ export class MathPlusTensComponent implements OnInit {
 
     setTimeout(() => {
       if (this.math.ansCorrect) {
+        this.profileService.rewards.stars.number++;
+
         setTimeout(() => {
-          this.math.answered = false;
-          this.math.ansCorrect = false;
           this.reload();
+          this.checkStar();
         }, 3000);
       }
 

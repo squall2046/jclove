@@ -14,9 +14,11 @@
             </div>
             <div class="modal-body">
                 <div class="math card-container" *ngIf="modal.showMathModal">
-                    <div *ngFor="let mathSec of math.section" class="card pointer"
-                        (click)="goMathPath(mathSec.name)">
-                        <div class="text">{{mathSec.text}}</div>
+                    <div *ngFor="let mathSec of math.section" class="card pointer" (click)="goMathPath(mathSec.name)">
+                        <div class="text">
+                            <span *ngIf="!mathSec.text" class="material-icons flower"> local_florist </span>
+                            <span *ngIf="mathSec.text">{{mathSec.text}}</span>
+                        </div>
                     </div>
                 </div>
             </div>

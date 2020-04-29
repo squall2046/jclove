@@ -31,6 +31,10 @@ export class MathematicsService {
     ],
     section: [
       {
+        name: "book",
+        text: ""
+      },
+      {
         name: "units",
         text: "0~9"
       },
@@ -50,39 +54,39 @@ export class MathematicsService {
     selSpace: 0,
     space: [
       {
-        id: 10,
+        id: "a-hundred",
         fill: "",
       },
       {
-        id: 11,
+        id: "a-ten",
         fill: "",
       },
       {
-        id: 12,
+        id: "a-unit",
         fill: "",
       },
       {
-        id: 21,
+        id: "b-hundred",
         fill: "",
       },
       {
-        id: 22,
+        id: "b-ten",
         fill: "",
       },
       {
-        id: 23,
+        id: "b-unit",
         fill: "",
       },
       {
-        id: 31,
+        id: "c-hundred",
         fill: "",
       },
       {
-        id: 32,
+        id: "c-ten",
         fill: "",
       },
       {
-        id: 33,
+        id: "c-unit",
         fill: "",
       },
     ],

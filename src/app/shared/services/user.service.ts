@@ -24,5 +24,12 @@ export class UserService {
     }
   ]
 
+  rewards = {
+    stars: {
+      number: 0,
+      colors: ["red", "orange", "yellow", "green", "blue", "purple"]
+    }
+  }
+
   constructor() { }
 }

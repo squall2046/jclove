@@ -31,7 +31,9 @@
             <div class="user-card-photo-initial">
                 <a [routerLink]='path' [queryParams]="{userParamA:'view', userParamB: user.email}"
                     (change)="checkUserCard()">
-                    <img *ngIf="user.userImage !== ''" src="{{user.userImage}}" class="user-img">
+                    <div class="user-img-container">
+                        <img *ngIf="user.userImage !== ''" src="{{user.userImage}}" class="user-img">
+                    </div>
                     <div *ngIf="user.userImage ==='' || user.userImage===null" class="user-initial">
                         {{getInitials(user.firstName, user.lastName)}}
                     </div>
