@@ -1,16 +1,22 @@
 <div class="math-units">
     <main class="main">
         <section>
-            <div class="question-table d-inline-flex" [ngStyle]="{'border':showAnswer? '4px dashed lightgray':'none'}">
+            <!-- <div class="question-table d-inline-flex" [ngStyle]="{'border':showAnswer? '4px dashed lightgray':'none'}"> -->
+            <div class="question-table d-inline-flex">
                 <div class="itemOne"
-                    [ngStyle]="{'color': iconColorOne,'border':showAnswer? 'none':'4px dashed lightgray'}">
+                    [ngStyle]="{'color': iconColorOne,'border-right':showAnswer? 'none':'4px dashed lightgray'}">
                     <span class="material-icons icon-lg" *ngFor="let any of iconRandomArr">
                         {{iconRandom}}
                     </span>
                 </div>
-                <div class="itemPlus" *ngIf="!showAnswer">+</div>
-                <div class="itemTwo"
-                    [ngStyle]="{'color': iconColorTwo,'border':showAnswer? 'none':'4px dashed lightgray'}">
+
+                <!-- <div class="itemPlus" *ngIf="!showAnswer">+</div> -->
+                <div class="itemPlus" [ngStyle]="{'width':showAnswer? '0':'50px'}">
+                    <span *ngIf="!showAnswer">+</span>
+                </div>
+
+                <div class="itemTwo" [ngStyle]="{'color': iconColorTwo,
+                    'border-left':showAnswer? 'none':'4px dashed lightgray'}">
                     <span class="material-icons icon-lg" *ngFor="let any of iconRandomArrTwo">
                         {{iconRandom}}
                     </span>

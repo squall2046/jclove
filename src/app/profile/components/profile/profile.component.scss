@@ -48,7 +48,6 @@
     animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    z-index: 1;
 }
 .mouse-gif-block {
     position: absolute;
@@ -56,7 +55,7 @@
     width: 105px;
     height: 300px;
     background-color: rgb(255, 255, 255);
-    z-index: 2;
+    z-index: 1;
 }
 
 @keyframes jump {
@@ -71,8 +70,9 @@
 }
 
 .rewards {
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    position: relative;
     padding: 20px;
     width: 50%;
     min-height: 300px;
@@ -84,6 +84,8 @@
     border-radius: 10px;
     font-family: "Frijole", cursive;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    z-index: 3 !important;
 }
 
 .rewards-head {
@@ -94,11 +96,13 @@
     border-bottom: 1px dashed rgb(240, 240, 240);
     margin: 0 auto;
     text-align: center;
+    z-index: 3;
 }
 .rewards-body {
     line-height: 55px;
     font-size: 24px;
     text-align: left;
+    z-index: 3;
 }
 
 @media only screen and (max-width: 600px) {

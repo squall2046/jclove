@@ -1,6 +1,6 @@
 .math-units {
     width: 100%;
-    padding: 10px;
+    // padding: 10px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -55,10 +55,10 @@
 }
 
 .space {
-    width: 95px;
-    height: 95px;
-    line-height: 95px;
-    font-size: 70px;
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    font-size: 48px;
     font-family: "Frijole", cursive;
     text-align: center;
     border-radius: 10px;
@@ -132,17 +132,18 @@
     z-index: 1100;
 }
 
+.select {
+    width: 430px;
+    max-width: 100%;
+}
+.unit {
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    font-size: 40px;
+}
+
 @media only screen and (max-width: 991px) {
-    .select {
-        width: 750px;
-        max-width: 100%;
-    }
-    .unit {
-        width: 65px;
-        height: 65px;
-        line-height: 65px;
-        font-size: 40px;
-    }
     .reload-btn,
     .showModalBtn {
         top: 105px;

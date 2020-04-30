@@ -68,10 +68,19 @@ export class MathTheoryComponent implements OnInit {
     }
   }
 
+  controlSumInTen() {
+    if (this.mathService.math.unitRandom + this.mathService.math.unitRandomTwo > 10) {
+      this.mathService.math.unitRandom = Math.floor(Math.random() * 9) + 1;
+      this.mathService.math.unitRandomTwo = Math.floor(Math.random() * 9) + 1;
+      this.controlSumInTen();
+    }
+  }
+
   reload() {
     // question numbers:
     this.mathService.math.unitRandom = Math.floor(Math.random() * 9) + 1;
     this.mathService.math.unitRandomTwo = Math.floor(Math.random() * 9) + 1;
+    this.controlSumInTen()
 
     // question icon and two colors:
     this.iconRandom = this.mathService.math.icons[Math.floor(Math.random() * this.mathService.math.icons.length)];
