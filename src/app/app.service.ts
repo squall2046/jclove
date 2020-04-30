@@ -36,7 +36,7 @@ export class AppService {
     sidebar: {
       show: false,
       drop: false,
-      isCollapsed: false,
+      isCollapsed: true,
       tabs: [
         {
           name: 'Home',

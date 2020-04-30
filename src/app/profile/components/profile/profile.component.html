@@ -1,6 +1,7 @@
 <div class="profile">
     <header class="profile-img-container">
         <img class="profile-img" src="../../../../assets/images/logo/joanna.jpg" alt="">
+        <p>Hello! I'm Joanna. Welcome back and enjoy!</p>
     </header>
 
     <section class="rewards">
@@ -9,14 +10,13 @@
         </div>
         <div class="rewards-body">
             <div class="rewards-rainbow">
-                Rainbows:
+                <p>Rainbows:</p>
                 <span *ngFor="let rainbow of rainbowArr">
-                    <span class="material-icons reward-rainbow f-rainbow">
-                        looks </span>
+                    <span class="material-icons reward-rainbow f-rainbow"> looks </span>
                 </span>
             </div>
             <div class="rewards-star">
-                Stars:
+                <p>Stars:</p>
                 <span *ngFor="let star of starArr; index as key">
                     <span *ngIf="star%7===1" class="material-icons reward-star f-red"> star </span>
                     <span *ngIf="star%7===2" class="material-icons reward-star f-orange"> star </span>

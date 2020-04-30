@@ -25,5 +25,6 @@ export class HeaderComponent implements OnInit {
   toggleSidebarInPhoneApp() {
     this.app.sidebar.show = !this.app.sidebar.show;
     // this.app.sidebar.isCollapsed = !this.app.sidebar.isCollapsed;
+    // this.app.sidebar.isCollapsed = true;
   }
 }

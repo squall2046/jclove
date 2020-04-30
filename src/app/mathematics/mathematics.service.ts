@@ -56,6 +56,8 @@ export class MathematicsService {
     timesSheet: [],
     units: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     Twenty: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    icons: ["local_florist", "filter_vintage", "local_pizza", "eco", "bug_report", "edit", "ac_unit", "beach_access", "sports_soccer", "toys"],
+    iconColors: ["#ffc0cb", "#fb966e", "#d05a6e", "#3c2f41", "#51a8dd", "#e1a679", "#42602d", "#592c63", "#77428d", "#f8c3cd", "#ebb471", "#b35c37", "#d19826", "#939650", "#a5dee4", "#2b5f75"],
     tenRandom: 0,
     tenRandomTwo: 0,
     unitRandom: 0,

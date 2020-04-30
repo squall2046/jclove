@@ -17,7 +17,8 @@
                 <div class="math card-container" *ngIf="modal.showMathModal">
                     <div *ngFor="let mathSec of math.section" class="card pointer" (click)="goMathPath(mathSec.name)">
                         <div class="text">
-                            <span *ngIf="!mathSec.text" class="material-icons flower"> local_florist </span>
+                            <!-- <span *ngIf="!mathSec.text" class="material-icons flower"> local_florist </span> -->
+                            <span *ngIf="!mathSec.text" class="material-icons i-book"> category </span>
                             <span *ngIf="mathSec.text">{{mathSec.text}}</span>
                         </div>
                     </div>
@@ -47,12 +48,7 @@
                 </div>
                 <!-- math plus sheet modal -->
                 <div class="math card-container" *ngIf="modal.showMathTimesModal">
-                    <div *ngFor="let mathSec of math.section" class="card pointer">
-                        <div class="text">
-                            <span *ngIf="!mathSec.text" class="material-icons flower"> local_florist </span>
-                            <span *ngIf="mathSec.text">{{mathSec.text}}</span>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
 

@@ -1,1 +1,58 @@
-<p>math-theory works!</p>
+<div class="math-units">
+    <main class="main">
+        <article class="question-table">
+            <div class="d-inline-flex"
+                [ngStyle]="{'color': iconColorOne,'transition':'2s','border':showAnswer? '4px dashed lightgray':'none'}">
+                <div class="itemOne"
+                    [ngStyle]="{'color': iconColorOne,'border':showAnswer? 'none':'4px dashed lightgray'}">
+                    <span class="material-icons icon-lg" *ngFor="let any of iconRandomArr">
+                        {{iconRandom}}
+                    </span>
+                </div>
+                <div class="p-1" *ngIf="!showAnswer">+</div>
+                <div class="itemTwo"
+                    [ngStyle]="{'color': iconColorTwo,'border':showAnswer? 'none':'4px dashed lightgray'}">
+                    <span class="material-icons icon-lg" *ngFor="let any of iconRandomArrTwo">
+                        {{iconRandom}}
+                    </span>
+                </div>
+            </div>
+            <div class="d-inline-flex my-3" *ngIf="showAnswer">
+                <div class="text-sub">{{math.unitRandom}}</div>
+                <div class="text-sub">+</div>
+                <div class="text-sub">{{math.unitRandomTwo}}</div>
+            </div>
+            <div class="operation" *ngIf="!showAnswer">?</div>
+            <div class="operation" *ngIf="showAnswer">{{math.unitRandom+math.unitRandomTwo}}</div>
+        </article>
+        <!-- <article class="answer-table">
+            <div class="operation" *ngIf="!showAnswer">?</div>
+            <div class="operation" *ngIf="showAnswer">{{math.unitRandom+math.unitRandomTwo}}</div>
+        </article> -->
+
+        <div class="click-btn pointer" (click)="showTime()">
+            <i class="material-icons click-icon">
+                <span *ngIf="!showAnswer">touch_app</span>
+                <span *ngIf="showAnswer">fast_forward</span>
+            </i>
+        </div>
+    </main>
+
+    <!-- reload btn -->
+    <div class="reload-btn" (click)="reload()">
+        <i class="material-icons reloadIcon pointer">autorenew</i>
+    </div>
+
+    <!-- success gif -->
+    <div *ngIf="math.ansCorrect">
+        <img class="success-gif" src="../../../../assets/images/gif/olaf2.gif" alt="">
+    </div>
+    <div *ngIf="math.space[8].fill && !math.ansCorrect">
+        <img class="success-gif" src="../../../../assets/images/gif/olaf3.gif" alt="">
+    </div>
+
+    <!-- plus sheet modal btn -->
+    <div class="showModalBtn pointer" data-toggle="modal" data-target="#modal" (click)="modalOn()">
+        <i class="material-icons showModalIcon">assignment</i>
+    </div>
+</div>

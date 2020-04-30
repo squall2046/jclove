@@ -13,7 +13,6 @@ import { ProfileService } from '../../../profile/profile.service';
 export class MathPlusTensComponent implements OnInit {
   math: any;
   modal: Modal;
-  profile: any;
 
   starArr = [];
   rainbowArr = [];
@@ -26,12 +25,10 @@ export class MathPlusTensComponent implements OnInit {
 
   ngOnInit(): void {
     this.math = this.mathService.math;
-    this.profile = this.profileService.profile;
-    this.reload();
-    // this.checkStar();
-
+    this.rainbowArr = this.profileService.rewards.rainbows;
+    this.starArr = this.profileService.rewards.stars
     // console.log(15 % 7, 8 % 7, 2 % 7);
-
+    this.reload();
   }
 
   checkStar() {

@@ -25,12 +25,11 @@ export class MathPlusUnitsComponent implements OnInit {
 
   ngOnInit(): void {
     this.math = this.mathService.math;
-    this.profile = this.profileService.profile;
+    this.rainbowArr = this.profileService.rewards.rainbows;
+    this.starArr = this.profileService.rewards.stars;
     this.reload();
-    // this.checkStar();
 
     // console.log(15 % 7, 8 % 7, 2 % 7);
-
   }
 
   checkStar() {
