@@ -4,6 +4,9 @@
 }
 
 .profile-img-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     width: 100%;
     text-align: center;
     margin: auto;
@@ -17,6 +20,54 @@
     height: 125px;
     border-radius: 50%;
     margin-bottom: 30px;
+}
+
+.top-left {
+    position: relative;
+}
+
+.bunny-gif {
+    display: inline-block;
+    width: 145px;
+    position: relative;
+    bottom: -40px;
+    left: -50px;
+}
+.mouse-gif {
+    display: inline-block;
+    width: 105px;
+    position: relative;
+    bottom: 0;
+
+    -webkit-transition: 1s ease-in;
+    -moz-transition: 1s ease-in;
+    -o-transition: 1s ease-in;
+    transition: 1s ease-in;
+    /* Use the animation name with additional properties */
+    animation-name: jump;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    z-index: 1;
+}
+.mouse-gif-block {
+    position: absolute;
+    bottom: -302px;
+    width: 105px;
+    height: 300px;
+    background-color: rgb(255, 255, 255);
+    z-index: 2;
+}
+
+@keyframes jump {
+    from {
+        // bottom:
+        transform: translate(0px, 350px);
+    }
+    to {
+        // top:
+        transform: translate(0px, 120px);
+    }
 }
 
 .rewards {

@@ -62,6 +62,20 @@ export class MathPlusTensComponent implements OnInit {
     this.math.ansCorrect = false;
   }
 
+  playLaughAudio() {
+    let audio = new Audio();
+    let random = Math.floor(Math.random() * 7) + 1;
+    audio.src = "../../../../assets/sound/laugh" + random + ".mp3";
+    audio.load();
+    audio.play();
+  }
+  playSadAudio() {
+    let audio = new Audio();
+    audio.src = "../../../../assets/sound/sad1.mp3";
+    audio.load();
+    audio.play();
+  }
+
   closeSelect() {
     this.math.selShow = false;
   }
@@ -115,6 +129,7 @@ export class MathPlusTensComponent implements OnInit {
     }
     if (expect === answer) {
       this.math.ansCorrect = true;
+      this.playLaughAudio();
     }
 
     setTimeout(() => {
@@ -127,6 +142,8 @@ export class MathPlusTensComponent implements OnInit {
       }
 
       if (!this.math.ansCorrect && this.math.answered) {
+        this.playSadAudio();
+
         setTimeout(() => {
           this.math.answered = false;
           this.math.ansCorrect = false;

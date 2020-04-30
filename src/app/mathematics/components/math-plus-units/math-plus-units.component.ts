@@ -55,6 +55,20 @@ export class MathPlusUnitsComponent implements OnInit {
     this.math.ansCorrect = false;
   }
 
+  playLaughAudio() {
+    let audio = new Audio();
+    let random = Math.floor(Math.random() * 7) + 1;
+    audio.src = "../../../../assets/sound/laugh" + random + ".mp3";
+    audio.load();
+    audio.play();
+  }
+  playSadAudio() {
+    let audio = new Audio();
+    audio.src = "../../../../assets/sound/sad1.mp3";
+    audio.load();
+    audio.play();
+  }
+
   selectNum(num) {
     this.mathService.math.space[8].fill = num;
     this.checkAnswer();
@@ -67,6 +81,7 @@ export class MathPlusUnitsComponent implements OnInit {
 
     if (expect === answer) {
       this.math.ansCorrect = true;
+      this.playLaughAudio();
     }
 
     setTimeout(() => {
@@ -79,6 +94,8 @@ export class MathPlusUnitsComponent implements OnInit {
       }
 
       if (!this.math.ansCorrect) {
+        this.playSadAudio();
+
         setTimeout(() => {
           this.math.ansCorrect = false;
           setTimeout(() => {

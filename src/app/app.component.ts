@@ -40,6 +40,10 @@ export class AppComponent implements OnInit {
           this.app.main.headIcon = "menu_book";
           this.app.main.headText = "Quiz";
           break;
+        case "/profile":
+          this.app.main.headIcon = "face";
+          this.app.main.headText = "Profile";
+          break;
       }
 
       if (path === "/math/units" || path === "/math/tens" || path === "/math/theory") {
