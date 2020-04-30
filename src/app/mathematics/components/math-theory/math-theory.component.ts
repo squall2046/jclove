@@ -24,6 +24,7 @@ export class MathTheoryComponent implements OnInit {
 
   showAnswer = false;
 
+  uniqueColor = "";
 
   constructor(
     private mathService: MathematicsService,
@@ -60,16 +61,27 @@ export class MathTheoryComponent implements OnInit {
     this.modalService.modal.showMathTimesModal = false;
   }
 
+  checkUniqueColor() {
+    if (this.iconColorTwo === this.iconColorOne) {
+      this.iconColorTwo = this.mathService.math.iconColors[Math.floor(Math.random() * this.mathService.math.iconColors.length)];
+      this.checkUniqueColor();
+    }
+  }
+
   reload() {
+    // question numbers:
     this.mathService.math.unitRandom = Math.floor(Math.random() * 9) + 1;
     this.mathService.math.unitRandomTwo = Math.floor(Math.random() * 9) + 1;
 
+    // question icon and two colors:
     this.iconRandom = this.mathService.math.icons[Math.floor(Math.random() * this.mathService.math.icons.length)];
     this.iconColorOne = this.mathService.math.iconColors[Math.floor(Math.random() * this.mathService.math.iconColors.length)];
     this.iconColorTwo = this.mathService.math.iconColors[Math.floor(Math.random() * this.mathService.math.iconColors.length)];
+    this.checkUniqueColor();
+
+    // loop question icons:
     this.iconRandomArr = [];
     this.iconRandomArrTwo = [];
-
     let numberOne = 0;
     let numberTwo = 0;
     for (let i = 0; i < this.mathService.math.unitRandom; i++) {
