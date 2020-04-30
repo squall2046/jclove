@@ -56,7 +56,8 @@ export class MathTheoryComponent implements OnInit {
   //   this.rainbowArr = this.profileService.rewards.rainbows;
   // }
   modalOn() {
-    this.modalService.modal.showMathPlusModal = true;
+    this.modalService.modal.showMathBasicPlusModal = true;
+    this.modalService.modal.showMathPlusModal = false;
     this.modalService.modal.showMathModal = false;
     this.modalService.modal.showMathTimesModal = false;
   }

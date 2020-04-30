@@ -23,6 +23,34 @@
                         </div>
                     </div>
                 </div>
+                <!-- math basic plus sheet modal -->
+                <div class="math card-container" *ngIf="modal.showMathBasicPlusModal">
+                    <div class="d-flex-column">
+                        <div *ngFor="let plus of math.basicPlusSheet | slice: 0:9" class="card-sm pointer">
+                            <span class="text-sm"> {{plus}} </span>
+                        </div>
+                    </div>
+                    <div class="d-flex-column">
+                        <div *ngFor="let plus of math.basicPlusSheet | slice: 9:16" class="card-sm pointer">
+                            <span class="text-sm"> {{plus}} </span>
+                        </div>
+                    </div>
+                    <div class="d-flex-column">
+                        <div *ngFor="let plus of math.basicPlusSheet | slice: 16:21" class="card-sm pointer">
+                            <span class="text-sm"> {{plus}} </span>
+                        </div>
+                    </div>
+                    <div class="d-flex-column">
+                        <div *ngFor="let plus of math.basicPlusSheet | slice: 21:24" class="card-sm pointer">
+                            <span class="text-sm"> {{plus}} </span>
+                        </div>
+                    </div>
+                    <div class="d-flex-column">
+                        <div *ngFor="let plus of math.basicPlusSheet | slice: 24:25" class="card-sm pointer">
+                            <span class="text-sm"> {{plus}} </span>
+                        </div>
+                    </div>
+                </div>
                 <!-- math plus sheet modal -->
                 <div class="math card-container" *ngIf="modal.showMathPlusModal">
                     <div class="d-flex-column">
@@ -48,7 +76,7 @@
                 </div>
                 <!-- math plus sheet modal -->
                 <div class="math card-container" *ngIf="modal.showMathTimesModal">
-                   
+
                 </div>
             </div>
 

@@ -15,6 +15,7 @@ export class ModalService {
     btnConfirm: "Yes",
     btnCancel: "No",
     showMathModal: false,
+    showMathBasicPlusModal: false,
     showMathPlusModal: false,
     showMathTimesModal: false,
   }
