@@ -1,7 +1,7 @@
 <div class="math-units">
     <main class="main">
-        <article class="question-table">
-            <div class="d-inline-flex"
+        <section>
+            <div class="question-table d-inline-flex"
                 [ngStyle]="{'color': iconColorOne,'transition':'2s','border':showAnswer? '4px dashed lightgray':'none'}">
                 <div class="itemOne"
                     [ngStyle]="{'color': iconColorOne,'border':showAnswer? 'none':'4px dashed lightgray'}">
@@ -17,18 +17,16 @@
                     </span>
                 </div>
             </div>
-            <div class="d-inline-flex my-3" *ngIf="showAnswer">
-                <div class="text-sub">{{math.unitRandom}}</div>
-                <div class="text-sub">+</div>
-                <div class="text-sub">{{math.unitRandomTwo}}</div>
+            <div class="answer-table">
+                <div class="d-inline-flex" *ngIf="showAnswer">
+                    <div class="text-sub">{{math.unitRandom}}</div>
+                    <div class="text-sub">+</div>
+                    <div class="text-sub">{{math.unitRandomTwo}}</div>
+                </div>
             </div>
             <div class="operation" *ngIf="!showAnswer">?</div>
             <div class="operation" *ngIf="showAnswer">{{math.unitRandom+math.unitRandomTwo}}</div>
-        </article>
-        <!-- <article class="answer-table">
-            <div class="operation" *ngIf="!showAnswer">?</div>
-            <div class="operation" *ngIf="showAnswer">{{math.unitRandom+math.unitRandomTwo}}</div>
-        </article> -->
+        </section>
 
         <div class="click-btn pointer" (click)="showTime()">
             <i class="material-icons click-icon">
