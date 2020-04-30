@@ -42,10 +42,10 @@ export class AppComponent implements OnInit {
           break;
       }
 
-      if (path === "/units" || path === "/tens" || path === "/theory") {
+      if (path === "/math/units" || path === "/math/tens" || path === "/math/theory") {
         this.app.path = "/math";
         this.app.main.headIcon = "iso";
-        this.app.main.headText = "math" + path;
+        this.app.main.headText = path;
       }
     });
   }

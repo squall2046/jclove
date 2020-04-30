@@ -35,6 +35,7 @@ export class ModalComponent implements OnInit {
     // document.getElementById('close-btn').click();
     const modalOffBtn: HTMLElement = document.getElementById('close-btn') as HTMLElement;
     modalOffBtn.click();
+    this.app.sidebar.show = false;
 
     this.app.path = "/math";
 
