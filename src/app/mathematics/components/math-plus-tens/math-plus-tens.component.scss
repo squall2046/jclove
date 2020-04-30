@@ -48,10 +48,10 @@
 }
 
 .space {
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    font-size: 70px;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 65px;
     font-family: "Frijole", cursive;
     text-align: center;
 }
@@ -84,9 +84,10 @@ hr {
 
 .select {
     position: fixed;
-    top: 110px;
-    width: 190px;
-    height: 500px;
+    top: 155px;
+    width: 160px;
+    height: auto;
+    padding: 10px;
     border-radius: 10px;
     // border: 5px solid rgb(149, 149, 149);
     background-color: rgb(240, 240, 240);
@@ -104,45 +105,46 @@ hr {
 
 .unit,
 .del-unit {
-    width: 75px;
-    height: 75px;
-    line-height: 75px;
-    margin: 5px 3px;
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    margin-bottom: 5px;
     border-radius: 10px;
     border: 5px solid rgb(230, 230, 230);
     background-color: rgb(230, 230, 230);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-    font-size: 55px;
+    font-size: 48px;
     font-family: "Frijole", cursive;
     text-align: center;
 }
 .del-unit {
-    width: 165px;
-    height: 60px;
-    line-height: 60px;
+    width: 135px;
     color: brown;
 }
 
-.reload-btn {
+.reload-btn,
+.showModalBtn {
     position: fixed;
-    right: -20px;
-    top: 160px;
-    width: 50px;
-    height: 50px;
-    padding-left: 3px;
-    border-radius: 50%;
+    right: 60px;
+    top: 55px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
     background-color: cadetblue;
+    text-align: center;
     z-index: 1000;
 
-    .reloadIcon {
+    .reloadIcon,
+    .showModalIcon {
         color: rgb(243, 243, 243);
         font-size: 30px;
-        line-height: 50px;
+        line-height: 40px;
     }
 }
-
-.reload-btn:hover {
-    right: -19px;
+.showModalBtn {
+    right: 10px;
+    background-color: rgb(214, 154, 23);
+    // z-index: 1000;
 }
 
 .success-gif {
@@ -154,31 +156,16 @@ hr {
     z-index: 1100;
 }
 
-.showModalBtn {
-    position: fixed;
-    right: -40px;
-    bottom: -10px;
-    width: 90px;
-    height: 90px;
-    padding: 12px 14px;
-    border-radius: 100%;
-    background-color: rgb(214, 154, 23);
-    // z-index: 1000;
-    .showModalIcon {
-        font-size: 32px;
-        color: rgb(243, 243, 243);
-    }
-}
-
 @media only screen and (max-width: 991px) {
     .math-tens {
         padding: 5px;
     }
     .select {
-        top: 160px;
+        top: 188px;
     }
+    .reload-btn,
     .showModalBtn {
-        bottom: -20px;
+        top: 105px;
     }
 }
 
@@ -202,12 +189,10 @@ hr {
         font-size: 55px;
     }
     .select {
-        position: fixed;
-        // top: 160px;
         width: 120px;
-        height: 380px;
+        height: auto;
+        padding: 5px 2px;
     }
-
     .unit,
     .del-unit {
         width: 50px;

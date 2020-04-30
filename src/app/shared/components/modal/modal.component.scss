@@ -65,8 +65,18 @@
 
 @media only screen and (max-width: 600px) {
     .card-container {
+        .card {
+            height: 100px;
+        }
+        .text {
+            line-height: 100px;
+            font-size: 24px;
+        }
         .text-sm {
             font-size: 18px;
+        }
+        .flower {
+            font-size: 24px;
         }
     }
 }

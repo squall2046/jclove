@@ -35,9 +35,10 @@ export class SidebarComponent implements OnInit {
     this.app.sidebar.drop = !this.app.sidebar.drop;
   }
 
-  clickTab(icon, name) {
-    this.app.main.headIcon = icon;
-    this.app.main.headText = name;
+  clickTab(tab) {
+    this.app.main.headIcon = tab.icon;
+    this.app.main.headText = tab.name;
+    // this.app.path = tab.path;
 
     this.app.sidebar.show = false;
   }

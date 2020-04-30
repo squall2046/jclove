@@ -24,10 +24,10 @@ export class MathematicsService {
         name: "divide",
         symbol: "÷"
       },
-      {
-        name: "q-mark",
-        symbol: "?"
-      },
+      // {
+      //   name: "q-mark",
+      //   symbol: "?"
+      // },
     ],
     section: [
       {

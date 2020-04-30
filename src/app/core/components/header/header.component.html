@@ -1,17 +1,15 @@
 <nav>
     <!-- logo (left)-->
-    <div class="nav flex3 app-logo pl-3">
+    <div class="nav app-logo pl-3 d-inline-flex">
         <!-- <img [src]="header.logo"> -->
-        <span>
-            <i class="material-icons">{{app.header.headIcon}}</i>
-            {{app.header.headText}}
-        </span>
+        <i class="material-icons">{{app.header.headIcon}}</i>
+        <span  class="nav-text pl-1">{{app.header.headText}}</span>
     </div>
     <!-- title (center)-->
     <!-- <div class="nav flex3 app-title">{{app.header.headText}}</div> -->
 
     <!-- user (right)-->
-    <ul class="nav flex3 app-user">
+    <ul class="nav app-user">
         <div class="d-flex flex-row justify-content-start dropdown-icons">
             <!-- toggle sidebar (tablet view only)  -->
             <li class="nav-item dropdown-icon-hide">

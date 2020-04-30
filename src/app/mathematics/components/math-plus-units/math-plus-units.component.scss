@@ -97,26 +97,29 @@
     justify-content: space-around;
 }
 
-.reload-btn {
+.reload-btn,
+.showModalBtn {
     position: fixed;
-    right: -20px;
-    top: 160px;
-    width: 50px;
-    height: 50px;
-    padding-left: 3px;
-    border-radius: 50%;
+    right: 60px;
+    top: 55px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
     background-color: cadetblue;
+    text-align: center;
     z-index: 1000;
 
-    .reloadIcon {
+    .reloadIcon,
+    .showModalIcon {
         color: rgb(243, 243, 243);
         font-size: 30px;
-        line-height: 50px;
+        line-height: 40px;
     }
 }
-
-.reload-btn:hover {
-    right: -19px;
+.showModalBtn {
+    right: 10px;
+    background-color: rgb(214, 154, 23);
+    // z-index: 1000;
 }
 
 .success-gif {
@@ -129,26 +132,10 @@
     z-index: 1100;
 }
 
-.showModalBtn {
-    position: fixed;
-    right: -40px;
-    bottom: -10px;
-    width: 90px;
-    height: 90px;
-    padding: 12px 14px;
-    border-radius: 100%;
-    background-color: rgb(214, 154, 23);
-    // z-index: 1000;
-    .showModalIcon {
-        font-size: 32px;
-        color: rgb(243, 243, 243);
-    }
-}
-
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 991px) {
     .select {
         width: 750px;
-        max-width: 95%;
+        max-width: 100%;
     }
     .unit {
         width: 65px;
@@ -156,8 +143,9 @@
         line-height: 65px;
         font-size: 40px;
     }
+    .reload-btn,
     .showModalBtn {
-        bottom: -20px;
+        top: 105px;
     }
 }
 
@@ -175,14 +163,14 @@
         font-size: 55px;
     }
     .select {
-        // width: 380px;
-        // margin: 0;
+        width: 100%;
+        margin: 0;
     }
     .unit {
-        width: 65px;
-        height: 65px;
-        line-height: 65px;
-        font-size: 40px;
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        font-size: 36px;
     }
     .rewards {
         margin-bottom: 0;

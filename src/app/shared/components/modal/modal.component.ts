@@ -36,23 +36,25 @@ export class ModalComponent implements OnInit {
     const modalOffBtn: HTMLElement = document.getElementById('close-btn') as HTMLElement;
     modalOffBtn.click();
 
-    this.app.path = "math";
+    this.app.path = "/math";
 
     switch (section) {
       case "theory":
         this.router.navigate(['/math-theory'])
+        this.app.main.headText = "math/math-theory";
         break;
       case "units":
         this.router.navigate(['/math-units'])
+        this.app.main.headText = "math/math-units";
         break;
       case "tens":
         this.router.navigate(['/math-tens'])
+        this.app.main.headText = "math/math-tens";
         break;
       case "quiz":
         this.router.navigate(['/math-quiz'])
+        this.app.main.headText = "math/math-quiz";
         break;
     }
-
   }
-
 }
