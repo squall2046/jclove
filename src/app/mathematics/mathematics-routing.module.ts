@@ -9,10 +9,10 @@ import { MathPlusQuizComponent } from './components/math-plus-quiz/math-plus-qui
 
 const routes: Routes = [
   { path: 'math', component: MathematicsComponent },
-  { path: 'math-theory', component: MathTheoryComponent },
-  { path: 'math-units', component: MathPlusUnitsComponent },
-  { path: 'math-tens', component: MathPlusTensComponent },
-  { path: 'math-quiz', component: MathPlusQuizComponent },
+  { path: 'math/theory', component: MathTheoryComponent },
+  { path: 'math/units', component: MathPlusUnitsComponent },
+  { path: 'math/tens', component: MathPlusTensComponent },
+  { path: 'math/quiz', component: MathPlusQuizComponent },
 ];
 
 @NgModule({

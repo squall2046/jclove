@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
           break;
       }
 
-      if (path === "/math-units" || path === "/math-tens" || path === "/math-theory") {
+      if (path === "/units" || path === "/tens" || path === "/theory") {
         this.app.path = "/math";
         this.app.main.headIcon = "iso";
         this.app.main.headText = "math" + path;

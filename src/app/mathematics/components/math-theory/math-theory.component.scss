@@ -8,7 +8,7 @@
     }
 }
 .question-table {
-    height: 250px;
+    height: 254px;
     margin: 10px auto;
 }
 .answer-table {
@@ -16,21 +16,35 @@
     margin: 10px auto;
 }
 
-.operation {
-    font-size: 70px;
-    font-family: "Frijole", cursive;
-    margin: 50px 0;
-    padding: 10px 0;
-}
-
 .itemOne,
 .itemTwo {
-    width: 30vw;
-    text-align: center;
-    border-radius: 10px;
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    width: 40vw;
+    height: 40vw;
+    max-width: 250px;
+    max-height: 250px;
+    text-align: left;
+    // border-radius: 10px;
     // border: 4px dashed lightgray;
     // margin: 10px;
-    padding: 10px;
+    padding: 12px 18px;
+    background-color: rgb(211, 211, 211, 0.2);
+}
+.itemPlus,
+.itemSum {
+    height: 40vw;
+    max-height: 250px;
+    font-size: 60px;
+    font-family: "Frijole", cursive;
+    padding: 120px 15px;
+}
+.itemSum {
+    height: 100px;
+    line-height: 90px;
+    padding: 0;
 }
 .icon-lg {
     font-size: 68px;
@@ -54,6 +68,10 @@
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
     font-family: "Frijole", cursive;
+}
+
+.click-btn-next {
+    background-color: rgb(35, 155, 41);
 }
 
 .click-icon {
@@ -93,13 +111,23 @@
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 601px) {
     .math-units {
         padding: 0;
     }
     .question-table {
-        // margin-bottom: 0;
-        height: 120px;
+        height: 112px;
+    }
+    .itemOne,
+    .itemTwo {
+        max-width: 110px;
+        max-height: 110px;
+        padding: 10px 14px;
+    }
+    .itemPlus {
+        max-height: 120px;
+        padding: 50px 5px;
+        font-size: 36px;
     }
     .icon-lg {
         font-size: 24px;
