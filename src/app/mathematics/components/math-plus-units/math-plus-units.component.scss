@@ -151,6 +151,36 @@
     z-index: 2;
 }
 
+.balloon {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+
+    -webkit-transition: 1s ease-in;
+    -moz-transition: 1s ease-in;
+    -o-transition: 1s ease-in;
+    transition: 1s ease-in;
+    /* Use the animation name with additional properties */
+    animation-name: flyOut;
+    animation-duration: 14s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+
+@keyframes flyOut {
+    from {
+        // bottom:
+        transform: translate(0px, 50vh);
+    }
+    to {
+        // top:
+        transform: translate(0px, -200vh);
+    }
+}
+
 @media only screen and (max-width: 991px) {
     .reload-btn,
     .show-modal-btn {
@@ -186,35 +216,5 @@
     }
     .success-gif {
         left: 0;
-    }
-}
-
-.balloon {
-    position: fixed;
-    width: 100vw;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 4;
-
-    -webkit-transition: 1s ease-in;
-    -moz-transition: 1s ease-in;
-    -o-transition: 1s ease-in;
-    transition: 1s ease-in;
-    /* Use the animation name with additional properties */
-    animation-name: flyOut;
-    animation-duration: 14s;
-    animation-iteration-count: 1;
-    animation-direction: alternate;
-}
-
-@keyframes flyOut {
-    from {
-        // bottom:
-        transform: translate(0px, 50vh);
-    }
-    to {
-        // top:
-        transform: translate(0px, -200vh);
     }
 }

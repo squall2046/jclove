@@ -7,6 +7,14 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+button:focus {
+    outline: 0;
+}
+
+button:active {
+    box-shadow: none;
+}
+
 
 // ===== scroll =====:
 /* width */

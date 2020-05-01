@@ -115,8 +115,6 @@ export class MathPlusUnitsComponent implements OnInit {
         this.mathService.math.space[8].fill = "";
       }, 2000);
     }
-
-
   }
 
   modalOn() {

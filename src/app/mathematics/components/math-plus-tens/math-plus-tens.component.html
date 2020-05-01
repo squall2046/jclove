@@ -98,8 +98,8 @@
     <div stopPropagation>
         <div [ngStyle]="{'right': math.selShow ? '0':'-1000px'}" class="select">
             <div class="option">
-                <div *ngFor="let unit of math.units" class="unit pointer" (click)="selectUnit(unit)">{{unit}}</div>
-                <div class="del-unit pointer" (click)="deleteUnit()">Del</div>
+                <button *ngFor="let unit of math.units" class="unit pointer" (click)="selectUnit(unit)">{{unit}}</button>
+                <button class="del-unit pointer" (click)="deleteUnit()">Del</button>
             </div>
             <!-- <div class="option">
             <div class="d-flex flex-row justify-content-around">
@@ -117,10 +117,16 @@
 
     <!-- success gif -->
     <div *ngIf="math.ansCorrect">
-        <img class="success-gif" src="../../../../assets/images/gif/olaf1.gif" alt="">
+        <img class="current-gif" [src]='currentGif'>
+    </div>
+    <div *ngIf="math.ansCorrect">
+        <img class="success-gif" [src]='trueGif'>
     </div>
     <div *ngIf="math.answered && !math.ansCorrect">
-        <img class="success-gif" src="../../../../assets/images/gif/olaf3.gif" alt="">
+        <img class="success-gif" [src]='falseGif'>
+    </div>
+    <div *ngIf="math.ansExcellent">
+        <img class="extra-gif balloon" [src]='extraGif'>
     </div>
 
     <!-- plus sheet modal btn -->
