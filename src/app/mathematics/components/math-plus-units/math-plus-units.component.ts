@@ -59,7 +59,7 @@ export class MathPlusUnitsComponent implements OnInit {
   }
 
   checkGifUnique() {
-    this.currentGif = "../../../../assets/images/gif/ice-cream" + Math.floor(Math.random() * 9) + ".gif";
+    this.currentGif = "../../../../assets/images/gif/ice-cream" + Math.floor(Math.random() * 8) + ".gif";
     if (this.currentGif === this.previousGif) {
       this.checkGifUnique();
     } else {
@@ -93,7 +93,7 @@ export class MathPlusUnitsComponent implements OnInit {
 
     if (expect === answer) {
       // set and play audio:
-      this.audio = "../../../../assets/sound/laugh" + Math.floor(Math.random() * 7) + ".mp3";
+      this.audio = "../../../../assets/sound/laugh" + Math.floor(Math.random() * 6) + ".mp3";
       this.playAudio();
       // add and check rewards:
       this.profileService.rewards.star++;
