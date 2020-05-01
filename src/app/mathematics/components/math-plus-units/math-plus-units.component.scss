@@ -13,7 +13,7 @@
     }
 }
 
-.qsTable {
+.question-table {
     display: flex;
     flex-direction: row;
     // margin: 0;
@@ -98,7 +98,7 @@
 }
 
 .reload-btn,
-.showModalBtn {
+.show-modal-btn {
     position: fixed;
     right: 60px;
     top: 55px;
@@ -109,14 +109,14 @@
     text-align: center;
     z-index: 1000;
 
-    .reloadIcon,
-    .showModalIcon {
+    .reload-icon,
+    .show-modal-icon {
         color: rgb(243, 243, 243);
         font-size: 30px;
         line-height: 40px;
     }
 }
-.showModalBtn {
+.show-modal-btn {
     right: 10px;
     background-color: rgb(214, 154, 23);
     // z-index: 1000;
@@ -145,7 +145,7 @@
 
 @media only screen and (max-width: 991px) {
     .reload-btn,
-    .showModalBtn {
+    .show-modal-btn {
         top: 105px;
     }
 }
@@ -154,7 +154,7 @@
     .math-units {
         padding: 0;
     }
-    .qsTable {
+    .question-table {
         margin-bottom: 0;
     }
     .space {

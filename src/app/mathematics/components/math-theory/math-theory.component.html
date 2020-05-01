@@ -3,19 +3,19 @@
         <section>
             <!-- <div class="question-table d-inline-flex" [ngStyle]="{'border':showAnswer? '4px dashed lightgray':'none'}"> -->
             <div class="question-table d-inline-flex">
-                <div class="itemOne"
+                <div class="item-one"
                     [ngStyle]="{'color': iconColorOne,'border-right':showAnswer? 'none':'4px dashed lightgray'}">
                     <span class="material-icons icon-lg" *ngFor="let any of iconRandomArr">
                         {{iconRandom}}
                     </span>
                 </div>
 
-                <!-- <div class="itemPlus" *ngIf="!showAnswer">+</div> -->
-                <div class="itemPlus" [ngStyle]="{'width':showAnswer? '0':'50px'}">
+                <!-- <div class="item-plus" *ngIf="!showAnswer">+</div> -->
+                <div class="item-plus" [ngStyle]="{'width':showAnswer? '0':'50px'}">
                     <span *ngIf="!showAnswer">+</span>
                 </div>
 
-                <div class="itemTwo" [ngStyle]="{'color': iconColorTwo,
+                <div class="item-two" [ngStyle]="{'color': iconColorTwo,
                     'border-left':showAnswer? 'none':'4px dashed lightgray'}">
                     <span class="material-icons icon-lg" *ngFor="let any of iconRandomArrTwo">
                         {{iconRandom}}
@@ -25,12 +25,12 @@
             <div class="answer-table">
                 <div class="d-inline-flex" *ngIf="showAnswer">
                     <div class="text-sub">{{math.unitRandom}}</div>
-                    <div class="text-sub">+</div>
+                    <div class="text-sub-plus">+</div>
                     <div class="text-sub">{{math.unitRandomTwo}}</div>
                 </div>
             </div>
-            <div class="itemSum" *ngIf="!showAnswer">?</div>
-            <div class="itemSum" *ngIf="showAnswer">{{math.unitRandom+math.unitRandomTwo}}</div>
+            <div class="item-sum" *ngIf="!showAnswer">?</div>
+            <div class="item-sum" *ngIf="showAnswer">{{math.unitRandom+math.unitRandomTwo}}</div>
         </section>
 
         <div class="click-btn pointer" [ngClass]="{'click-btn-next': showAnswer}" (click)="showTime()">

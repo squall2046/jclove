@@ -16,8 +16,8 @@
     margin: 10px auto;
 }
 
-.itemOne,
-.itemTwo {
+.item-one,
+.item-two {
     // display: flex;
     // flex-direction: row;
     // flex-wrap: wrap;
@@ -34,7 +34,7 @@
     background-color: rgb(211, 211, 211, 0.2);
     transition: 2s;
 }
-.itemPlus {
+.item-plus {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,7 +46,7 @@
     text-align: center;
     transition: 2s;
 }
-.itemSum {
+.item-sum {
     height: 40vw;
     max-height: 250px;
     font-size: 60px;
@@ -61,7 +61,12 @@
 }
 
 .text-sub {
-    width: 15vw;
+    width: 40vw;
+    max-width: 250px;
+    font-family: "Frijole", cursive;
+    font-size: 36px;
+}
+.text-sub-plus {
     font-family: "Frijole", cursive;
     font-size: 36px;
 }
@@ -128,17 +133,21 @@
     .question-table {
         height: 112px;
     }
-    .itemOne,
-    .itemTwo {
+    .item-one,
+    .item-two {
         max-width: 110px;
         max-height: 110px;
         padding: 10px 14px;
     }
-    .itemPlus {
+    .item-plus {
         max-height: 120px;
         font-size: 36px;
     }
     .icon-lg {
+        font-size: 24px;
+    }
+    .text-sub {
+        max-width: 110px;
         font-size: 24px;
     }
 }
