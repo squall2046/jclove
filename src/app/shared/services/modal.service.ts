@@ -14,10 +14,12 @@ export class ModalService {
     msgB: "",
     btnConfirm: "Yes",
     btnCancel: "No",
-    showMathModal: false,
-    showMathBasicPlusModal: false,
-    showMathPlusModal: false,
-    showMathTimesModal: false,
+    showModal:{
+      showMathModal: false,
+      showMathBasicPlusModal: false,
+      showMathPlusModal: false,
+      showMathTimesModal: false,
+    }
   }
 
   subsVar: Subscription;

@@ -107,8 +107,12 @@ export class MathPlusUnitsComponent implements OnInit {
   }
 
   modalOn() {
-    this.modalService.modal.showMathPlusModal = true;
-    this.modalService.modal.showMathModal = false;
-    this.modalService.modal.showMathTimesModal = false;
+    const showModal = Object.keys(this.modalService.modal.showModal);
+    showModal.forEach(prop => {
+      this.modalService.modal.showModal[prop] = false;
+      if (prop === "showMathPlusModal") {
+        this.modalService.modal.showModal[prop] = true;
+      }
+    });
   }
 }

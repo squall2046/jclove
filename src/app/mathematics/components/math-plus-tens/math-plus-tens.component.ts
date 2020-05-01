@@ -26,7 +26,7 @@ export class MathPlusTensComponent implements OnInit {
   ngOnInit(): void {
     this.math = this.mathService.math;
     this.rainbowArr = this.profileService.rewards.rainbows;
-    this.starArr = this.profileService.rewards.stars
+    this.starArr = this.profileService.rewards.stars;
     // console.log(15 % 7, 8 % 7, 2 % 7);
     this.reload();
   }
@@ -42,9 +42,17 @@ export class MathPlusTensComponent implements OnInit {
       this.profileService.rewards.rainbows.push(this.profileService.rewards.rainbow);
     }
 
+    // this.profileService.postRewards().subscribe(arg => {
+      // this.profileService.rewards.rainbows = arg.rainbows;
+      // this.profileService.rewards.stars = arg.stars;
+      // this.profileService.rewards.rainbow = arg.rainbow;
+      // this.profileService.rewards.star = arg.star;
 
-    this.starArr = this.profileService.rewards.stars;
+      // console.log(arg);
+    // });
+
     this.rainbowArr = this.profileService.rewards.rainbows;
+    this.starArr = this.profileService.rewards.stars;
   }
 
   reload() {
@@ -54,6 +62,7 @@ export class MathPlusTensComponent implements OnInit {
     this.mathService.math.space.forEach(space => {
       space.fill = "";
     });
+    // // if this.space is object:
     // const space = Object.entries(this.space)
     // space.forEach(([sp]) => {
     //   this.space[sp].fill = "";
@@ -135,9 +144,9 @@ export class MathPlusTensComponent implements OnInit {
     setTimeout(() => {
       if (this.math.ansCorrect) {
         this.profileService.rewards.star++;
+        this.checkStar();
         setTimeout(() => {
           this.reload();
-          this.checkStar();
         }, 3000);
       }
 
@@ -153,8 +162,12 @@ export class MathPlusTensComponent implements OnInit {
   }
 
   modalOn() {
-    this.modalService.modal.showMathPlusModal = true;
-    this.modalService.modal.showMathModal = false;
-    this.modalService.modal.showMathTimesModal = false
+    const showModal = Object.keys(this.modalService.modal.showModal);
+    showModal.forEach(prop => {
+      this.modalService.modal.showModal[prop] = false;
+      if (prop === "showMathPlusModal") {
+        this.modalService.modal.showModal[prop] = true;
+      }
+    });
   }
 }

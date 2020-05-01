@@ -28,11 +28,16 @@ export class MathematicsComponent implements OnInit {
     //   this.modalCancel());
   }
 
-  modalOn(operation) {
-    this.modalService.modal.showMathModal = true;
-    this.modalService.modal.showMathPlusModal = false;
-    this.modalService.modal.showMathTimesModal = false;
+  modalOn() {
+    const showModal = Object.keys(this.modalService.modal.showModal);
+    showModal.forEach(prop => {
+      this.modalService.modal.showModal[prop] = false;
+      if (prop === "showMathModal") {
+        this.modalService.modal.showModal[prop] = true;
+      }
+    });
   }
+
   modalConfirm() { }
   modalCancel() { }
 }

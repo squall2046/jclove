@@ -56,10 +56,13 @@ export class MathTheoryComponent implements OnInit {
   //   this.rainbowArr = this.profileService.rewards.rainbows;
   // }
   modalOn() {
-    this.modalService.modal.showMathBasicPlusModal = true;
-    this.modalService.modal.showMathPlusModal = false;
-    this.modalService.modal.showMathModal = false;
-    this.modalService.modal.showMathTimesModal = false;
+    const showModal = Object.keys(this.modalService.modal.showModal);
+    showModal.forEach(prop => {
+      this.modalService.modal.showModal[prop] = false;
+      if (prop === "showMathBasicPlusModal") {
+        this.modalService.modal.showModal[prop] = true;
+      }
+    });
   }
 
   checkUniqueColor() {

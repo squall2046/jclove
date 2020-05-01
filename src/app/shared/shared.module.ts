@@ -6,18 +6,11 @@ import { PageNoFoundComponent } from './components/page-no-found/page-no-found.c
 import { ModalComponent } from './components/modal/modal.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
 
 
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-// import { fas } from '@fortawesome/free-solid-svg-icons';
-// import { far } from '@fortawesome/free-regular-svg-icons';
-// import { fab } from '@fortawesome/free-brands-svg-icons';
-// import { library } from '@fortawesome/fontawesome-svg-core';
 // import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
-
-// import { TooltipModule } from 'ng2-tooltip-directive';
-
 
 @NgModule({
   declarations: [
@@ -27,6 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -38,6 +32,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   ],
   exports: [
     CommonModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,

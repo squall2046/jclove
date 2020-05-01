@@ -2,7 +2,7 @@
     <!-- =============== math Card ================= -->
     <div class="math-card-container">
         <div class="math-card" *ngFor="let opn of math.operation">
-            <div class="operation pointer" data-toggle="modal" data-target="#modal" (click)="modalOn(opn.name)">
+            <div class="operation pointer" data-toggle="modal" data-target="#modal" (click)="modalOn()">
                 {{opn.symbol}}
             </div>
         </div>
