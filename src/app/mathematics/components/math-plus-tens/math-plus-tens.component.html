@@ -98,8 +98,8 @@
     <div stopPropagation>
         <div [ngStyle]="{'right': math.selShow ? '0':'-1000px'}" class="select">
             <div class="option">
-                <button *ngFor="let unit of math.units" class="unit pointer" (click)="selectUnit(unit)">{{unit}}</button>
-                <button class="del-unit pointer" (click)="deleteUnit()">Del</button>
+                <div *ngFor="let unit of math.units" class="unit pointer" (click)="selectUnit(unit)">{{unit}}</div>
+                <div class="del-unit pointer" (click)="deleteUnit()">Del</div>
             </div>
             <!-- <div class="option">
             <div class="d-flex flex-row justify-content-around">

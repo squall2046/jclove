@@ -26,7 +26,7 @@
     </main>
 
     <section class="select option">
-        <button *ngFor="let num of math.Twenty" class="unit pointer" (click)="selectNum(num)">{{num}}</button>
+        <div *ngFor="let num of math.Twenty" class="unit pointer" (click)="selectNum(num)">{{num}}</div>
     </section>
 
     <!-- reload btn -->
