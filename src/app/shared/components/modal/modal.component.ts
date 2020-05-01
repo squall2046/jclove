@@ -38,24 +38,7 @@ export class ModalComponent implements OnInit {
     this.app.sidebar.show = false;
 
     this.app.path = "/math";
-
-    switch (section) {
-      case "theory":
-        this.router.navigate(['/math/theory'])
-        this.app.main.headText = "math/theory";
-        break;
-      case "units":
-        this.router.navigate(['/math/units'])
-        this.app.main.headText = "math/units";
-        break;
-      case "tens":
-        this.router.navigate(['/math/tens'])
-        this.app.main.headText = "math/tens";
-        break;
-      case "quiz":
-        this.router.navigate(['/math/quiz'])
-        this.app.main.headText = "math/quiz";
-        break;
-    }
+    this.router.navigate(['/math/' + section])
+    this.app.main.headText = "/math/" + section;
   }
 }

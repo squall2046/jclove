@@ -33,6 +33,15 @@
     bottom: -40px;
     left: -50px;
 }
+
+.mouse-gif-block {
+    position: absolute;
+    bottom: -302px;
+    width: 105px;
+    height: 300px;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+}
 .mouse-gif {
     display: inline-block;
     width: 105px;
@@ -49,15 +58,6 @@
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
-.mouse-gif-block {
-    position: absolute;
-    bottom: -302px;
-    width: 105px;
-    height: 300px;
-    background-color: rgb(255, 255, 255);
-    z-index: 1;
-}
-
 @keyframes jump {
     from {
         // bottom:

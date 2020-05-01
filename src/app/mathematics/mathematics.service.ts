@@ -120,6 +120,7 @@ export class MathematicsService {
     ],
     answered: false,
     ansCorrect: false,
+    ansExcellent: false,
   }
 
   constructor() {

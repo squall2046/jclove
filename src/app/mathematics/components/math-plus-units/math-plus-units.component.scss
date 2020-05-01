@@ -53,6 +53,12 @@
     font-family: "Frijole", cursive;
     text-align: center;
 }
+.unit {
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    font-size: 40px;
+}
 
 .space {
     width: 65px;
@@ -76,6 +82,8 @@
 
 .select {
     width: 600px;
+    width: 430px;
+    max-width: 100%;
     padding: 10px;
     height: auto;
     margin: auto;
@@ -83,7 +91,7 @@
     background-color: rgb(240, 240, 240);
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
     transition: 0.5s;
-    z-index: 1001;
+    z-index: 1;
 }
 
 .txt-color {
@@ -126,21 +134,21 @@
     display: inline-block;
     position: fixed;
     // width: 50%;
-    top: 150px;
+    top: 200px;
+    right: 50px;
     margin: auto;
     text-align: center;
-    z-index: 1100;
+    z-index: 3;
 }
-
-.select {
-    width: 430px;
-    max-width: 100%;
-}
-.unit {
-    width: 65px;
-    height: 65px;
-    line-height: 65px;
-    font-size: 40px;
+.current-gif {
+    display: inline-block;
+    position: fixed;
+    width: 400px;
+    top: 200px;
+    left: -50px;
+    margin: auto;
+    text-align: center;
+    z-index: 2;
 }
 
 @media only screen and (max-width: 991px) {
@@ -178,5 +186,35 @@
     }
     .success-gif {
         left: 0;
+    }
+}
+
+.balloon {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+
+    -webkit-transition: 1s ease-in;
+    -moz-transition: 1s ease-in;
+    -o-transition: 1s ease-in;
+    transition: 1s ease-in;
+    /* Use the animation name with additional properties */
+    animation-name: flyOut;
+    animation-duration: 14s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+
+@keyframes flyOut {
+    from {
+        // bottom:
+        transform: translate(0px, 50vh);
+    }
+    to {
+        // top:
+        transform: translate(0px, -200vh);
     }
 }

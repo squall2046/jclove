@@ -17,6 +17,13 @@ export class MathPlusUnitsComponent implements OnInit {
   starArr = [];
   rainbowArr = [];
 
+  audio = "";
+  previousGif = "0";
+  currentGif = "1";
+  extraGif = "../../../../assets/images/gif/balloon.png"
+  trueGif = "../../../../assets/images/gif/olaf2.gif";
+  falseGif = "../../../../assets/images/gif/olaf3.gif";
+
   constructor(
     private mathService: MathematicsService,
     private modalService: ModalService,
@@ -37,15 +44,27 @@ export class MathPlusUnitsComponent implements OnInit {
       this.profileService.rewards.stars.push(this.profileService.rewards.star);
     }
     if (this.profileService.rewards.star === 7) {
-      this.profileService.rewards.star = 0;
-      this.profileService.rewards.stars = [];
+      this.mathService.math.ansExcellent = true;
+      setTimeout(() => {
+        this.mathService.math.ansExcellent = false;
+      }, 8000);
       this.profileService.rewards.rainbow++;
       this.profileService.rewards.rainbows.push(this.profileService.rewards.rainbow);
+      this.profileService.rewards.star = 0;
+      this.profileService.rewards.stars = [];
     }
-
 
     this.starArr = this.profileService.rewards.stars;
     this.rainbowArr = this.profileService.rewards.rainbows;
+  }
+
+  checkGifUnique() {
+    this.currentGif = "../../../../assets/images/gif/ice-cream" + Math.floor(Math.random() * 9) + ".gif";
+    if (this.currentGif === this.previousGif) {
+      this.checkGifUnique();
+    } else {
+      this.previousGif = this.currentGif;
+    }
   }
 
   reload() {
@@ -55,16 +74,9 @@ export class MathPlusUnitsComponent implements OnInit {
     this.math.ansCorrect = false;
   }
 
-  playLaughAudio() {
+  playAudio() {
     let audio = new Audio();
-    let random = Math.floor(Math.random() * 7) + 1;
-    audio.src = "../../../../assets/sound/laugh" + random + ".mp3";
-    audio.load();
-    audio.play();
-  }
-  playSadAudio() {
-    let audio = new Audio();
-    audio.src = "../../../../assets/sound/sad1.mp3";
+    audio.src = this.audio;
     audio.load();
     audio.play();
   }
@@ -77,33 +89,34 @@ export class MathPlusUnitsComponent implements OnInit {
   checkAnswer() {
     let answer: number = parseInt(this.mathService.math.space[8].fill);
     let expect: number = parseInt(this.math.unitRandom) + parseInt(this.math.unitRandomTwo);
-    console.log(expect, answer);
+    // console.log(expect, answer);
 
     if (expect === answer) {
+      // set and play audio:
+      this.audio = "../../../../assets/sound/laugh" + Math.floor(Math.random() * 7) + ".mp3";
+      this.playAudio();
+      // add and check rewards:
+      this.profileService.rewards.star++;
+      this.checkStar();
+      // set currentGif
+      this.checkGifUnique();
+      // show currentGif and trueGif:
       this.math.ansCorrect = true;
-      this.playLaughAudio();
+      // reload question and status:
+      setTimeout(() => {
+        this.reload();
+      }, 3000);
+    } else {
+      // set and play audio:
+      this.audio = "../../../../assets/sound/sad1.mp3";
+      this.playAudio();
+      // no reload question but reload status:
+      setTimeout(() => {
+        this.mathService.math.space[8].fill = "";
+      }, 2000);
     }
 
-    setTimeout(() => {
-      if (this.math.ansCorrect) {
-        this.profileService.rewards.star++;
-        setTimeout(() => {
-          this.reload();
-          this.checkStar();
-        }, 3000);
-      }
 
-      if (!this.math.ansCorrect) {
-        this.playSadAudio();
-
-        setTimeout(() => {
-          this.math.ansCorrect = false;
-          setTimeout(() => {
-            this.mathService.math.space[8].fill = "";
-          }, 2000);
-        });
-      }
-    });
   }
 
   modalOn() {

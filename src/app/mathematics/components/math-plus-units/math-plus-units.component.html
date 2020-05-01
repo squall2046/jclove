@@ -36,10 +36,16 @@
 
     <!-- success gif -->
     <div *ngIf="math.ansCorrect">
-        <img class="success-gif" src="../../../../assets/images/gif/olaf2.gif" alt="">
+        <img class="current-gif" [src]='currentGif'>
+    </div>
+    <div *ngIf="math.ansCorrect">
+        <img class="success-gif" [src]='trueGif'>
     </div>
     <div *ngIf="math.space[8].fill && !math.ansCorrect">
-        <img class="success-gif" src="../../../../assets/images/gif/olaf3.gif" alt="">
+        <img class="success-gif" [src]='falseGif'>
+    </div>
+    <div *ngIf="math.ansExcellent">
+        <img class="extra-gif balloon" [src]='extraGif'>
     </div>
 
     <!-- plus sheet modal btn -->
