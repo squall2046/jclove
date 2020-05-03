@@ -15,6 +15,7 @@ export class MathPlusTensComponent implements OnInit {
   math: any;
   modal: Modal;
   profile: User;
+  user: User[] = [];
 
   audio = "";
   previousGif = "0";
@@ -50,6 +51,17 @@ export class MathPlusTensComponent implements OnInit {
       this.profileService.profile.rewards.star = 0;
       this.profileService.profile.rewards.stars = [];
     }
+
+    this.profileService.updateRewards().subscribe(res => {
+      // this.profileService.profile = res;
+      this.user = res;
+      console.log(typeof this.user, this.user);
+      console.log("user: ", this.user[0].userId);
+      this.profileService.profile.rewards.rainbow = this.user[0].rewards.rainbow;
+      this.profileService.profile.rewards.star = this.user[0].rewards.star;
+      this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
+      this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
+    });
 
     // this.profileService.postRewards().subscribe(arg => {
     // this.profileService.profile.rewards.rainbows = arg.rainbows;

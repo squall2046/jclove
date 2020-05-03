@@ -32,7 +32,8 @@ export class ProfileService {
 
   getRewards(): Observable<User[]> {
     let url = "/api/profile/get/rewards";
-    return this.http.get(url, this.httpOptions).pipe(
+    // === post to get will be error???? ===
+    return this.http.post(url, this.httpOptions).pipe(
       map(response => response as User[]))
   }
 

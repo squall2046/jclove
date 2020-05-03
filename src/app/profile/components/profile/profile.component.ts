@@ -9,7 +9,7 @@ import { User } from '../../../shared/models/user.model';
 })
 export class ProfileComponent implements OnInit {
   profile: User;
-  user: User[] = [];
+  // user: User[] = [];
 
 
   constructor(
@@ -19,10 +19,12 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.profile = this.profileService.profile;
 
-    this.profileService.getRewards().subscribe(res => {
-      // this.user = res;
-      console.log(res);
-    });
+    // this.profileService.getRewards().subscribe(res => {
+    //   this.user = res;
+    //   console.log(res);
+    //   this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
+    //   this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
+    // });
   }
 
 }

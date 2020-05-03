@@ -57,7 +57,10 @@ export class MathPlusUnitsComponent implements OnInit {
       this.user = res;
       console.log(typeof this.user, this.user);
       console.log("user: ", this.user[0].userId);
-      // this.profileService.profile = this.user;
+      this.profileService.profile.rewards.rainbow = this.user[0].rewards.rainbow;
+      this.profileService.profile.rewards.star = this.user[0].rewards.star;
+      this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
+      this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
     });
   }
 

@@ -3,6 +3,9 @@ import { AppService } from './app.service';
 import { App } from './app.model';
 import { Router } from '@angular/router';
 
+import { ProfileService } from './profile/profile.service';
+import { User } from './shared/models/user.model';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,13 +13,17 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   app: App;
+  user: User[] = [];
+
   constructor(
     private appService: AppService,
     private router: Router,
+    private profileService: ProfileService,
   ) { }
   ngOnInit(): void {
     this.app = this.appService.app;
     this.setbackTo();
+    this.enterProfile();
   }
 
   setbackTo() {
@@ -78,5 +85,16 @@ export class AppComponent implements OnInit {
         break;
     }
     this.app.path = "";
+  }
+
+  enterProfile() {
+    this.profileService.getRewards().subscribe(res => {
+      this.user = res;
+      console.log(res);
+      this.profileService.profile.rewards.rainbow = this.user[0].rewards.rainbow;
+      this.profileService.profile.rewards.star = this.user[0].rewards.star;
+      this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
+      this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
+    });
   }
 }
