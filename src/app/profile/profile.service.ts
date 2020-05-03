@@ -24,22 +24,22 @@ export class ProfileService {
   };
 
   // base = "localhost:3000";
-  // httpOptions = {
-  //   headers: new HttpHeaders({ "Content-Type": "application/json" })
-  // };
+  httpOptions = {
+    headers: new HttpHeaders({ "Content-Type": "application/json" })
+  };
 
   constructor(private http: HttpClient) { }
 
-  // getRewards(): Observable<User[]> {
-  //   let url = "/api/profile/get/rewards";
-  //   // === post to get will be error???? ===
-  //   return this.http.post(url, this.httpOptions).pipe(
-  //     map(response => response as User[]))
-  // }
+  getRewards(): Observable<User[]> {
+    let url = "/api/profile/get/rewards";
+    // === post to get will be error???? ===
+    return this.http.post(url, this.httpOptions).pipe(
+      map(response => response as User[]))
+  }
 
-  // updateRewards(): Observable<User[]> {
-  //   let url = "/api/profile/put/rewards";
-  //   return this.http.put(url, this.profile, this.httpOptions).pipe(
-  //     map(response => response as User[]))
-  // }
+  updateRewards(): Observable<User[]> {
+    let url = "/api/profile/put/rewards";
+    return this.http.put(url, this.profile, this.httpOptions).pipe(
+      map(response => response as User[]))
+  }
 }

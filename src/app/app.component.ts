@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.app = this.appService.app;
     this.setbackTo();
-    // this.enterProfile();
+    this.enterProfile();
   }
 
   setbackTo() {
@@ -87,14 +87,14 @@ export class AppComponent implements OnInit {
     this.app.path = "";
   }
 
-  // enterProfile() {
-  //   this.profileService.getRewards().subscribe(res => {
-  //     this.user = res;
-  //     console.log(res);
-  //     this.profileService.profile.rewards.rainbow = this.user[0].rewards.rainbow;
-  //     this.profileService.profile.rewards.star = this.user[0].rewards.star;
-  //     this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
-  //     this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
-  //   });
-  // }
+  enterProfile() {
+    this.profileService.getRewards().subscribe(res => {
+      this.user = res;
+      console.log(res);
+      this.profileService.profile.rewards.rainbow = this.user[0].rewards.rainbow;
+      this.profileService.profile.rewards.star = this.user[0].rewards.star;
+      this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
+      this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
+    });
+  }
 }
