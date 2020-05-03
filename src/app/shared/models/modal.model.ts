@@ -6,12 +6,10 @@ export class Modal {
   msgB?: string;
   btnConfirm?: string;
   btnCancel?: string;
-  showModal?: ShowModal;
-}
-
-export class ShowModal {
-  showMathModal?: boolean;
-  showMathBasicPlusModal?: boolean;
-  showMathPlusModal?: boolean;
-  showMathTimesModal?: boolean;
+  showModal?: {
+    showMathModal?: boolean;
+    showMathBasicPlusModal?: boolean;
+    showMathPlusModal?: boolean;
+    showMathTimesModal?: boolean;
+  };
 }

@@ -12,14 +12,13 @@ export class ProfileService {
     userName: 'Mu Yan',
     email: 'joanna.wu@gmail.com',
     userImage: './../../../assets/images/logo/joanna.jpg',
+    rewards: {
+      star: 0,
+      rainbow: 0,
+      stars: [],
+      rainbows: [],
+    }
   };
-
-  rewards = {
-    star: 0,
-    rainbow: 0,
-    stars: [],
-    rainbows: [],
-  }
 
   constructor() { }
 }

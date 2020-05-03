@@ -161,7 +161,7 @@ hr {
     position: fixed;
     width: 400px;
     top: 200px;
-    right: -50px;
+    right: 0;
     margin: auto;
     text-align: center;
     z-index: 2;
@@ -242,6 +242,9 @@ hr {
         width: 105px;
     }
     .success-gif {
-        left: 0;
+        left: -50px;
+    }
+    .current-gif {
+        right: -50px;
     }
 }

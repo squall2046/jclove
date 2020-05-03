@@ -13,6 +13,12 @@ export class UserService {
       userName: 'Mu Yan',
       email: 'joanna.wu@gmail.com',
       userImage: './../../../assets/images/logo/joanna.jpg',
+      rewards: {
+        star: 0,
+        rainbow: 0,
+        stars: [],
+        rainbows: [],
+      }
     },
     {
       userId: 190001,
@@ -21,15 +27,15 @@ export class UserService {
       userName: 'Mu Zhi',
       email: 'chloe.wu@gmail.com',
       userImage: './../../../assets/images/logo/chloe.jpg',
+      rewards: {
+        star: 0,
+        rainbow: 0,
+        stars: [],
+        rainbows: [],
+      }
     }
   ]
 
-  rewards = {
-    stars: {
-      number: 0,
-      colors: ["red", "orange", "yellow", "green", "blue", "purple"]
-    }
-  }
 
   constructor() { }
 }

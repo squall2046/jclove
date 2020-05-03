@@ -12,10 +12,7 @@ import { ModalService } from 'src/app/shared/services/modal.service';
 export class MathTheoryComponent implements OnInit {
   math: any;
   modal: Modal;
-  // profile: any;
 
-  // starArr = [];
-  // rainbowArr = [];
   iconColorOne = "";
   iconColorTwo = "";
   iconRandom = "";
@@ -29,32 +26,13 @@ export class MathTheoryComponent implements OnInit {
   constructor(
     private mathService: MathematicsService,
     private modalService: ModalService,
-    // private profileService: ProfileService,
   ) { }
 
   ngOnInit(): void {
     this.math = this.mathService.math;
-    // this.rainbowArr = this.profileService.rewards.rainbows;
-    // this.starArr = this.profileService.rewards.stars;
     this.reload();
-    // console.log(15 % 7, 8 % 7, 2 % 7);
   }
 
-  // checkStar() {
-  //   if (this.profileService.rewards.star > 0 && this.profileService.rewards.star < 7) {
-  //     this.profileService.rewards.stars.push(this.profileService.rewards.star);
-  //   }
-  //   if (this.profileService.rewards.star === 7) {
-  //     this.profileService.rewards.star = 0;
-  //     this.profileService.rewards.stars = [];
-  //     this.profileService.rewards.rainbow++;
-  //     this.profileService.rewards.rainbows.push(this.profileService.rewards.rainbow);
-  //   }
-
-
-  //   this.starArr = this.profileService.rewards.stars;
-  //   this.rainbowArr = this.profileService.rewards.rainbows;
-  // }
   modalOn() {
     const showModal = Object.keys(this.modalService.modal.showModal);
     showModal.forEach(prop => {
@@ -110,10 +88,6 @@ export class MathTheoryComponent implements OnInit {
   }
 
   showTime() {
-    // this.checkAnswer();
-    // setTimeout(() => {
-    //   this.reload();
-    // }, 9000);
     if (!this.showAnswer) {
       return this.showAnswer = true;
     }

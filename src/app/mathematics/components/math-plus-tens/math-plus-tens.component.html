@@ -2,11 +2,11 @@
     <main class="main">
         <aside>
             <div class="rewards">
-                <span *ngFor="let rainbow of rainbowArr">
+                <span *ngFor="let rainbow of profile.rewards.rainbows">
                     <span class="material-icons reward-rainbow f-rainbow">
                         looks </span>
                 </span>
-                <span *ngFor="let star of starArr; index as key">
+                <span *ngFor="let star of profile.rewards.stars; index as key">
                     <span *ngIf="star%7===1" class="material-icons reward-star f-red"> star </span>
                     <span *ngIf="star%7===2" class="material-icons reward-star f-orange"> star </span>
                     <span *ngIf="star%7===3" class="material-icons reward-star f-yellow"> star </span>

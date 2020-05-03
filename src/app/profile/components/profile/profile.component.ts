@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../../profile/profile.service';
+import { User } from '../../../shared/models/user.model';
 
 @Component({
   selector: 'app-profile',
@@ -7,10 +8,7 @@ import { ProfileService } from '../../../profile/profile.service';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  profile: any;
-
-  starArr = [];
-  rainbowArr = [];
+  profile: User;
 
   constructor(
     private profileService: ProfileService,
@@ -18,8 +16,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.profile = this.profileService.profile;
-    this.starArr = this.profileService.rewards.stars;
-    this.rainbowArr = this.profileService.rewards.rainbows;
   }
 
 }

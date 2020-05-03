@@ -5,4 +5,10 @@ export class User {
   userName: string;
   email: string;
   userImage: string;
+  rewards: {
+    star: number;
+    rainbow: number,
+    stars: number[],
+    rainbows: number[],
+  }
 }

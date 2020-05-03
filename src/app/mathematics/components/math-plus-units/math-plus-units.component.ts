@@ -4,6 +4,8 @@ import { Modal } from 'src/app/shared/models/modal.model';
 import { MathematicsService } from '../../mathematics.service';
 import { ModalService } from 'src/app/shared/services/modal.service';
 import { ProfileService } from '../../../profile/profile.service';
+import { User } from '../../../shared/models/user.model';
+
 @Component({
   selector: 'app-math-plus-units',
   templateUrl: './math-plus-units.component.html',
@@ -12,10 +14,7 @@ import { ProfileService } from '../../../profile/profile.service';
 export class MathPlusUnitsComponent implements OnInit {
   math: any;
   modal: Modal;
-  profile: any;
-
-  starArr = [];
-  rainbowArr = [];
+  profile: User;
 
   audio = "";
   previousGif = "0";
@@ -32,30 +31,26 @@ export class MathPlusUnitsComponent implements OnInit {
 
   ngOnInit(): void {
     this.math = this.mathService.math;
-    this.rainbowArr = this.profileService.rewards.rainbows;
-    this.starArr = this.profileService.rewards.stars;
+    this.profile = this.profileService.profile;
     this.reload();
-
     // console.log(15 % 7, 8 % 7, 2 % 7);
   }
 
   checkStar() {
-    if (this.profileService.rewards.star > 0 && this.profileService.rewards.star < 7) {
-      this.profileService.rewards.stars.push(this.profileService.rewards.star);
+    if (this.profileService.profile.rewards.star > 0 && this.profileService.profile.rewards.star < 7) {
+      this.profileService.profile.rewards.stars.push(this.profileService.profile.rewards.star);
     }
-    if (this.profileService.rewards.star === 7) {
+    if (this.profileService.profile.rewards.star === 7) {
       this.mathService.math.ansExcellent = true;
       setTimeout(() => {
         this.mathService.math.ansExcellent = false;
       }, 8000);
-      this.profileService.rewards.rainbow++;
-      this.profileService.rewards.rainbows.push(this.profileService.rewards.rainbow);
-      this.profileService.rewards.star = 0;
-      this.profileService.rewards.stars = [];
+      this.profileService.profile.rewards.rainbow++;
+      this.profileService.profile.rewards.rainbows.push(this.profileService.profile.rewards.rainbow);
+      this.profileService.profile.rewards.star = 0;
+      this.profileService.profile.rewards.stars = [];
     }
-
-    this.starArr = this.profileService.rewards.stars;
-    this.rainbowArr = this.profileService.rewards.rainbows;
+    console.log(this.profileService.profile.rewards);
   }
 
   checkGifUnique() {
@@ -96,7 +91,7 @@ export class MathPlusUnitsComponent implements OnInit {
       this.audio = "../../../../assets/sound/laugh" + Math.floor(Math.random() * 6) + ".mp3";
       this.playAudio();
       // add and check rewards:
-      this.profileService.rewards.star++;
+      this.profileService.profile.rewards.star++;
       this.checkStar();
       // set currentGif
       this.checkGifUnique();

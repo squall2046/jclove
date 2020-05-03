@@ -3,8 +3,10 @@
         <section>
             <!-- <div class="question-table d-inline-flex" [ngStyle]="{'border':showAnswer? '4px dashed lightgray':'none'}"> -->
             <div class="question-table d-inline-flex">
-                <div class="item-one"
-                    [ngStyle]="{'color': iconColorOne,'border-right':showAnswer? 'none':'4px dashed lightgray'}">
+                <div class="item-one" [ngStyle]="{'color': iconColorOne,
+                    'border-right':showAnswer? 'none':'4px dashed lightgray',
+                    'padding-right':showAnswer? '0':'18px',
+                    'text-align':showAnswer? 'right':'center'}">
                     <span class="material-icons icon-lg" *ngFor="let any of iconRandomArr">
                         {{iconRandom}}
                     </span>
@@ -16,7 +18,9 @@
                 </div>
 
                 <div class="item-two" [ngStyle]="{'color': iconColorTwo,
-                    'border-left':showAnswer? 'none':'4px dashed lightgray'}">
+                    'border-left':showAnswer? 'none':'4px dashed lightgray',
+                    'padding-left':showAnswer? '0':'18px',
+                    'text-align':showAnswer? 'left':'center'}">
                     <span class="material-icons icon-lg" *ngFor="let any of iconRandomArrTwo">
                         {{iconRandom}}
                     </span>
