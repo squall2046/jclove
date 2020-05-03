@@ -9,6 +9,8 @@ import { User } from '../../../shared/models/user.model';
 })
 export class ProfileComponent implements OnInit {
   profile: User;
+  user: User[] = [];
+
 
   constructor(
     private profileService: ProfileService,
@@ -16,6 +18,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.profile = this.profileService.profile;
+
+    this.profileService.getRewards().subscribe(res => {
+      // this.user = res;
+      console.log(res);
+    });
   }
 
 }

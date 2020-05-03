@@ -2,32 +2,48 @@
 // =============================================================
 module.exports = function (app) {
 
-  profile = {
-    userId: 150001,
-    firstName: 'Joanna',
-    lastName: 'Wu',
-    userName: 'Mu Yan',
-    email: 'joanna.wu@gmail.com',
-    userImage: './../../../assets/images/logo/joanna.jpg',
-    rewards: {
-      star: 0,
-      rainbow: 0,
-      stars: [],
-      rainbows: [],
+  let joanna = {
+    "userId": 150001,
+    "firstName": "Joanna",
+    "lastName": "Wu",
+    "userName": "Mu_Yan",
+    "email": "joanna.wu@gmail.com",
+    "userImage": "./../../../assets/images/logo/joanna.jpg",
+    "rewards": {
+      "star": 3,
+      "rainbow": 1,
+      "stars": [
+        1,
+        2,
+        3
+      ],
+      "rainbows": [
+        1
+      ]
     }
-  };
+  }
 
   // =============== get all news data from mongodb ===============
-  app.get("/api", (req, res) => {
-    res.json(profile);
+  app.get("/api/profile/get/rewards", (req, res) => {
+    console.log("get profile request");
+    res.json(joanna)
   });
 
-  app.post("/api/profile/rewards", (req, res) => {
+  app.put("/api/profile/put/rewards", (req, res) => {
     console.log("user:", req.body);
 
-    // profile.rewards.stars = user.rewards.stars;
-    // profile.rewards.rainbows = user.rewards.rainbows;
+    // profile.rewards.stars = req.body.rewards.stars;
+    // profile.rewards.rainbows = req.body.rewards.rainbows;
 
-    // res.json(profile.rewards);
+    res.json(joanna);
+
+    // res.json(
+    //   {
+    //     star: 3,
+    //     rainbow: 1,
+    //     stars: [1, 2, 3],
+    //     rainbows: [1],
+    //   }
+    // );
   });
 };

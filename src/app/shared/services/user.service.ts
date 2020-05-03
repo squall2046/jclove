@@ -10,7 +10,7 @@ export class UserService {
       userId: 150001,
       firstName: 'Joanna',
       lastName: 'Wu',
-      userName: 'Mu Yan',
+      userName: 'Mu_Yan',
       email: 'joanna.wu@gmail.com',
       userImage: './../../../assets/images/logo/joanna.jpg',
       rewards: {
@@ -24,7 +24,7 @@ export class UserService {
       userId: 190001,
       firstName: 'Chloe',
       lastName: 'Wu',
-      userName: 'Mu Zhi',
+      userName: 'Mu_Zhi',
       email: 'chloe.wu@gmail.com',
       userImage: './../../../assets/images/logo/chloe.jpg',
       rewards: {

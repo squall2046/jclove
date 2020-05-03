@@ -6,7 +6,6 @@ import { PageNoFoundComponent } from './components/page-no-found/page-no-found.c
 import { ModalComponent } from './components/modal/modal.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { HttpClientModule } from '@angular/common/http';
 
 
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -20,7 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -32,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports: [
     CommonModule,
-    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,

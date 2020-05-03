@@ -15,6 +15,7 @@ export class MathPlusUnitsComponent implements OnInit {
   math: any;
   modal: Modal;
   profile: User;
+  user: User[] = [];
 
   audio = "";
   previousGif = "0";
@@ -50,7 +51,14 @@ export class MathPlusUnitsComponent implements OnInit {
       this.profileService.profile.rewards.star = 0;
       this.profileService.profile.rewards.stars = [];
     }
-    console.log(this.profileService.profile.rewards);
+
+    this.profileService.updateRewards().subscribe(res => {
+      // this.profileService.profile = res;
+      this.user = res;
+      console.log(typeof this.user, this.user);
+      console.log("user: ", this.user[0].userId);
+      // this.profileService.profile = this.user;
+    });
   }
 
   checkGifUnique() {
