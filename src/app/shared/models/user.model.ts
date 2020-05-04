@@ -1,14 +1,14 @@
 export class User {
-  userId: number;
+  userName: string;
+  password?: string;
   firstName: string;
   lastName: string;
-  userName: string;
-  email: string;
-  userImage: string;
+  email?: string;
+  userImage?: string;
   rewards: {
-    star: number;
-    rainbow: number,
-    stars: number[],
-    rainbows: number[],
+    star?: number;
+    rainbow?: number,
+    stars?: number[],
+    rainbows?: number[],
   }
 }

@@ -9,12 +9,11 @@ import { map, catchError } from "rxjs/operators";
 })
 export class ProfileService {
   profile: User = {
-    userId: 150001,
-    firstName: 'Joanna',
+    userName: '',
+    firstName: '',
     lastName: 'Wu',
-    userName: 'Mu_Yan',
-    email: 'joanna.wu@gmail.com',
-    userImage: './../../../assets/images/logo/joanna.jpg',
+    email: '',
+    userImage: '',
     rewards: {
       star: 0,
       rainbow: 0,
@@ -36,6 +35,12 @@ export class ProfileService {
     return this.http.post(url, this.httpOptions).pipe(
       map(response => response as User[]))
   }
+
+  // getRewards(): Observable<User[]> {
+  //   let url = "/api/profile/get/rewards";
+  //   // === post to get will be error???? ===
+  //   return this.http.get<any>(url, this.httpOptions)
+  // }
 
   updateRewards(): Observable<User[]> {
     let url = "/api/profile/put/rewards";

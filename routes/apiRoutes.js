@@ -1,37 +1,56 @@
-// Routes
-// =============================================================
-module.exports = function (app) {
+const express = require('express');
+const router = express.Router();
+const Controller = require("../controllers/api-controller");
 
-  let profile = [{
-    "userId": 150001,
-    "firstName": "Joanna",
-    "lastName": "Wu",
-    "userName": "Mu_Yan",
-    "email": "joanna.wu@gmail.com",
-    "userImage": "./../../../assets/images/logo/joanna.jpg",
-    "rewards": {
-      "star": 0,
-      "rainbow": 0,
-      "stars": [],
-      "rainbows": []
-    }
-  }]
+// post new pack
+router
+  .route("/pack/create")
+  .post(Controller.createPack);
 
-  // =============== get all news data from mongodb ===============
-  // === post to get will be error???? ===
-  app.post("/api/profile/get/rewards", (req, res) => {
-    console.log("profile rewards request from client (should GET not POST, but GET doesn't work???)");
-    res.json(profile)
-  });
+// find user packs
+router
+  .route("/pack/find/:userId")
+  .get(Controller.findUserPacks);
 
-  app.put("/api/profile/put/rewards", (req, res) => {
-    console.log("user:", req.body);
+// find all packs
+router
+  .route("/pack/findall")
+  .get(Controller.findAllPacks);
 
-    profile[0].rewards.star = req.body.rewards.star;
-    profile[0].rewards.rainbow = req.body.rewards.rainbow;
-    profile[0].rewards.stars = req.body.rewards.stars;
-    profile[0].rewards.rainbows = req.body.rewards.rainbows;
+// carrier find all available packs
+router
+  .route("/pack/findunpicked")
+  .get(Controller.findUnpicked);
 
-    res.json(profile);
-  });
-};
+// carrier pick a pack
+router
+  .route("/pack/carrier/:userId/:packId")
+  .put(Controller.updateCarrier);
+
+// carrier delivered a pack
+router
+  .route("/pack/delivered/:packId")
+  .put(Controller.updateDelivered);
+
+// carrier send messages
+router
+.route("/message/create")
+.post(Controller.createMsgBtn);
+
+// user reply messages
+router
+.route("/message/reply/:loginid")
+.post(Controller.replyMsgBtn);
+
+// user remove messages
+router
+.route("/message/remove/:msgId")
+.delete(Controller.removeMsgBtn);
+
+// user show messages
+router
+  .route("/message/find/:userId")
+  .get(Controller.findAllMsg);
+
+
+module.exports = router;

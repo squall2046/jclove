@@ -2,34 +2,11 @@
 <!-- =========== card body: loop cards =========== -->
 <div class="user-card-container">
     <div class="user-card" *ngFor="let user of users">
-        <!-- 1. user card header: checkbox & status -->
-        <!-- <div class="user-card-header">
-            <div class="custom-control custom-checkbox">
-                <input #userCard type="checkbox" name="{{user.firstName}}" id="userId" class="custom-control-input">
-                <label class="custom-control-label cursor-pointer" for="userId"> </label>
-            </div>
-
-            <div class="user-card-status d-inline-block d-inline">
-                <div *ngIf="user.status==='locked'" class="d-inline">
-                    <i class="fa fa-check active-status d-inline"></i>
-                    <p class="status d-inline active-status vertical-line">active</p>
-                    <i class="fa fa-lock-alt locked-status pl-2"></i>
-                    <p class="status d-inline locked-status ">{{user.status}}</p>
-                </div>
-                <div *ngIf="user.status !=='locked'" class="d-inline">
-                    <i *ngIf="user.status ==='deactivated'" class="fa fa-minus-circle deactivated-status d-inline"></i>
-                    <i *ngIf="user.status ==='active'" class="fa fa-check active-status d-inline"></i>
-                    <p class="status d-inline"
-                        [ngClass]="{'active-status': user.status==='active', 'deactivated-status':user.status==='deactivated', 'locked-status':user.status==='locked'}">
-                        {{user.status}}</p>
-                </div>
-            </div>
-        </div> -->
-
         <div class="user-card-body">
             <!-- 2. user image -->
             <div class="user-card-photo-initial">
-                <a [routerLink]="['/profile']" (change)="checkUserCard()">
+                <!-- <a [routerLink]="['/profile']" (change)="checkUserCard()"> -->
+                <a>
                     <div class="user-img-container">
                         <img *ngIf="user.userImage !== ''" src="{{user.userImage}}" class="user-img">
                     </div>

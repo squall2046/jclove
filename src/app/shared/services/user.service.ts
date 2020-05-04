@@ -7,10 +7,9 @@ import { User } from '../models/user.model';
 export class UserService {
   users: User[] = [
     {
-      userId: 150001,
+      userName: 'Mu_Yan',
       firstName: 'Joanna',
       lastName: 'Wu',
-      userName: 'Mu_Yan',
       email: 'joanna.wu@gmail.com',
       userImage: './../../../assets/images/logo/joanna.jpg',
       rewards: {
@@ -21,10 +20,9 @@ export class UserService {
       }
     },
     {
-      userId: 190001,
+      userName: 'Mu_Zhi',
       firstName: 'Chloe',
       lastName: 'Wu',
-      userName: 'Mu_Zhi',
       email: 'chloe.wu@gmail.com',
       userImage: './../../../assets/images/logo/chloe.jpg',
       rewards: {

@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "seed": "node server/scripts/seedDB.js",
     "postinstall": "ng build --aot --prod"
   },
   "engines": {
@@ -34,6 +35,8 @@
     "jquery": "^3.5.0",
     "material-design-icons": "^3.0.1",
     "mongodb": "^3.5.7",
+    "mongoose": "^5.9.11",
+    "morgan": "^1.10.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
