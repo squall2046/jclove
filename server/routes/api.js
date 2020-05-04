@@ -22,53 +22,10 @@ module.exports = function (app) {
   app.post("/api/profile/get/rewards", (req, res) => {
     console.log("profile rewards request from client (should GET not POST, but GET doesn't work???)");
     // db.User.find({ userName: req.params.userName })
-    // db.User.find({ userName: "Mu_Yan" })
-    //   // .sort({ date: -1 })
-    //   .then(dbModel => { res.json(dbModel); console.log("\n\r ==> find data: \r", dbModel, "\n") })
-    //   .catch(err => res.status(422).json(err));
-
-
-    const userSeed = [
-      {
-        userName: 'Mu_Yan',
-        firstName: 'Joanna',
-        lastName: 'Wu',
-        email: 'joanna.wu@gmail.com',
-        userImage: '/src/assets/images/logo/joanna.jpg',
-        rewards: {
-          star: 0,
-          rainbow: 0,
-          stars: [],
-          rainbows: [],
-        }
-      },
-      {
-        userName: 'Mu_Zhi',
-        firstName: 'Chloe',
-        lastName: 'Wu',
-        email: 'chloe.wu@gmail.com',
-        userImage: '/src/assets/images/logo/chloe.jpg',
-        rewards: {
-          star: 0,
-          rainbow: 0,
-          stars: [],
-          rainbows: [],
-        }
-      }
-    ];
-
-    db.User
-      // .remove({})
-      .deleteMany({})
-      .then(() => db.User.collection.insertMany(userSeed))
-      .then(data => {
-        console.log(data.result.n + " records inserted!");
-        // process.exit(0);
-      })
-      .catch(err => {
-        console.error(err);
-        // process.exit(1);
-      });
+    db.User.find({ userName: "Mu_Yan" })
+      // .sort({ date: -1 })
+      .then(dbModel => { res.json(dbModel); console.log("\n\r ==> find data: \r", dbModel, "\n") })
+      .catch(err => res.status(422).json(err));
   });
 
   app.put("/api/profile/put/rewards", (req, res) => {
