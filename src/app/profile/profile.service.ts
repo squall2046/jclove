@@ -11,7 +11,7 @@ export class ProfileService {
   profile: User = {
     userName: '',
     firstName: '',
-    lastName: 'Wu',
+    lastName: '',
     email: '',
     userImage: '',
     rewards: {

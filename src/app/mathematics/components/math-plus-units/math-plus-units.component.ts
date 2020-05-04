@@ -52,11 +52,10 @@ export class MathPlusUnitsComponent implements OnInit {
       this.profileService.profile.rewards.stars = [];
     }
 
-    setTimeout(() => {
-      this.profileService.updateRewards().subscribe(res => {
-        this.user = res;
-        console.log("subscribe:", this.user[0].rewards);
-      });
+    // update rewards in database
+    this.profileService.updateRewards().subscribe(res => {
+      this.user = res;
+      console.log("subscribe:", this.user[0].rewards);
     });
   }
 
