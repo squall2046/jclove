@@ -18,7 +18,14 @@ module.exports = function (app) {
   // }]
 
   // =============== get all news data from mongodb ===============
-  // === post to get will be error???? ===
+  app.get("/api/get/user", (req, res) => {
+    db.User.find({ userName: "Mu_Yan" })
+      // .sort({ date: -1 })
+      .then(dbModel => { res.json(dbModel); console.log("\n\r ==> find data: \r", dbModel, "\n") })
+      .catch(err => res.status(422).json(err));
+  });
+
+  // === use post, if get will be error???? ===
   app.post("/api/profile/get/rewards", (req, res) => {
     console.log("profile rewards request from client (should GET not POST, but GET doesn't work???)");
     // db.User.find({ userName: req.params.userName })

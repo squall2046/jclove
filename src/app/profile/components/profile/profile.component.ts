@@ -18,13 +18,5 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.profile = this.profileService.profile;
-
-    // this.profileService.getRewards().subscribe(res => {
-    //   this.user = res;
-    //   console.log(res);
-    //   this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
-    //   this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
-    // });
   }
-
 }

@@ -88,16 +88,25 @@ export class AppComponent implements OnInit {
   }
 
   enterProfile() {
+    // this.profileService.getUser().subscribe(res => {
+    //   this.user = res;
+    //   console.log("App run, get initial rewards from database", res);
+    //   this.profileService.profile.rewards.rainbow = this.user[0].rewards.rainbow;
+    //   this.profileService.profile.rewards.star = this.user[0].rewards.star;
+    //   this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
+    //   this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
+    // });
+
     this.profileService.getRewards().subscribe(res => {
       this.user = res;
-      console.log("get rewards from database", res);
-      // this.profileService.profile.rewards.rainbow = this.user[0].rewards.rainbow;
-      // this.profileService.profile.rewards.star = this.user[0].rewards.star;
-      // this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
-      // this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
+      console.log("App run, get initial rewards from database", res);
+      this.profileService.profile.rewards.rainbow = this.user[0].rewards.rainbow;
+      this.profileService.profile.rewards.star = this.user[0].rewards.star;
+      this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
+      this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
 
+      // ========> warn: object != object
       // this.profileService.profile = this.user[0];
-      this.profileService.profile.rewards = this.user[0].rewards;
     });
   }
 }

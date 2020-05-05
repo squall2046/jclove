@@ -29,18 +29,16 @@ export class ProfileService {
 
   constructor(private http: HttpClient) { }
 
+  getUser(): Observable<User[]> {
+    return this.http.get<User[]>("/api/get/user");
+  }
+
   getRewards(): Observable<User[]> {
     let url = "/api/profile/get/rewards";
     // === post to get will be error???? ===
     return this.http.post(url, this.httpOptions).pipe(
       map(response => response as User[]))
   }
-
-  // getRewards(): Observable<User[]> {
-  //   let url = "/api/profile/get/rewards";
-  //   // === post to get will be error???? ===
-  //   return this.http.get<any>(url, this.httpOptions)
-  // }
 
   updateRewards(): Observable<User[]> {
     let url = "/api/profile/put/rewards";
