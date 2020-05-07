@@ -6,12 +6,13 @@
     "email": "joanna.wu@gmail.com",
     "userImage": "../../../assets/images/logo/joanna.jpg",
     "rewards": {
-        "star": 3,
+        "star": 4,
         "rainbow": 8,
         "stars": [
             1,
             2,
-            3
+            3,
+            4
         ],
         "rainbows": [
             1,
@@ -96,7 +97,7 @@
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 4,
-        "rainbow": 4,
+        "rainbow": 10,
         "stars": [
             1,
             2,
@@ -111,7 +112,7 @@
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 0,
-        "rainbow": 0,
+        "rainbow": 20,
         "stars": [],
         "rainbows": []
     }
@@ -121,7 +122,7 @@
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 0,
-        "rainbow": 0,
+        "rainbow": 30,
         "stars": [],
         "rainbows": []
     }
@@ -131,7 +132,7 @@
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 0,
-        "rainbow": 0,
+        "rainbow": 50,
         "stars": [],
         "rainbows": []
     }
@@ -141,7 +142,7 @@
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 0,
-        "rainbow": 0,
+        "rainbow": 99,
         "stars": [],
         "rainbows": []
     }

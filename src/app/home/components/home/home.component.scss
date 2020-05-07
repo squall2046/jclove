@@ -64,15 +64,18 @@
 }
 
 .home {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    height: 100%;
+    // position: absolute;
+    // width: 100%;
+    // height: 100%;
+    // background-image: url("../../../../assets/images/background/bg-jclove.jpg");
+    // background-size: cover;
 }
 
 .bg-img {
     position: fixed;
+    top: 0;
     left: 0;
+    right: 0;
     bottom: 35px;
     margin: auto;
 }
