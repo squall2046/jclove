@@ -16,8 +16,14 @@ td {
 }
 
 .rank-number {
+    width: 75px;
     font-family: "Frijole", cursive;
     font-size: 48px;
+    text-align: center;
+}
+
+.user-info {
+    width: 90px;
 }
 
 .user-img {
@@ -29,6 +35,11 @@ td {
     text-align: center;
     border-radius: 100%;
     background-color: gray;
+}
+
+.user-name {
+    font-family: "Frijole", cursive;
+    font-size: 14px;
 }
 
 .user-rewards {

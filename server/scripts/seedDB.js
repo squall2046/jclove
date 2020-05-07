@@ -16,66 +16,112 @@ mongoose.connect(mongoURL, { useNewUrlParser: true })
 const userSeed = [
   {
     userName: 'Mu_Yan',
+    password: 'muyan',
     firstName: 'Joanna',
     lastName: 'Wu',
     email: 'joanna.wu@gmail.com',
     userImage: '../../../assets/images/logo/joanna.jpg',
     rewards: {
-      star: 0,
-      rainbow: 5,
-      stars: [],
-      rainbows: [1, 2, 3, 4, 5],
+      star: 3,
+      rainbow: 8,
+      stars: [1, 2, 3],
+      rainbows: [1, 2, 3, 4, 5, 6, 7, 8],
     }
   },
   {
     userName: 'Mu_Zhi',
+    password: 'muzhi',
     firstName: 'Chloe',
     lastName: 'Wu',
     email: 'chloe.wu@gmail.com',
     userImage: '../../../assets/images/logo/chloe.jpg',
     rewards: {
-      star: 0,
-      rainbow: 5,
-      stars: [],
-      rainbows: [1, 2, 3, 4, 5],
+      star: 3,
+      rainbow: 8,
+      stars: [1, 2, 3],
+      rainbows: [1, 2, 3, 4, 5, 6, 7, 8],
     }
   },
   {
     userName: 'test1',
+    userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 3,
       rainbow: 4,
-      stars: [],
+      stars: [1, 2, 3],
       rainbows: [],
     }
   },
   {
     userName: 'test2',
+    userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 2,
       rainbow: 5,
-      stars: [],
+      stars: [1, 2],
       rainbows: [],
     }
   },
   {
     userName: 'test3',
+    userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 1,
       rainbow: 5,
-      stars: [],
+      stars: [1],
       rainbows: [],
     }
   },
   {
     userName: 'test4',
+    userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 4,
       rainbow: 4,
+      stars: [1, 2, 3, 4],
+      rainbows: [],
+    }
+  },
+  {
+    userName: 'test5',
+    userImage: '../../../assets/images/logo/placeholder1.png',
+    rewards: {
+      star: 0,
+      rainbow: 0,
       stars: [],
       rainbows: [],
     }
   },
+  {
+    userName: 'test6',
+    userImage: '../../../assets/images/logo/placeholder1.png',
+    rewards: {
+      star: 0,
+      rainbow: 0,
+      stars: [],
+      rainbows: [],
+    }
+  },
+  {
+    userName: 'test7',
+    userImage: '../../../assets/images/logo/placeholder1.png',
+    rewards: {
+      star: 0,
+      rainbow: 0,
+      stars: [],
+      rainbows: [],
+    }
+  },
+  {
+    userName: 'test8',
+    userImage: '../../../assets/images/logo/placeholder1.png',
+    rewards: {
+      star: 0,
+      rainbow: 0,
+      stars: [],
+      rainbows: [],
+    }
+  }
 ];
 
 db.User

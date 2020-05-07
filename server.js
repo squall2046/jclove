@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const jwt = require("jsonwebtoken");
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
@@ -56,7 +57,7 @@ mongoose.connect(mongoURL)
 
 // Routes 放在最后，且在listen port前。
 // =============================================================
-require(path.join(__dirname, "/server/routes/api.js"))(app);
+require(path.join(__dirname, "/server/routes/api.js"))(app, jwt);
 // app.use('/api', require(path.join(__dirname + '/routes/apiRoutes.js')));
 
 // PORT

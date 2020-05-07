@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './auth/auth.module';
 import { ProfileModule } from './profile/profile.module';
 import { HomeModule } from './home/home.module';
 import { MathematicsModule } from './mathematics/mathematics.module';
@@ -26,6 +27,7 @@ import { RankModule } from './rank/rank.module';
     AppRoutingModule,
     CoreModule,
     SharedModule,
+    AuthModule,
     ProfileModule,
     HomeModule,
     MathematicsModule,

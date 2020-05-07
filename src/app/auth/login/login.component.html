@@ -1,0 +1,33 @@
+<div class="login">
+    <h3>Login</h3>
+    <form [formGroup]="loginForm">
+        <div class="username d-flex-column">
+            <label for="">Username: </label>
+            <input type="text" class="username-input" formControlName="username" required>
+        </div>
+        <div class="user-name d-flex-column">
+            <label for="">Password: </label>
+            <input type="text" class="password-input" formControlName="password" required>
+        </div>
+        <hr>
+        <span class="invalid-username">username was not found</span>
+        <span class="invalid-msg">username and password were not matched</span>
+        <div class="buttons">
+            <button type="button" class="btn btn-secondary cancel-btn" (click)="loginCancel()">Cancel</button>
+            <button type="submit" class="btn btn-primary submit-btn" (click)="loginSubmit()">Submit</button>
+        </div>
+    </form>
+
+    <div class="forgot-password">
+        <a class="reset-password">Forgot Password?</a>
+    </div>
+
+    <div class="go-to-register">
+        <span> "Don't have an account?"</span>
+        <a [routerLink]="path" class="new-account">Register here</a>
+    </div>
+</div>
+<!-- ============================================= -->
+<div class="login-bg">
+    <img class="bg-img" src="../../../../assets/images/background/olaf-lg.gif" alt="">
+</div>

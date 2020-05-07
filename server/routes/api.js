@@ -2,8 +2,29 @@ const db = require("../models/index");
 
 // Routes
 // =============================================================
-module.exports = function (app) {
-  // =============== get all users data from mongodb ===============
+module.exports = function (app, jwt) {
+  let userExist = { success: false };
+
+  // check login:
+  app.post("/api/login", (req, res) => {
+    let loginObj = req.body;
+    db.User.find().then(dbModel => {
+      for (const dbObj of dbModel) {
+        if (
+          loginObj.username === dbObj.username &&
+          loginObj.password === dbObj.password
+        ) {
+          userExist.success = true;
+          let payload = { subject: dbObj.userName };
+          let token = jwt.sign(payload, "secretKey");
+          res.status(200).send({ token });
+        }
+      }
+      // res.json(userExist);
+    })
+  });
+
+  // =============== get all users data from mongodb???????? ===============
   // === use post, if get will be error???? ===
   app.post("/api/users", (req, res) => {
     db.User.find().sort([['rewards.rainbow', -1], ['rewards.star', -1]])
@@ -13,6 +34,7 @@ module.exports = function (app) {
       .catch(err => res.status(422).json(err));
   });
 
+  // =============== get all users data from mongodb???????? ===============
   // === use post, if get will be error???? ===
   app.post("/api/profile", (req, res) => {
     // db.User.find({ userName: req.params.userName })

@@ -5,14 +5,15 @@ import { MathTheoryComponent } from './components/math-theory/math-theory.compon
 import { MathPlusUnitsComponent } from './components/math-plus-units/math-plus-units.component';
 import { MathPlusTensComponent } from './components/math-plus-tens/math-plus-tens.component';
 import { MathPlusQuizComponent } from './components/math-plus-quiz/math-plus-quiz.component';
+import { AuthGuard } from "src/app/shared/services/auth.guard";
 
 
 const routes: Routes = [
-  { path: 'math', component: MathematicsComponent },
-  { path: 'math/theory', component: MathTheoryComponent },
-  { path: 'math/units', component: MathPlusUnitsComponent },
-  { path: 'math/tens', component: MathPlusTensComponent },
-  { path: 'math/quiz', component: MathPlusQuizComponent },
+  { path: 'math', component: MathematicsComponent, canActivate: [AuthGuard] },
+  { path: 'math/theory', component: MathTheoryComponent, canActivate: [AuthGuard] },
+  { path: 'math/units', component: MathPlusUnitsComponent, canActivate: [AuthGuard] },
+  { path: 'math/tens', component: MathPlusTensComponent, canActivate: [AuthGuard] },
+  { path: 'math/quiz', component: MathPlusQuizComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

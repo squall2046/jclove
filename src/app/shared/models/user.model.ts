@@ -5,7 +5,7 @@ export class User {
   lastName?: string;
   email?: string;
   userImage?: string;
-  rewards: {
+  rewards?: {
     star?: number;
     rainbow?: number,
     stars?: number[],

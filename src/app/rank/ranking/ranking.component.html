@@ -10,18 +10,26 @@
                     <span>
                         <img class="user-img" src="{{user.userImage}}" alt="">
                     </span>
-                    <span>{{user.userName}}</span>
+                    <span class="user-name">{{user.userName}}</span>
                 </div>
             </td>
             <td>
                 <div class="user-rewards d-flex flex-column justify-content-center">
                     <div class="user-rainbow rewards d-inline-flex mb-3">
                         <span class="material-icons reward-rainbow f-rainbow"> looks </span>
-                        Rainbow x {{user.rewards.rainbow}}
+                        <span>&nbsp; Rainbow x {{user.rewards.rainbow}}</span>
                     </div>
                     <div class="user-star rewards d-inline-flex">
-                        <span class="material-icons reward-star f-yellow"> star </span>
-                        Star x {{user.rewards.star}}
+                        <!-- <span class="material-icons reward-star f-yellow"> star </span>
+                        Star x {{user.rewards.star}} -->
+                        <span *ngFor="let star of user.rewards.stars; index as key">
+                            <span *ngIf="star%7===1" class="material-icons reward-star f-red"> star </span>
+                            <span *ngIf="star%7===2" class="material-icons reward-star f-orange"> star </span>
+                            <span *ngIf="star%7===3" class="material-icons reward-star f-yellow"> star </span>
+                            <span *ngIf="star%7===4" class="material-icons reward-star f-green"> star </span>
+                            <span *ngIf="star%7===5" class="material-icons reward-star f-blue"> star </span>
+                            <span *ngIf="star%7===6" class="material-icons reward-star f-indigo"> star </span>
+                        </span>
                     </div>
                 </div>
             </td>

@@ -15,7 +15,7 @@ export class AppService {
       route: {
         profile: '/profile',
         settings: '/settings',
-        logout: '/home',
+        logout: '/login',
       },
       user: {
         name: 'Joanna',
