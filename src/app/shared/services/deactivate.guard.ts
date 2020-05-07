@@ -19,7 +19,7 @@ export class DeactivateGuard implements CanDeactivate<LoginComponent> {
     currentState: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     if (loginComponent.loginForm.dirty) {
-      // return confirm("Are you sure to discard changes?");
+      return confirm("Are you sure to discard changes?");
     } else {
       return true;
     }

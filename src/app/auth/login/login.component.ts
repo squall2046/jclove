@@ -33,22 +33,26 @@ export class LoginComponent implements OnInit {
     // console.log(this.loginForm.dirty);
     // console.log(this.loginForm.get("username").value);
     // console.log(this.loginForm.value.username);
-    this.authService.profile.userName = this.loginForm.value.username;
-    this.authService.profile.password = this.loginForm.value.password;
+    // this.authService.profile.userName = this.loginForm.value.username;
+    // this.authService.profile.password = this.loginForm.value.password;
 
-    this.authService.getUser().subscribe((data: any) => {
-      if (data) {
+    const username = this.loginForm.value.username;
+    const password = this.loginForm.value.password;
+
+    this.authService.getUser(username, password).subscribe((data: any) => {
+      if (data.token) {
         localStorage.setItem("userLoginToken", data.token);
         this.router.navigate(["home"]);
         this.authService.setLoggedIn(true);
-
-      } else {
         console.log(JSON.stringify(data));
+        this.loginForm.value.username = "";
+        this.loginForm.value.password = "";
+      } else {
+        // console.log(JSON.stringify(data));
         // window.alert(data);
       }
 
-      this.loginForm.value.username = "";
-      this.loginForm.value.password = "";
+
     })
   }
 }
