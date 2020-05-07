@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   path = "/register";
-  validName: boolean;
-  validPassword: boolean;
+  validName = true;
+  validPassword = true;
 
   constructor(
     private router: Router,

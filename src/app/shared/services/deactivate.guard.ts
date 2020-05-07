@@ -18,7 +18,7 @@ export class DeactivateGuard implements CanDeactivate<LoginComponent> {
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    if (loginComponent.loginForm.dirty) {
+    if (loginComponent.loginForm.dirty && !localStorage.getItem("userLoginToken")) {
       return confirm("Are you sure to discard changes?");
     } else {
       return true;

@@ -1,31 +1,45 @@
 <div class="login">
-    <h3>Login</h3>
-    <form [formGroup]="loginForm">
-        <div class="username d-flex-column">
-            <label for="">Username: </label>
-            <input type="text" class="username-input" formControlName="username" required>
-        </div>
-        <div class="user-name d-flex-column">
-            <label for="">Password: </label>
-            <input type="password" class="password-input" formControlName="password" required>
+    <form [formGroup]="loginForm" class=login-form>
+        <h3>Login</h3>
+        <table>
+            <tr>
+                <td>
+                    <label for="">Username: </label>
+                </td>
+                <td>
+                    <input type="text" class="username-input ml-3 pl-1" formControlName="username" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Password: </label>
+                </td>
+                <td>
+                    <input type="password" class="password-input ml-3 pl-1" formControlName="password" required>
+                </td>
+            </tr>
+        </table>
+
+        <div class="alert-msg">
+            <span *ngIf="!validName" class="invalid-username">username was not found</span>
+            <span *ngIf="!validPassword" class="invalid-msg">username and password were not matched</span>
         </div>
         <hr>
-        <span *ngIf="!validName" class="invalid-username">username was not found</span>
-        <span *ngIf="!validPassword" class="invalid-msg">username and password were not matched</span>
-        <div class="buttons">
-            <button type="button" class="btn btn-secondary cancel-btn" (click)="loginCancel()">Cancel</button>
+
+        <div class="buttons m-2">
+            <button type="button" class="btn btn-secondary cancel-btn mr-2" (click)="loginCancel()">Cancel</button>
             <button type="submit" class="btn btn-primary submit-btn" (click)="loginSubmit()">Submit</button>
         </div>
+
+        <div class="forgot-password">
+            <a class="reset-password">Forgot Password?</a>
+        </div>
+
+        <div class="go-to-register">
+            <span> "Don't have an account?"</span>
+            <a [routerLink]="path" class="new-account">Register here</a>
+        </div>
     </form>
-
-    <div class="forgot-password">
-        <a class="reset-password">Forgot Password?</a>
-    </div>
-
-    <div class="go-to-register">
-        <span> "Don't have an account?"</span>
-        <a [routerLink]="path" class="new-account">Register here</a>
-    </div>
 </div>
 <!-- ============================================= -->
 <div class="login-bg">
