@@ -30,31 +30,38 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  loginCancel() { }
+  loginCancel() {
+    this.validName = true;
+    this.validPassword = true;
+
+    this.loginForm.controls.username.setValue("");
+    this.loginForm.controls.password.setValue("");
+  }
   loginSubmit() {
     // console.log(this.loginForm.dirty);
     // console.log(this.loginForm.get("username").value);
     // console.log(this.loginForm.value.username);
-    // this.authService.profile.userName = this.loginForm.value.username;
-    // this.authService.profile.password = this.loginForm.value.password;
-
     const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
-
-    this.authService.getUser(username, password).subscribe((data: any) => {
-      if (data.token) {
-        localStorage.setItem("userLoginToken", data.token);
-        this.router.navigate(["home"]);
-        this.authService.setLoggedIn(true);
-        console.log(JSON.stringify(data));
-        this.validName = true;
-        this.validPassword = true;
-      } else {
-        // console.log(JSON.stringify(data));
-        // window.alert(data);
-        this.validName = false;
-        this.validPassword = false;
-      }
-    })
+    if (!username || !password) {
+      this.validName = false;
+      this.validPassword = false;
+    }
+    if (username && password) {
+      this.authService.getUser(username, password).subscribe((data: any) => {
+        if (data.success) {
+          console.log(JSON.stringify(data));
+          localStorage.setItem("userLoginToken", data.token);
+          this.router.navigate(["home"]);
+          this.authService.setLoggedIn(true);
+          this.validName = true;
+          this.validPassword = true;
+        } else {
+          console.log(JSON.stringify(data));
+          this.validName = false;
+          this.validPassword = false;
+        }
+      })
+    }
   }
 }

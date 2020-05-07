@@ -35,4 +35,8 @@ export class HeaderComponent implements OnInit {
     // this.app.sidebar.isCollapsed = true;
   }
 
+
+  logout() {
+    localStorage.removeItem("userLoginToken");
+  }
 }

@@ -3,31 +3,35 @@ const db = require("../models/index");
 // Routes
 // =============================================================
 module.exports = function (app, jwt) {
-  let userExist = { success: false };
+  let userAccess = { success: false };
 
   // check login:
   app.post("/api/login", (req, res) => {
     let loginObj = req.body;
     // console.log("req:", loginObj);
 
-    db.User.find().then(dbModel => {
-      for (const dbObj of dbModel) {
-        if (
-          loginObj.username === dbObj.username &&
-          loginObj.password === dbObj.password
-        ) {
-          userExist.success = true;
-          let payload = { subject: dbObj.username };
-          let token = jwt.sign(payload, "secretKey");
-          // console.log({ token });
-          res.status(200).send({ token });
+    db.User.find()
+      .then(dbModel => {
+        for (const dbObj of dbModel) {
+          if (
+            loginObj.username === dbObj.username &&
+            loginObj.password === dbObj.password
+          ) {
+            userAccess.success = true;
+            let payload = { subject: dbObj.username };
+            let token = jwt.sign(payload, "secretKey");
+            console.log("==> token:", { token });
+            res.status(200).send({ token, success: true });
+          }
+          else {
+            // console.log("not matched:", loginObj.username, dbObj.username);
+          }
         }
-        else {
-          // console.log("not matched:", loginObj.username, dbObj.username);
+        if (!userAccess.success) {
+          res.json(userAccess);
         }
-      }
-      // res.json(userExist);
-    })
+      })
+      .catch(err => res.status(422).json(err));
   });
 
   // =============== get all users data from mongodb???????? ===============

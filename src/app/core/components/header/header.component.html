@@ -3,7 +3,7 @@
     <div class="nav app-logo pl-3 d-inline-flex">
         <!-- <img [src]="header.logo"> -->
         <i class="material-icons">{{app.header.headIcon}}</i>
-        <span  class="nav-text pl-1">{{app.header.headText}}</span>
+        <span class="nav-text pl-1">{{app.header.headText}}</span>
     </div>
     <!-- title (center)-->
     <!-- <div class="nav flex3 app-title">{{app.header.headText}}</div> -->
@@ -51,9 +51,9 @@
                 <!-- <a [routerLink]="app.header.route.settings" class="dropdown-item">
                     Settings
                 </a> -->
-                <a [routerLink]="app.header.route.logout" class="dropdown-item">
-                    <i class="fal fa-unlock"></i>
-                    Logout</a>
+                <a [routerLink]="app.header.route.logout" class="dropdown-item" (click)="logout()">
+                    Logout
+                </a>
             </div>
         </li>
     </ul>
