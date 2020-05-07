@@ -31,11 +31,13 @@ export class LoginComponent implements OnInit {
   }
 
   loginCancel() {
+    this.loginForm.controls.username.setValue("");
+    this.loginForm.controls.password.setValue("");
+
     this.validName = true;
     this.validPassword = true;
 
-    this.loginForm.controls.username.setValue("");
-    this.loginForm.controls.password.setValue("");
+    this.authService.isLoggedIn = false;
   }
   loginSubmit() {
     // console.log(this.loginForm.dirty);
@@ -60,6 +62,7 @@ export class LoginComponent implements OnInit {
           console.log(JSON.stringify(data));
           this.validName = false;
           this.validPassword = false;
+          this.authService.isLoggedIn = false;
         }
       })
     }

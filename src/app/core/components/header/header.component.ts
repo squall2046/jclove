@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { App } from 'src/app/app.model';
+import { AuthService } from 'src/app/auth/auth.service';
 
-import { ProfileService } from '../../../profile/profile.service';
-import { User } from '../../../shared/models/user.model';
+import { ProfileService } from 'src/app/profile/profile.service';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private appService: AppService,
+    private authService: AuthService,
     private profileService: ProfileService,
   ) { }
 
@@ -38,5 +40,6 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     localStorage.removeItem("userLoginToken");
+    this.authService.isLoggedIn = false;
   }
 }
