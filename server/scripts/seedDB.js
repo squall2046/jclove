@@ -15,7 +15,7 @@ mongoose.connect(mongoURL, { useNewUrlParser: true })
 
 const userSeed = [
   {
-    userName: 'Mu_Yan',
+    username: 'Mu_Yan',
     password: 'muyan',
     firstName: 'Joanna',
     lastName: 'Wu',
@@ -29,7 +29,7 @@ const userSeed = [
     }
   },
   {
-    userName: 'Mu_Zhi',
+    username: 'Mu_Zhi',
     password: 'muzhi',
     firstName: 'Chloe',
     lastName: 'Wu',
@@ -43,7 +43,7 @@ const userSeed = [
     }
   },
   {
-    userName: 'test1',
+    username: 'test1',
     userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 3,
@@ -53,7 +53,7 @@ const userSeed = [
     }
   },
   {
-    userName: 'test2',
+    username: 'test2',
     userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 2,
@@ -63,7 +63,7 @@ const userSeed = [
     }
   },
   {
-    userName: 'test3',
+    username: 'test3',
     userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 1,
@@ -73,7 +73,7 @@ const userSeed = [
     }
   },
   {
-    userName: 'test4',
+    username: 'test4',
     userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 4,
@@ -83,7 +83,7 @@ const userSeed = [
     }
   },
   {
-    userName: 'test5',
+    username: 'test5',
     userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 0,
@@ -93,7 +93,7 @@ const userSeed = [
     }
   },
   {
-    userName: 'test6',
+    username: 'test6',
     userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 0,
@@ -103,7 +103,7 @@ const userSeed = [
     }
   },
   {
-    userName: 'test7',
+    username: 'test7',
     userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 0,
@@ -113,7 +113,7 @@ const userSeed = [
     }
   },
   {
-    userName: 'test8',
+    username: 'test8',
     userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 0,

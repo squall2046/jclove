@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   path = "/register";
+  validName: boolean;
+  validPassword: boolean;
 
   constructor(
     private router: Router,
@@ -45,14 +47,14 @@ export class LoginComponent implements OnInit {
         this.router.navigate(["home"]);
         this.authService.setLoggedIn(true);
         console.log(JSON.stringify(data));
-        this.loginForm.value.username = "";
-        this.loginForm.value.password = "";
+        this.validName = true;
+        this.validPassword = true;
       } else {
         // console.log(JSON.stringify(data));
         // window.alert(data);
+        this.validName = false;
+        this.validPassword = false;
       }
-
-
     })
   }
 }

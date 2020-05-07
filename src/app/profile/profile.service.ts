@@ -9,7 +9,7 @@ import { User } from '../shared/models/user.model';
 })
 export class ProfileService {
   profile: User = {
-    userName: 'Mu_Yan',
+    username: 'Mu_Yan',
     firstName: '',
     lastName: '',
     email: '',

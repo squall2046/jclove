@@ -8,7 +8,7 @@ module.exports = function (app, jwt) {
   // check login:
   app.post("/api/login", (req, res) => {
     let loginObj = req.body;
-    console.log("req:", loginObj);
+    // console.log("req:", loginObj);
 
     db.User.find().then(dbModel => {
       for (const dbObj of dbModel) {
@@ -17,9 +17,13 @@ module.exports = function (app, jwt) {
           loginObj.password === dbObj.password
         ) {
           userExist.success = true;
-          let payload = { subject: dbObj.userName };
+          let payload = { subject: dbObj.username };
           let token = jwt.sign(payload, "secretKey");
+          // console.log({ token });
           res.status(200).send({ token });
+        }
+        else {
+          // console.log("not matched:", loginObj.username, dbObj.username);
         }
       }
       // res.json(userExist);
@@ -39,8 +43,8 @@ module.exports = function (app, jwt) {
   // =============== get all users data from mongodb???????? ===============
   // === use post, if get will be error???? ===
   app.post("/api/profile", (req, res) => {
-    // db.User.find({ userName: req.params.userName })
-    db.User.find({ userName: "Mu_Yan" })
+    // db.User.find({ username: req.params.username })
+    db.User.find({ username: "Mu_Yan" })
       // .sort({ date: -1 })
       .then(dbModel => { res.json(dbModel); console.log("==> find data: ", dbModel, "\n") })
       .catch(err => res.status(422).json(err));
@@ -49,7 +53,7 @@ module.exports = function (app, jwt) {
   app.put("/api/profile/rewards", (req, res) => {
     // console.log("user:", req.body);
     db.User.findOneAndUpdate(
-      { userName: req.body.userName },
+      { username: req.body.username },
       {
         "rewards.star": req.body.rewards.star,
         "rewards.rainbow": req.body.rewards.rainbow,

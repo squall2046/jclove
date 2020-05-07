@@ -1,5 +1,5 @@
 {
-    "userName": "Mu_Yan",
+    "username": "Mu_Yan",
     "password": "muyan",
     "firstName": "Joanna",
     "lastName": "Wu",
@@ -26,7 +26,7 @@
     }
 },
 {
-    "userName": "Mu_Zhi",
+    "username": "Mu_Zhi",
     "password": "muzhi",
     "firstName": "Chloe",
     "lastName": "Wu",
@@ -53,7 +53,7 @@
     }
 },
 {
-    "userName": "test1",
+    "username": "test1",
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 3,
@@ -67,7 +67,7 @@
     }
 },
 {
-    "userName": "test2",
+    "username": "test2",
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 2,
@@ -80,7 +80,7 @@
     }
 },
 {
-    "userName": "test3",
+    "username": "test3",
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 1,
@@ -92,7 +92,7 @@
     }
 },
 {
-    "userName": "test4",
+    "username": "test4",
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 4,
@@ -107,7 +107,7 @@
     }
 },
 {
-    "userName": "test5",
+    "username": "test5",
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 0,
@@ -117,7 +117,7 @@
     }
 },
 {
-    "userName": "test6",
+    "username": "test6",
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 0,
@@ -127,7 +127,7 @@
     }
 },
 {
-    "userName": "test7",
+    "username": "test7",
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 0,
@@ -137,7 +137,7 @@
     }
 },
 {
-    "userName": "test8",
+    "username": "test8",
     "userImage": "../../../assets/images/logo/placeholder1.png",
     "rewards": {
         "star": 0,

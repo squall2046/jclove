@@ -11,7 +11,7 @@ export class AuthService {
   isLoggedIn = false;
 
   profile: User = {
-    userName: '',
+    username: '',
     password: ''
   };
 

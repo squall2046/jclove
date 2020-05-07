@@ -104,7 +104,7 @@ export class AppComponent implements OnInit {
       console.log("App run, get initial rewards from database", res);
       // ========> warn: object != object
       // this.profileService.profile = this.user[0];
-      this.profileService.profile.userName = this.user[0].userName;
+      this.profileService.profile.username = this.user[0].username;
       this.profileService.profile.password = this.user[0].password;
       this.profileService.profile.firstName = this.user[0].firstName;
       this.profileService.profile.lastName = this.user[0].lastName;
