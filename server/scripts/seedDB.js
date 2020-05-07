@@ -19,12 +19,12 @@ const userSeed = [
     firstName: 'Joanna',
     lastName: 'Wu',
     email: 'joanna.wu@gmail.com',
-    userImage: '/src/assets/images/logo/joanna.jpg',
+    userImage: '../../../assets/images/logo/joanna.jpg',
     rewards: {
       star: 0,
-      rainbow: 0,
+      rainbow: 5,
       stars: [],
-      rainbows: [],
+      rainbows: [1, 2, 3, 4, 5],
     }
   },
   {
@@ -32,14 +32,50 @@ const userSeed = [
     firstName: 'Chloe',
     lastName: 'Wu',
     email: 'chloe.wu@gmail.com',
-    userImage: '/src/assets/images/logo/chloe.jpg',
+    userImage: '../../../assets/images/logo/chloe.jpg',
     rewards: {
       star: 0,
-      rainbow: 0,
+      rainbow: 5,
+      stars: [],
+      rainbows: [1, 2, 3, 4, 5],
+    }
+  },
+  {
+    userName: 'test1',
+    rewards: {
+      star: 3,
+      rainbow: 4,
       stars: [],
       rainbows: [],
     }
-  }
+  },
+  {
+    userName: 'test2',
+    rewards: {
+      star: 2,
+      rainbow: 5,
+      stars: [],
+      rainbows: [],
+    }
+  },
+  {
+    userName: 'test3',
+    rewards: {
+      star: 1,
+      rainbow: 5,
+      stars: [],
+      rainbows: [],
+    }
+  },
+  {
+    userName: 'test4',
+    rewards: {
+      star: 4,
+      rainbow: 4,
+      stars: [],
+      rainbows: [],
+    }
+  },
 ];
 
 db.User

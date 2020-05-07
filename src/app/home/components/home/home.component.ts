@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../shared/services/user.service';
+import { UserService } from 'src/app/shared/services/user.service';
 import { User } from 'src/app/shared/models/user.model';
 
 @Component({
@@ -8,7 +8,7 @@ import { User } from 'src/app/shared/models/user.model';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  users = [];
+  users:User[] = [];
 
   constructor(private userService: UserService) { }
 

@@ -8,7 +8,6 @@ export class App {
     route: {
       profile: string,
       settings: string,
-      activity: string,
       logout: string,
     };
     user: {

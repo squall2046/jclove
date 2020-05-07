@@ -1,11 +1,9 @@
-<!-- ============================================= -->
 <!-- =========== card body: loop cards =========== -->
-<div class="user-card-container">
+<!-- <div class="user-card-container">
     <div class="user-card" *ngFor="let user of users">
         <div class="user-card-body">
-            <!-- 2. user image -->
             <div class="user-card-photo-initial">
-                <!-- <a [routerLink]="['/profile']" (change)="checkUserCard()"> -->
+                <a [routerLink]="['/profile']" (change)="checkUserCard()">
                 <a>
                     <div class="user-img-container">
                         <img *ngIf="user.userImage !== ''" src="{{user.userImage}}" class="user-img">
@@ -16,7 +14,6 @@
                 </a>
             </div>
 
-            <!-- 3. user status -->
             <div class="d-inline-flex mt-3">
                 <span class="fn pr-1">{{user.firstName}}</span>
                 <span class="ln">{{user.lastName}} </span>
@@ -26,6 +23,8 @@
             </div>
         </div>
     </div>
-</div>
-<!-- =========== card body: loop cards =========== -->
+</div> -->
 <!-- ============================================= -->
+<div class="home">
+    <img class="bg-img" src="../../../../assets/images/background/olaf-lg.gif" alt="">
+</div>

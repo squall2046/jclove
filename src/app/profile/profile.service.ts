@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { User } from '../shared/models/user.model';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { map, catchError } from "rxjs/operators";
+import { User } from '../shared/models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
   profile: User = {
-    userName: '',
+    userName: 'Mu_Yan',
     firstName: '',
     lastName: '',
     email: '',
@@ -29,19 +29,15 @@ export class ProfileService {
 
   constructor(private http: HttpClient) { }
 
-  getUser(): Observable<User[]> {
-    return this.http.get<User[]>("/api/get/user");
-  }
-
-  getRewards(): Observable<User[]> {
-    let url = "/api/profile/get/rewards";
+  getProfile(): Observable<User[]> {
+    let url = "/api/profile";
     // === post to get will be error???? ===
     return this.http.post(url, this.httpOptions).pipe(
       map(response => response as User[]))
   }
 
   updateRewards(): Observable<User[]> {
-    let url = "/api/profile/put/rewards";
+    let url = "/api/profile/rewards";
     return this.http.put(url, this.profile, this.httpOptions).pipe(
       map(response => response as User[]))
   }

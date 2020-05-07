@@ -1,8 +1,8 @@
 export class User {
   userName: string;
   password?: string;
-  firstName: string;
-  lastName: string;
+  firstName?: string;
+  lastName?: string;
   email?: string;
   userImage?: string;
   rewards: {

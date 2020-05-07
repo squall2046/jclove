@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AppService } from 'src/app/app.service';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { App } from 'src/app/app.model';
+import { AppService } from 'src/app/app.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,18 +11,10 @@ import { App } from 'src/app/app.model';
 export class SidebarComponent implements OnInit {
   app: App;
 
-  // fa = {
-  //   coffee: faCoffee,
-  //   questionCircle: faQuestionCircle,
-  //   user: faUser,
-  //   cog: faCog,
-  //   doubleLeft: faAngleDoubleLeft,
-  //   doubleRight: faAngleDoubleRight,
-  //   chevronUp: faChevronUp,
-  //   chevronDown: faChevronDown
-  // };
-
-  constructor(private appService: AppService) { }
+  constructor(
+    private appService: AppService,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
     this.app = this.appService.app;
@@ -38,11 +31,20 @@ export class SidebarComponent implements OnInit {
   clickTab(tab) {
     this.app.main.headIcon = tab.icon;
     this.app.main.headText = tab.name;
-    // this.app.path = tab.path;
 
     this.app.sidebar.show = false;
-  }
 
+    if (tab.name === "Ranking") {
+      // this.userService.rankingEvent();
+      this.initialUsers();
+    }
+  }
   clickSubTab(title) { }
+
+  initialUsers() {
+    this.userService.getUsers().subscribe(res => {
+      this.userService.users = res;
+    });
+  }
 
 }

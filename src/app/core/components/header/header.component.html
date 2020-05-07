@@ -44,19 +44,14 @@
                 <span class="dropdown-toggle">Hi, {{app.header.user.name}}</span>
             </a>
             <div class="dropdown-menu">
-                <a [href]="app.header.route.profile" class="dropdown-item">
-                    <!-- <fa-icon [icon]="fa.user"></fa-icon> -->
-                    <i class="material-icons">face</i>
+                <a [routerLink]="app.header.route.profile" class="dropdown-item">
+                    <!-- <i class="material-icons">face</i> -->
                     My Profile
                 </a>
-                <a [href]="app.header.route.settings" class="dropdown-item">
-                    <!-- <fa-icon [icon]="fa.cog"></fa-icon> -->
+                <!-- <a [routerLink]="app.header.route.settings" class="dropdown-item">
                     Settings
-                </a>
-                <a [href]="app.header.route.activity" class="dropdown-item">
-                    <i class="fal fa-list-alt"></i>
-                    Activity</a>
-                <a [href]="app.header.route.logout" class="dropdown-item">
+                </a> -->
+                <a [routerLink]="app.header.route.logout" class="dropdown-item">
                     <i class="fal fa-unlock"></i>
                     Logout</a>
             </div>

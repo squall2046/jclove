@@ -3,6 +3,7 @@ import { AppService } from './app.service';
 import { App } from './app.model';
 import { Router } from '@angular/router';
 
+import { UserService } from 'src/app/shared/services/user.service';
 import { ProfileService } from './profile/profile.service';
 import { User } from './shared/models/user.model';
 
@@ -18,11 +19,13 @@ export class AppComponent implements OnInit {
   constructor(
     private appService: AppService,
     private router: Router,
+    private userService: UserService,
     private profileService: ProfileService,
   ) { }
   ngOnInit(): void {
     this.app = this.appService.app;
     this.setbackTo();
+    this.initialUsers();
     this.enterProfile();
   }
 
@@ -87,26 +90,31 @@ export class AppComponent implements OnInit {
     this.app.path = "";
   }
 
-  enterProfile() {
-    // this.profileService.getUser().subscribe(res => {
-    //   this.user = res;
-    //   console.log("App run, get initial rewards from database", res);
-    //   this.profileService.profile.rewards.rainbow = this.user[0].rewards.rainbow;
-    //   this.profileService.profile.rewards.star = this.user[0].rewards.star;
-    //   this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
-    //   this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
-    // });
+  initialUsers() {
+    this.userService.getUsers().subscribe(res => {
+      this.userService.users = res;
+      // this.userService.rankingEvent();
+      console.log("App run, get all users, (ranked in mongodb)", this.userService.users);
+    });
+  }
 
-    this.profileService.getRewards().subscribe(res => {
+  enterProfile() {
+    this.profileService.getProfile().subscribe(res => {
       this.user = res;
       console.log("App run, get initial rewards from database", res);
+      // ========> warn: object != object
+      // this.profileService.profile = this.user[0];
+      this.profileService.profile.userName = this.user[0].userName;
+      this.profileService.profile.password = this.user[0].password;
+      this.profileService.profile.firstName = this.user[0].firstName;
+      this.profileService.profile.lastName = this.user[0].lastName;
+      this.profileService.profile.email = this.user[0].email;
+      this.profileService.profile.userImage = this.user[0].userImage;
       this.profileService.profile.rewards.rainbow = this.user[0].rewards.rainbow;
       this.profileService.profile.rewards.star = this.user[0].rewards.star;
       this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
       this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
-
-      // ========> warn: object != object
-      // this.profileService.profile = this.user[0];
     });
   }
+
 }

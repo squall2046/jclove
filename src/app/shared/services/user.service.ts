@@ -1,39 +1,31 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from 'rxjs';
+import { map, catchError } from "rxjs/operators";
 import { User } from '../models/user.model';
-
+import { Subscription } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  users: User[] = [
-    {
-      userName: 'Mu_Yan',
-      firstName: 'Joanna',
-      lastName: 'Wu',
-      email: 'joanna.wu@gmail.com',
-      userImage: './../../../assets/images/logo/joanna.jpg',
-      rewards: {
-        star: 0,
-        rainbow: 0,
-        stars: [],
-        rainbows: [],
-      }
-    },
-    {
-      userName: 'Mu_Zhi',
-      firstName: 'Chloe',
-      lastName: 'Wu',
-      email: 'chloe.wu@gmail.com',
-      userImage: './../../../assets/images/logo/chloe.jpg',
-      rewards: {
-        star: 0,
-        rainbow: 0,
-        stars: [],
-        rainbows: [],
-      }
-    }
-  ]
+  users: User[] = [];
 
+  ranking = new EventEmitter();
+  subsVar: Subscription;
 
-  constructor() { }
+  httpOptions = {
+    headers: new HttpHeaders({ "Content-Type": "application/json" })
+  };
+
+  constructor(private http: HttpClient) { }
+
+  getUsers(): Observable<User[]> {
+    let url = "/api/users";
+    return this.http.post(url, this.httpOptions).pipe(
+      map(response => response as User[]));
+  }
+
+  rankingEvent() {
+    this.ranking.emit();
+  }
 }

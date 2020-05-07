@@ -3,46 +3,29 @@ const db = require("../models/index");
 // Routes
 // =============================================================
 module.exports = function (app) {
-  // let profile = [{
-  //   "userName": "Mu_Yan",
-  //   "firstName": "Joanna",
-  //   "lastName": "Wu",
-  //   "email": "joanna.wu@gmail.com",
-  //   "userImage": "./../../../assets/images/logo/joanna.jpg",
-  //   "rewards": {
-  //     "star": 0,
-  //     "rainbow": 1,
-  //     "stars": [],
-  //     "rainbows": [1]
-  //   }
-  // }]
-
-  // =============== get all news data from mongodb ===============
-  app.get("/api/get/user", (req, res) => {
-    db.User.find({ userName: "Mu_Yan" })
-      // .sort({ date: -1 })
-      .then(dbModel => { res.json(dbModel); console.log("\n\r ==> find data: \r", dbModel, "\n") })
+  // =============== get all users data from mongodb ===============
+  // === use post, if get will be error???? ===
+  app.post("/api/users", (req, res) => {
+    db.User.find().sort([['rewards.rainbow', -1], ['rewards.star', -1]])
+      .then(dbModel => {
+        res.json(dbModel); console.log("==> GET data: ", dbModel, "\n")
+      })
       .catch(err => res.status(422).json(err));
   });
 
   // === use post, if get will be error???? ===
-  app.post("/api/profile/get/rewards", (req, res) => {
-    console.log("profile rewards request from client (should GET not POST, but GET doesn't work???)");
+  app.post("/api/profile", (req, res) => {
     // db.User.find({ userName: req.params.userName })
     db.User.find({ userName: "Mu_Yan" })
       // .sort({ date: -1 })
-      .then(dbModel => { res.json(dbModel); console.log("\n\r ==> find data: \r", dbModel, "\n") })
+      .then(dbModel => { res.json(dbModel); console.log("==> find data: ", dbModel, "\n") })
       .catch(err => res.status(422).json(err));
   });
 
-  app.put("/api/profile/put/rewards", (req, res) => {
+  app.put("/api/profile/rewards", (req, res) => {
     // console.log("user:", req.body);
-    // profile[0].rewards.star = req.body.rewards.star;
-    // profile[0].rewards.rainbow = req.body.rewards.rainbow;
-    // profile[0].rewards.stars = req.body.rewards.stars;
-    // profile[0].rewards.rainbows = req.body.rewards.rainbows;
     db.User.findOneAndUpdate(
-      { userName: "Mu_Yan" },
+      { userName: req.body.userName },
       {
         "rewards.star": req.body.rewards.star,
         "rewards.rainbow": req.body.rewards.rainbow,
@@ -59,7 +42,7 @@ module.exports = function (app) {
         jsonFile.push(dbModel);
         res.json(jsonFile);
 
-        console.log("\n\r ==> update rewards: \r", jsonFile, "\n")
+        console.log("==> update rewards: ", jsonFile, "\n")
       })
       // .then(user => {
       //   res.redirect('/profile');

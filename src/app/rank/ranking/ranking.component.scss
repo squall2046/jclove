@@ -1,0 +1,43 @@
+.rank-table {
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+tr {
+    height: 120px;
+    text-align: center;
+}
+
+td {
+    height: 80px;
+    // padding-top: 20px;
+    padding: 0 !important;
+    border-bottom: 1px dashed rgb(240, 240, 240);
+}
+
+.rank-number {
+    font-family: "Frijole", cursive;
+    font-size: 48px;
+}
+
+.user-img {
+    width: 75px;
+    height: 75px;
+    font-size: 30px;
+    color: #333e48;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 100%;
+    background-color: gray;
+}
+
+.user-rewards {
+    height: 100%;
+    font-family: "Frijole", cursive;
+    font-size: 24px;
+    text-align: left;
+}
+
+.rewards {
+    text-align: left;
+}

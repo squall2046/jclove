@@ -1,0 +1,31 @@
+<table class="rank-table">
+    <thead></thead>
+    <tbody>
+        <tr *ngFor="let user of userService.users;let key = index">
+            <td>
+                <div class="rank-number">{{key+1}}</div>
+            </td>
+            <td>
+                <div class="user-info d-flex flex-column justify-content-center">
+                    <span>
+                        <img class="user-img" src="{{user.userImage}}" alt="">
+                    </span>
+                    <span>{{user.userName}}</span>
+                </div>
+            </td>
+            <td>
+                <div class="user-rewards d-flex flex-column justify-content-center">
+                    <div class="user-rainbow rewards d-inline-flex mb-3">
+                        <span class="material-icons reward-rainbow f-rainbow"> looks </span>
+                        Rainbow x {{user.rewards.rainbow}}
+                    </div>
+                    <div class="user-star rewards d-inline-flex">
+                        <span class="material-icons reward-star f-yellow"> star </span>
+                        Star x {{user.rewards.star}}
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

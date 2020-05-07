@@ -13,6 +13,7 @@ import { HomeModule } from './home/home.module';
 import { MathematicsModule } from './mathematics/mathematics.module';
 import { MandarinModule } from './mandarin/mandarin.module';
 import { EnglishModule } from './english/english.module';
+import { RankModule } from './rank/rank.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EnglishModule } from './english/english.module';
     HomeModule,
     MathematicsModule,
     MandarinModule,
-    EnglishModule
+    EnglishModule,
+    RankModule
   ],
   providers: [],
   bootstrap: [AppComponent]

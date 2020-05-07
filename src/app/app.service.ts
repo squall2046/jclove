@@ -15,8 +15,7 @@ export class AppService {
       route: {
         profile: '/profile',
         settings: '/settings',
-        activity: '/activity',
-        logout: '/logout',
+        logout: '/home',
       },
       user: {
         name: 'Joanna',
@@ -66,12 +65,19 @@ export class AppService {
           level: 1,
           subTabs: []
         },
+        {
+          name: 'Ranking',
+          path: '/ranking',
+          icon: 'bar_chart',
+          level: 1,
+          subTabs: []
+        },
       ],
     },
     chat: {},
   }
+
   constructor() {
     this.app.footer.copyright = "©Copyright " + new Date().getFullYear() + " Isaac All Rights Reserved"
   }
-
 }
