@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     this.app = this.appService.app;
     this.setbackTo();
     this.initialUsers();
-    this.enterProfile();
+    // this.enterProfile();
   }
 
   setbackTo() {
@@ -98,23 +98,23 @@ export class AppComponent implements OnInit {
     });
   }
 
-  enterProfile() {
-    this.profileService.getProfile().subscribe(res => {
-      this.user = res;
-      console.log("App run, get initial rewards from database", res);
-      // ========> warn: object != object
-      // this.profileService.profile = this.user[0];
-      this.profileService.profile.username = this.user[0].username;
-      this.profileService.profile.password = this.user[0].password;
-      this.profileService.profile.firstName = this.user[0].firstName;
-      this.profileService.profile.lastName = this.user[0].lastName;
-      this.profileService.profile.email = this.user[0].email;
-      this.profileService.profile.userImage = this.user[0].userImage;
-      this.profileService.profile.rewards.rainbow = this.user[0].rewards.rainbow;
-      this.profileService.profile.rewards.star = this.user[0].rewards.star;
-      this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
-      this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
-    });
-  }
+  // enterProfile() {
+  //   this.profileService.getProfile().subscribe(res => {
+  //     this.user = res;
+  //     console.log("App run, get initial rewards from database", res);
+  //     // ========> warn: object != object
+  //     // this.profileService.profile = this.user[0];
+  //     this.profileService.profile.username = this.user[0].username;
+  //     this.profileService.profile.password = this.user[0].password;
+  //     this.profileService.profile.firstName = this.user[0].firstName;
+  //     this.profileService.profile.lastName = this.user[0].lastName;
+  //     this.profileService.profile.email = this.user[0].email;
+  //     this.profileService.profile.userImage = this.user[0].userImage;
+  //     this.profileService.profile.rewards.rainbow = this.user[0].rewards.rainbow;
+  //     this.profileService.profile.rewards.star = this.user[0].rewards.star;
+  //     this.profileService.profile.rewards.rainbows = this.user[0].rewards.rainbows;
+  //     this.profileService.profile.rewards.stars = this.user[0].rewards.stars;
+  //   });
+  // }
 
 }

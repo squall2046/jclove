@@ -21,6 +21,11 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     let url = "/api/users";
+
+    // ======== comment when ng build prod =========
+    // url = "http://localhost:3000/api/login";
+    // ======== comment when ng build prod =========
+
     return this.http.post(url, this.httpOptions).pipe(
       map(response => response as User[]));
   }

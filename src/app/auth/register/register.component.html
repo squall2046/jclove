@@ -1,1 +1,54 @@
-<p>register works!</p>
+<div class="register">
+    <form [formGroup]="registerForm" class="register-form">
+        <div class="register-form-title">Register</div>
+        <table>
+            <tr>
+                <td> <label for=""><b class="asterisk">*</b> Username: </label> </td>
+                <td> <input type="text" class="input ml-3 pl-1" formControlName="username" required> </td>
+            </tr>
+            <tr>
+                <td> <label for=""><b class="asterisk">*</b> New Password: </label> </td>
+                <td> <input type="password" class="input ml-3 pl-1" formControlName="password" required> </td>
+            </tr>
+            <tr>
+                <td> <label for=""><b class="asterisk">*</b> Confirm Password: </label> </td>
+                <td> <input type="password" class="input ml-3 pl-1" formControlName="repassword" required> </td>
+            </tr>
+            <br>
+            <tr>
+                <td> <label for="">First Name: </label> </td>
+                <td> <input type="text" class="input ml-3 pl-1" formControlName="firstname"> </td>
+            </tr>
+            <tr>
+                <td> <label for="">Last Name: </label> </td>
+                <td> <input type="text" class="input ml-3 pl-1" formControlName="lastname"> </td>
+            </tr>
+            <tr>
+                <td> <label for="">Email: </label> </td>
+                <td> <input type="text" class="input ml-3 pl-1" formControlName="email"> </td>
+            </tr>
+        </table>
+
+        <div class="register-form-footer">
+            <div class="alert-msg" [ngClass]="{'alert-border': !newUsername || !matchPassword}">
+                <span *ngIf="!newUsername" class="alert-msg">
+                    <span class="material-icons error-icon">error_outline</span>
+                    The name is already taken.</span>
+                <span *ngIf="!matchPassword" class="alert-msg">
+                    <span class="material-icons error-icon">error_outline</span>
+                    Passwords do not matched.</span>
+            </div>
+            <hr>
+
+            <div class="buttons m-2">
+                <button type="button" class="btn btn-secondary cancel-btn mr-2"
+                    (click)="registerCancel()">Cancel</button>
+                <button type="submit" class="btn btn-primary submit-btn" (click)="registerSubmit()">Submit</button>
+            </div>
+
+            <div class="go-to-register form-msg">
+                Go back to <a [routerLink]="path" class="new-account">Login</a>
+            </div>
+        </div>
+    </form>
+</div>

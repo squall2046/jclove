@@ -17,7 +17,7 @@ export class ProfileService {
     firstName: '',
     lastName: '',
     email: '',
-    userImage: '',
+    userImage: '../../../assets/images/logo/placeholder1.png',
     rewards: {
       star: 0,
       rainbow: 0,
@@ -35,14 +35,22 @@ export class ProfileService {
 
   getUser(un, pw): Observable<any> {
     let url = "/api/login";
+
+    // ======== comment when ng build prod =========
+    // url = "http://localhost:3000/api/login";
+    // ======== comment when ng build prod =========
+
     return this.http.post<any>(url, { username: un, password: pw })
   }
 
-  getProfile(): Observable<User[]> {
-    let url = "/api/profile";
-    // === post to get will be error???? ===
-    return this.http.post(url, this.httpOptions).pipe(
-      map(response => response as User[]))
+  createUsername(user): Observable<any> {
+    let url = "/api/register";
+
+    // ======== comment when ng build prod =========
+    // url = "http://localhost:3000/api/register";
+    // ======== comment when ng build prod =========
+
+    return this.http.post<any>(url, user)
   }
 
   updateRewards(): Observable<User[]> {

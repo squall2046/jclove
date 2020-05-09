@@ -1,0 +1,107 @@
+.register {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.register-form {
+    position: relative;
+    width: 50vw;
+    width: 500px;
+    height: auto;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px 2px rgba(0, 0, 0, 0.2);
+    background-image: url("../../../assets/images/background/olaf-lg.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    font-family: "Frijole", cursive;
+    z-index: 2;
+}
+
+.register-form-title {
+    font-size: 24px;
+    padding-bottom: 15px;
+}
+
+.register-form-footer {
+    padding-top: 50px;
+}
+
+table {
+    margin: auto;
+    text-align: right;
+}
+
+.register-bg {
+    position: fixed;
+    left: 0;
+    bottom: 35px;
+    margin: auto;
+
+    // height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.input {
+    width: 100%;
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0, 0.1);
+}
+
+.alert-msg {
+    height: 25px;
+    line-height: 25px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.form-msg {
+    font-size: 10px;
+}
+
+.error-icon {
+    font-size: 14px;
+}
+
+.alert-border {
+    width: auto;
+    height: 25px;
+    border: 1px solid rgb(255, 0, 0, 0.5);
+    border-radius: 5px;
+    background-color: rgba(241, 104, 104, 0.8);
+    color: white;
+    font-size: 14px;
+}
+
+.asterisk {
+    color: darkred;
+}
+
+hr {
+    margin-top: 3px;
+}
+
+@media only screen and (max-width: 991px) {
+    .register-bg {
+        bottom: 20px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .register-form {
+        width: 90vw;
+    }
+    .alert-msg,
+    .error-icon {
+        font-size: 10px;
+    }
+}
