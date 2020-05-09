@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { App } from 'src/app/app.model';
-import { AuthService } from 'src/app/auth/auth.service';
 
 import { ProfileService } from 'src/app/profile/profile.service';
 import { User } from 'src/app/shared/models/user.model';
@@ -14,21 +13,18 @@ import { User } from 'src/app/shared/models/user.model';
 export class HeaderComponent implements OnInit {
   @Output() showSidebar = new EventEmitter();
   app: App;
-
-  showSettings = true;
-  showNotifications = true;
-  showHelp = true;
-
-  user: User[] = [];
+  profile: User;
+  account: any;
 
   constructor(
     private appService: AppService,
-    private authService: AuthService,
     private profileService: ProfileService,
   ) { }
 
   ngOnInit(): void {
     this.app = this.appService.app;
+    this.profile = this.profileService.profile;
+    this.account = this.profileService.account;
   }
 
   toggleSidebarInPhoneApp() {
@@ -37,9 +33,18 @@ export class HeaderComponent implements OnInit {
     // this.app.sidebar.isCollapsed = true;
   }
 
-
   logout() {
     localStorage.removeItem("userLoginToken");
-    this.authService.isLoggedIn = false;
+    this.profileService.account.login = false;
+    this.profileService.profile.username = "";
+    this.profileService.profile.password = "";
+    this.profileService.profile.firstName = "";
+    this.profileService.profile.lastName = "";
+    this.profileService.profile.email = "";
+    this.profileService.profile.userImage = "";
+    this.profileService.profile.rewards.rainbow = 0;
+    this.profileService.profile.rewards.star = 0;
+    this.profileService.profile.rewards.rainbows = [];
+    this.profileService.profile.rewards.stars = [];
   }
 }

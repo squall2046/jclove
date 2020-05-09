@@ -9,8 +9,6 @@ import { User } from '../../../shared/models/user.model';
 })
 export class ProfileComponent implements OnInit {
   profile: User;
-  // user: User[] = [];
-
 
   constructor(
     private profileService: ProfileService,

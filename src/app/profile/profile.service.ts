@@ -8,8 +8,12 @@ import { User } from '../shared/models/user.model';
   providedIn: 'root'
 })
 export class ProfileService {
+  account = {
+    login: false
+  };
+
   profile: User = {
-    username: 'Mu_Yan',
+    username: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -28,6 +32,11 @@ export class ProfileService {
   };
 
   constructor(private http: HttpClient) { }
+
+  getUser(un, pw): Observable<any> {
+    let url = "/api/login";
+    return this.http.post<any>(url, { username: un, password: pw })
+  }
 
   getProfile(): Observable<User[]> {
     let url = "/api/profile";

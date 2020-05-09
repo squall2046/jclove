@@ -12,19 +12,19 @@ module.exports = function (app, jwt) {
 
     db.User.find()
       .then(dbModel => {
-        for (const dbObj of dbModel) {
+        for (const user of dbModel) {
           if (
-            loginObj.username === dbObj.username &&
-            loginObj.password === dbObj.password
+            loginObj.username === user.username &&
+            loginObj.password === user.password
           ) {
             userAccess.success = true;
-            let payload = { subject: dbObj.username };
+            let payload = { subject: user.username };
             let token = jwt.sign(payload, "secretKey");
-            console.log("==> token:", { token });
-            res.status(200).send({ token, success: true });
+            console.log("==> login response:", { user, token, success: true });
+            res.status(200).send({ user, token, success: true });
           }
           else {
-            // console.log("not matched:", loginObj.username, dbObj.username);
+            // console.log("not matched:", loginObj.username, user.username);
           }
         }
         if (!userAccess.success) {

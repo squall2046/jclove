@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { AuthService } from '../auth.service';
-
+import { ProfileService } from 'src/app/profile/profile.service';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -16,10 +16,24 @@ export class LoginComponent implements OnInit {
   validName = true;
   validPassword = true;
 
+  profile: User = {
+    username: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    userImage: '',
+    rewards: {
+      star: 0,
+      rainbow: 0,
+      stars: [],
+      rainbows: [],
+    }
+  };
+
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private authService: AuthService
+    private profileService: ProfileService,
   ) { }
 
 
@@ -36,8 +50,6 @@ export class LoginComponent implements OnInit {
 
     this.validName = true;
     this.validPassword = true;
-
-    this.authService.isLoggedIn = false;
   }
   loginSubmit() {
     // console.log(this.loginForm.dirty);
@@ -50,19 +62,39 @@ export class LoginComponent implements OnInit {
       this.validPassword = false;
     }
     if (username && password) {
-      this.authService.getUser(username, password).subscribe((data: any) => {
+      this.profileService.getUser(username, password).subscribe((data: any) => {
         if (data.success) {
           console.log(JSON.stringify(data));
-          localStorage.setItem("userLoginToken", data.token);
-          this.router.navigate(["home"]);
-          this.authService.setLoggedIn(true);
           this.validName = true;
           this.validPassword = true;
+          this.profileService.account.login = true;
+          this.profileService.profile.username = data.user.username;
+          this.profileService.profile.password = data.user.password;
+          this.profileService.profile.firstName = data.user.firstName;
+          this.profileService.profile.lastName = data.user.lastName;
+          this.profileService.profile.email = data.user.email;
+          this.profileService.profile.userImage = data.user.userImage;
+          this.profileService.profile.rewards.rainbow = data.user.rewards.rainbow;
+          this.profileService.profile.rewards.star = data.user.rewards.star;
+          this.profileService.profile.rewards.rainbows = data.user.rewards.rainbows;
+          this.profileService.profile.rewards.stars = data.user.rewards.stars;
+          localStorage.setItem("userLoginToken", data.token);
+          this.router.navigate(["home"]);
         } else {
           console.log(JSON.stringify(data));
           this.validName = false;
           this.validPassword = false;
-          this.authService.isLoggedIn = false;
+          // this.profileService.account.login = false;
+          // this.profileService.profile.username = "";
+          // this.profileService.profile.password = "";
+          // this.profileService.profile.firstName = "";
+          // this.profileService.profile.lastName = "";
+          // this.profileService.profile.email = "";
+          // this.profileService.profile.userImage = "";
+          // this.profileService.profile.rewards.rainbow = 0;
+          // this.profileService.profile.rewards.star = 0;
+          // this.profileService.profile.rewards.rainbows = [];
+          // this.profileService.profile.rewards.stars = [];
         }
       })
     }

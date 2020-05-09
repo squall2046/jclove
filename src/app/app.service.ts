@@ -18,8 +18,8 @@ export class AppService {
         logout: '/login',
       },
       user: {
-        name: 'Joanna',
-        img: './../assets/images/logo/joanna.jpg',
+        name: '',
+        img: '',
       }
     },
     main: {
