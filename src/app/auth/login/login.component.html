@@ -20,28 +20,30 @@
             </tr>
         </table>
 
-        <div class="alert-msg" [ngClass]="{'alert-border': !validName || !validPassword}">
-            <!-- <span *ngIf="!validName" class="alert-msg">
+        <div class="login-form-footer">
+            <div class="alert-msg" [ngClass]="{'alert-border': !validName || !validPassword}">
+                <!-- <span *ngIf="!validName" class="alert-msg">
                 <span class="material-icons error-icon">error</span>
                 username was not found.</span> -->
-            <span *ngIf="!validPassword" class="alert-msg">
-                <span class="material-icons error-icon">error_outline</span>
-                username and password were not matched.</span>
-        </div>
-        <hr>
+                <span *ngIf="!validPassword" class="alert-msg">
+                    <span class="material-icons error-icon">error_outline</span>
+                    username and password were not matched.</span>
+            </div>
+            <hr>
 
-        <div class="buttons m-2">
-            <button type="button" class="btn btn-secondary cancel-btn mr-2" (click)="loginCancel()">Cancel</button>
-            <button type="submit" class="btn btn-primary submit-btn" (click)="loginSubmit()">Submit</button>
-        </div>
+            <div class="buttons m-2">
+                <button type="button" class="btn btn-secondary cancel-btn mr-2" (click)="loginCancel()">Cancel</button>
+                <button type="submit" class="btn btn-primary submit-btn" (click)="loginSubmit()">Submit</button>
+            </div>
 
-        <div class="forgot-password form-msg">
-            <a class="reset-password">Forgot Password?</a>
-        </div>
+            <div class="forgot-password form-msg">
+                <a class="reset-password">Forgot Password?</a>
+            </div>
 
-        <div class="go-to-register form-msg">
-            <span> "Don't have an account?"</span>
-            <a [routerLink]="path" class="new-account">Register here</a>
+            <div class="go-to-register form-msg">
+                <span> "Don't have an account?"</span>
+                <a [routerLink]="path" class="new-account">Register here</a>
+            </div>
         </div>
     </form>
 </div>

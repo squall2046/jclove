@@ -14,10 +14,11 @@ export class ProfileService {
 
   profile: User = {
     username: '',
+    password: '',
     firstName: '',
     lastName: '',
     email: '',
-    userImage: '../../../assets/images/logo/placeholder1.png',
+    userImage: '',
     rewards: {
       star: 0,
       rainbow: 0,
