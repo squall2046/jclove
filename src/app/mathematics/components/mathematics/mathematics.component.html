@@ -1,11 +1,20 @@
 <div class="math-home">
-    <!-- =============== math Card ================= -->
-    <div class="math-card-container">
-        <div class="math-card" *ngFor="let opn of math.operation">
-            <div class="operation pointer" data-toggle="modal" data-target="#modal" (click)="modalOn()">
-                {{opn.symbol}}
-            </div>
-        </div>
+  <!-- =============== math Card ================= -->
+  <div class="math-card-container">
+    <div class="math-card" *ngFor="let opn of math.operation">
+      <div
+        *ngIf="opn.name === 'plus'"
+        class="operation pointer"
+        data-toggle="modal"
+        data-target="#modal"
+        (click)="modalOn()"
+      >
+        {{ opn.symbol }}
+      </div>
+      <div *ngIf="opn.name !== 'plus'" class="operation pointer">
+        {{ opn.symbol }}
+      </div>
     </div>
-    <!-- =========================================== -->
+  </div>
+  <!-- =========================================== -->
 </div>

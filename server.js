@@ -72,3 +72,4 @@ app.listen(PORT, () => {
 
 // npx nodemon 开始程序
 // node server 也可以, 但是每次更新要通过ctrl+c,并重开server才能显示更新内容.
+// 每次更新完内容， 要ng build， server才能读出来！！！
