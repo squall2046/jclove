@@ -45,7 +45,11 @@ app.get('*', function (req, res) {
 // Connect to the Mongo DB
 // =============================================================
 const mongoose = require("mongoose");
-const mongoURL = process.env.MONGODB_URI || "mongodb://localhost/jcloveDB";
+// const mongoURL = process.env.MONGODB_URI || "mongodb://localhost/jcloveDB";
+
+// New MongoDB Atlas Cloud Database
+const mongoURL = "mongodb+srv://squall2046:090909@cluster0.shj0c.mongodb.net/jc_love?retryWrites=true&w=majority";
+
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
