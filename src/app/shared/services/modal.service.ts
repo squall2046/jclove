@@ -8,9 +8,9 @@ import { Modal } from 'src/app/shared/models/modal.model';
 export class ModalService {
   modal: Modal = {
     icon: "face",
-    title: "Hello~",
+    title: "Hello ",
     subTitle: "",
-    msgA: "Do you want to learn with me?",
+    msgA: "It's Fun to Learn !!",
     msgB: "",
     btnConfirm: "Yes",
     btnCancel: "No",
