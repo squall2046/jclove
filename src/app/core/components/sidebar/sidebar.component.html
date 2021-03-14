@@ -1,8 +1,7 @@
 <div class="sidebar-container">
     <div class="sidebar-links">
         <div *ngFor="let tab of app.sidebar.tabs" class="sidebar-tabs">
-            <a *ngIf="!tab.subTabs.length" class="sidebar-lvl-one" [routerLink]="tab.path"
-                (click)="clickTab(tab)">
+            <a *ngIf="!tab.subTabs.length" class="sidebar-lvl-one" [routerLink]="tab.path" (click)="clickTab(tab)">
                 <span class="sidebar-icon">
                     <i class="material-icons">{{tab.icon}}</i>
                 </span>
@@ -28,7 +27,8 @@
                 </span>
                 <div *ngIf="app.sidebar.drop" class="sidebar-lvl-one-expanded pt-2">
                     <a *ngFor="let subTab of tab.subTabs" class="sidebar-lvl-two" [routerLink]="subTab.path"
-                        [routerLinkActive]="['bg-gray']" (click)="toggleDrop(tab.name)" (click)="clickSubTab(subTab.name)">
+                        [routerLinkActive]="['bg-gray']" (click)="toggleDrop(tab.name)"
+                        (click)="clickSubTab(subTab.name)">
                         <span class="sidebar-text sidebar-text-sm">{{subTab.name}}</span>
                         <span class="sidebar-active" [routerLinkActive]="['is-active']"></span>
                     </a>

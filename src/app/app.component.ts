@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     private appService: AppService,
     private router: Router,
     private userService: UserService,
-    private profileService: ProfileService,
+    public profileService: ProfileService,
   ) { }
   ngOnInit(): void {
     this.app = this.appService.app;

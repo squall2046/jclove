@@ -23,7 +23,7 @@ export class UserService {
     let url = "/api/users";
 
     // ======== comment when ng build prod =========
-    // url = "http://localhost:3000/api/login";
+    // url = "http://localhost:3000/api/users";
     // ======== comment when ng build prod =========
 
     return this.http.post(url, this.httpOptions).pipe(

@@ -3,7 +3,7 @@ const db = require("../models/index");
 // Routes
 // =============================================================
 module.exports = function (app, jwt) {
-  let userAccess = { success: false };
+  let userAccess = false;
 
   // =============== get login data from mongodb ===============
   // check login:
@@ -18,18 +18,19 @@ module.exports = function (app, jwt) {
             loginObj.username === user.username &&
             loginObj.password === user.password
           ) {
-            userAccess.success = true;
+            userAccess = true;
             let payload = { subject: user.username };
             let token = jwt.sign(payload, "secretKey");
             console.log("==> login response:", { user, token, success: true });
             res.status(200).send({ user, token, success: true });
           }
           else {
+            userAccess = false;
             // console.log("not matched:", loginObj.username, user.username);
           }
         }
-        if (!userAccess.success) {
-          res.json(userAccess);
+        if (!userAccess) {
+          res.status(401).json({ "err": "Invalid Username or Password" });
         }
       })
       .catch(err => res.status(422).json(err));

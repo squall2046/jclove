@@ -63,8 +63,8 @@ export class LoginComponent implements OnInit {
     }
     if (username && password) {
       this.profileService.getUser(username, password).subscribe((data: any) => {
+        console.log(JSON.stringify(data));
         if (data.success) {
-          console.log(JSON.stringify(data));
           this.validName = true;
           this.validPassword = true;
           this.profileService.account.login = true;
@@ -81,7 +81,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("userLoginToken", data.token);
           this.router.navigate(["home"]);
         } else {
-          console.log(JSON.stringify(data));
           this.validName = false;
           this.validPassword = false;
           // this.profileService.account.login = false;
