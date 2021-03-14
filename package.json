@@ -9,8 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "seed": "node server/scripts/seedDB.js",
-    "postinstall": "ng build --aot --prod",
-    "server":"nodemon server.js"
+    "postinstall": "ngcc",
+    "server": "nodemon server.js"
   },
   "engines": {
     "node": "~10.14.2",
@@ -24,6 +24,7 @@
     "@angular/compiler": "~9.1.1",
     "@angular/core": "~9.1.1",
     "@angular/forms": "~9.1.1",
+    "@angular/localize": "^9.1.13",
     "@angular/material": "^9.2.1",
     "@angular/platform-browser": "~9.1.1",
     "@angular/platform-browser-dynamic": "~9.1.1",
