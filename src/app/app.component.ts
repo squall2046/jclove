@@ -15,6 +15,7 @@ import { User } from './shared/models/user.model';
 export class AppComponent implements OnInit {
   app: App;
   user: User[] = [];
+  loggedIn: boolean;
 
   constructor(
     private appService: AppService,
@@ -23,9 +24,10 @@ export class AppComponent implements OnInit {
     public profileService: ProfileService,
   ) { }
   ngOnInit(): void {
+    this.loggedIn = this.profileService.account.login;
     this.app = this.appService.app;
     this.setbackTo();
-    this.initialUsers();
+    // this.initialUsers();
     // this.enterProfile();
   }
 
@@ -90,13 +92,13 @@ export class AppComponent implements OnInit {
     this.app.path = "";
   }
 
-  initialUsers() {
-    this.userService.getUsers().subscribe(res => {
-      this.userService.users = res;
-      // this.userService.rankingEvent();
-      console.log("App run, get all users, (ranked in mongodb)", this.userService.users);
-    });
-  }
+  // initialUsers() {
+  //   this.userService.getUsers().subscribe(res => {
+  //     this.userService.users = res;
+  //     // this.userService.rankingEvent();
+  //     console.log("App run, get all users, (ranked in mongodb)", this.userService.users);
+  //   });
+  // }
 
   // enterProfile() {
   //   this.profileService.getProfile().subscribe(res => {

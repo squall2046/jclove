@@ -25,7 +25,7 @@
         <router-outlet></router-outlet>
       </div>
 
-      <footer [ngStyle]="{'margin-left': app.sidebar.isCollapsed ? '70px':'239px'}">
+      <footer *ngIf="profileService.account.login" [ngStyle]="{'margin-left': app.sidebar.isCollapsed ? '70px':'239px'}">
         <app-footer [footer]='app.footer'></app-footer>
       </footer>
     </section>

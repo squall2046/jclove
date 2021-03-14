@@ -1,7 +1,7 @@
 <div class="sidebar-container">
     <div class="sidebar-links">
         <div *ngFor="let tab of app.sidebar.tabs" class="sidebar-tabs">
-            <a *ngIf="!tab.subTabs.length" class="sidebar-lvl-one" [routerLink]="tab.path" (click)="clickTab(tab)">
+            <a *ngIf="!tab.subTabs.length" class="sidebar-lvl-one" (click)="clickTab(tab)">
                 <span class="sidebar-icon">
                     <i class="material-icons">{{tab.icon}}</i>
                 </span>
