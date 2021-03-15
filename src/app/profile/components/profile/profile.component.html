@@ -5,7 +5,8 @@
             <img class="mouse-gif" src="../../../../assets/images/gif/mouse1.png" alt="">
         </div>
         <div class="top-center d-flex-column">
-            <img class="profile-img" [src]="profile.userImage" alt="">
+            <!-- <img class="profile-img" [src]="profile.userImage" alt=""> -->
+            <img class="profile-img" src="{{profile.userImage}}">
             <p>Hello! {{profile.username}}. Welcome back and enjoy!</p>
         </div>
         <div class="top-right">

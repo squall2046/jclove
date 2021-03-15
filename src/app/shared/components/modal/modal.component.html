@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title" id="modalTitle">
+                <div class="modal-title" id="modalTitle" *ngIf="profile && profile.username">
                     <i class="material-icons">{{modal.icon}}</i>
                     {{modal.title}} {{profile.username | titlecase}} ~
                     {{modal.msgA}}

@@ -1,7 +1,7 @@
 <div class="sidebar-container">
     <div class="sidebar-links">
         <div *ngFor="let tab of app.sidebar.tabs" class="sidebar-tabs">
-            <a *ngIf="!tab.subTabs.length" class="sidebar-lvl-one" [routerLink]="tab.path"
+            <div *ngIf="!tab.subTabs.length" class="sidebar-lvl-one" [routerLink]="tab.path"
                 (click)="clickTab(tab)">
                 <span class="sidebar-icon">
                     <i class="material-icons">{{tab.icon}}</i>
@@ -9,9 +9,9 @@
                 <span class="sidebar-text" [routerLinkActive]="['font-blue']"
                     *ngIf="!app.sidebar.isCollapsed">{{tab.name}}</span>
                 <span class="sidebar-active" [routerLinkActive]="['is-active']"></span>
-            </a>
+            </div>
 
-            <a *ngIf="tab.subTabs.length" class="sidebar-lvl-one"
+            <div *ngIf="tab.subTabs.length" class="sidebar-lvl-one"
                 [ngClass]="{'font-blue':app.sidebar.drop,'sidebar-btns-lvl-expand':app.sidebar.drop}"
                 (click)="toggleDrop(tab.name)" stopPropagation>
                 <span class="sidebar-icon">
@@ -27,18 +27,18 @@
                     </span>
                 </span>
                 <div *ngIf="app.sidebar.drop" class="sidebar-lvl-one-expanded pt-2">
-                    <a *ngFor="let subTab of tab.subTabs" class="sidebar-lvl-two" [routerLink]="subTab.path"
+                    <div *ngFor="let subTab of tab.subTabs" class="sidebar-lvl-two" [routerLink]="subTab.path"
                         [routerLinkActive]="['bg-gray']" (click)="toggleDrop(tab.name)" (click)="clickSubTab(subTab.name)">
                         <span class="sidebar-text sidebar-text-sm">{{subTab.name}}</span>
                         <span class="sidebar-active" [routerLinkActive]="['is-active']"></span>
-                    </a>
+                    </div>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
     <div class="sidebar-collapse">
         <div class="sidebar-tabs">
-            <a class="sidebar-collapse-btn pointer d-inline-flex" (click)="toggleCollapse()">
+            <div class="sidebar-collapse-btn pointer d-inline-flex" (click)="toggleCollapse()">
                 <span class="sidebar-icon">
                     <i class="material-icons collapse-icon">
                         <span *ngIf="app.sidebar.isCollapsed">arrow_right</span>
@@ -46,7 +46,7 @@
                     </i>
                 </span>
                 <span *ngIf="!app.sidebar.isCollapsed" class="sidebar-text">Collapse</span>
-            </a>
+            </div>
         </div>
     </div>
 </div>

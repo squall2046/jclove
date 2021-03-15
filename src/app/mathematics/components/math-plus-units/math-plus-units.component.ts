@@ -38,7 +38,7 @@ export class MathPlusUnitsComponent implements OnInit {
   }
 
   checkStar() {
-    console.log(this.profile);
+    // console.log(this.profile);
 
     if (this.profileService.profile.rewards.star > 0 && this.profileService.profile.rewards.star < 7) {
       this.profileService.profile.rewards.stars.push(this.profileService.profile.rewards.star);

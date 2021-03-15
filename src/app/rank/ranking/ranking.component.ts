@@ -7,13 +7,25 @@ import { UserService } from 'src/app/shared/services/user.service';
   styleUrls: ['./ranking.component.scss']
 })
 export class RankingComponent implements OnInit {
+  users;
+
   constructor(
-    public userService: UserService,
+    private userService: UserService,
   ) { }
 
   ngOnInit(): void {
+    this.initialUsers();
+
     this.userService.subsVar = this.userService.ranking.subscribe(() =>
       this.ranking())
+  }
+
+  initialUsers() {
+    this.userService.getUsers().subscribe(res => {
+      this.userService.users = res;
+      this.ranking();
+      this.users = this.userService.users;
+    });
   }
 
   ranking() {

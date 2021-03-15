@@ -8,10 +8,6 @@ import { User } from '../shared/models/user.model';
   providedIn: 'root'
 })
 export class ProfileService {
-  account = {
-    login: false
-  };
-
   profile: User = {
     username: '',
     password: '',
@@ -27,22 +23,11 @@ export class ProfileService {
     }
   };
 
-  // base = "localhost:3000";
   httpOptions = {
     headers: new HttpHeaders({ "Content-Type": "application/json" })
   };
 
   constructor(private http: HttpClient) { }
-
-  getUser(un, pw): Observable<any> {
-    let url = "/api/login";
-
-    // ======== comment when ng build prod =========
-    // url = "http://localhost:3000/api/login";
-    // ======== comment when ng build prod =========
-
-    return this.http.post<any>(url, { username: un, password: pw })
-  }
 
   createUsername(user): Observable<any> {
     let url = "/api/register";
