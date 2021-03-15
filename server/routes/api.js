@@ -9,7 +9,7 @@ module.exports = function (app, jwt) {
   // check login:
   app.post("/api/login", (req, res) => {
     let loginObj = req.body;
-    // console.log("req:", loginObj);
+    console.log("req:", loginObj);
 
     db.User.find()
       .then(dbModel => {

@@ -7,13 +7,14 @@ import {
   Router
 } from "@angular/router";
 import { Observable } from "rxjs";
+import { AuthService } from "./auth.service";
 import { ProfileService } from "../../profile/profile.service"
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthGuard implements CanActivate {
-  constructor(private profileService: ProfileService, private router: Router) { }
+  constructor(private profileService: ProfileService, private authService: AuthService, private router: Router) { }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -22,14 +23,19 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.profileService.account.login === true) {
+    // return this.authService.isAuthenticated().then((authenticated: boolean) => {
+    //   if (authenticated) {
+    //     return true;
+    //   } else {
+    //     return this.router.navigate["/login"];
+    //   }
+    // })
+    this.authService.isAuthenticated();
+    if (this.authService.loggedIn) {
       return true;
     } else {
-      this.router.navigate(["login"]);
-      this.profileService.account.login = false;
-
-      // NOTE: test this app locally.
-      this.profileService.account.login = true;
+      return this.router.navigate["/login"];
     }
+
   }
 }

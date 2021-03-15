@@ -8,7 +8,7 @@
     <app-header></app-header>
   </header>
   <main>
-    <div *ngIf="profileService.account.login">
+    <div *ngIf="authService.loggedIn">
       <aside [ngStyle]="{'width': app.sidebar.isCollapsed ? '70px':'239px'}"
         [ngClass]="{'aside-phone': app.sidebar.show}">
         <app-sidebar> </app-sidebar>
@@ -16,7 +16,7 @@
     </div>
 
     <section [ngStyle]="{'margin-left': app.sidebar.isCollapsed ? '70px':'239px'}">
-      <div *ngIf="profileService.account.login" class="page-title d-inline-flex">
+      <div *ngIf="authService.loggedIn" class="page-title d-inline-flex">
         <div class="p-icon">
           <i class="material-icons pointer picon" *ngIf="app.path" (click)="backTo()">arrow_back</i>
           <i class="material-icons pointer picon" *ngIf="!app.path">{{app.main.headIcon}}</i>
@@ -27,7 +27,7 @@
         <router-outlet></router-outlet>
       </div>
 
-      <footer *ngIf="profileService.account.login"
+      <footer *ngIf="authService.loggedIn"
         [ngStyle]="{'margin-left': app.sidebar.isCollapsed ? '70px':'239px'}">
         <app-footer [footer]='app.footer'></app-footer>
       </footer>

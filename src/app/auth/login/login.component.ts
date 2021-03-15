@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ProfileService } from 'src/app/profile/profile.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { User } from 'src/app/shared/models/user.model';
 
 @Component({
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
+    private authService: AuthService,
     private profileService: ProfileService,
   ) { }
 
@@ -57,17 +59,24 @@ export class LoginComponent implements OnInit {
     // console.log(this.loginForm.value.username);
     const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
+
     if (!username || !password) {
       this.validName = false;
       this.validPassword = false;
     }
     if (username && password) {
-      this.profileService.getUser(username, password).subscribe((data: any) => {
-        console.log(JSON.stringify(data));
+      this.authService.loginInfo = {
+        username: username,
+        password: password
+      }
+      this.authService.getToken().subscribe((data: any) => {
+        // console.log(JSON.stringify(data));
         if (data.success) {
           this.validName = true;
           this.validPassword = true;
-          this.profileService.account.login = true;
+          console.log(data);
+          // this.profileService.profile = { ...data.user };
+          // this.profileService.profile = data.user;
           this.profileService.profile.username = data.user.username;
           this.profileService.profile.password = data.user.password;
           this.profileService.profile.firstName = data.user.firstName;
@@ -78,22 +87,15 @@ export class LoginComponent implements OnInit {
           this.profileService.profile.rewards.star = data.user.rewards.star;
           this.profileService.profile.rewards.rainbows = data.user.rewards.rainbows;
           this.profileService.profile.rewards.stars = data.user.rewards.stars;
-          localStorage.setItem("userLoginToken", data.token);
-          this.router.navigate(["home"]);
+          console.log(this.profileService.profile);
+
+          localStorage.setItem("authToken", JSON.stringify({ ...data }));
+          this.authService.login();
+          this.router.navigate(["/home"]);
         } else {
           this.validName = false;
           this.validPassword = false;
-          // this.profileService.account.login = false;
-          // this.profileService.profile.username = "";
-          // this.profileService.profile.password = "";
-          // this.profileService.profile.firstName = "";
-          // this.profileService.profile.lastName = "";
-          // this.profileService.profile.email = "";
-          // this.profileService.profile.userImage = "";
-          // this.profileService.profile.rewards.rainbow = 0;
-          // this.profileService.profile.rewards.star = 0;
-          // this.profileService.profile.rewards.rainbows = [];
-          // this.profileService.profile.rewards.stars = [];
+          this.authService.logout();
         }
       })
     }

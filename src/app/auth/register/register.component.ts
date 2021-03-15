@@ -78,7 +78,7 @@ export class RegisterComponent implements OnInit {
           console.log(JSON.stringify(data));
           if (data.newUser) {
             this.newUsername = true;
-            this.router.navigate(["home"]);
+            this.router.navigate(["/home"]);
           } else {
             this.newUsername = false;
           }

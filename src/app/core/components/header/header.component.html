@@ -37,10 +37,10 @@
             </li> -->
         </div>
         <!-- profile -->
-        <li class="nav-item dropdown" *ngIf="account.login">
+        <li class="nav-item dropdown" *ngIf="authService.loggedIn">
             <a class="nav-link dropdown-user" id="dropdown-user" role="button" data-toggle="dropdown"
                 href="javascript:void(0)">
-                <img class="profile-photo" [src]="profile.userImage">
+                <img class="profile-photo" src="{{profile.userImage}}"  alt=" ">
                 <span class="dropdown-toggle">Hi, {{profile.username | titlecase}}</span>
             </a>
             <div class="dropdown-menu">

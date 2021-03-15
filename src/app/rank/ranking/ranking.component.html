@@ -1,7 +1,7 @@
-<table class="rank-table">
+<table class="rank-table" *ngIf="users">
     <thead></thead>
     <tbody>
-        <tr *ngFor="let user of userService.users;let key = index">
+        <tr *ngFor="let user of users;let key = index">
             <td>
                 <div class="rank-number">{{key+1}}</div>
             </td>
