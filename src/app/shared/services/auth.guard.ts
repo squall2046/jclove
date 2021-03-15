@@ -27,6 +27,9 @@ export class AuthGuard implements CanActivate {
     } else {
       this.router.navigate(["login"]);
       this.profileService.account.login = false;
+
+      // NOTE: test this app locally.
+      this.profileService.account.login = true;
     }
   }
 }

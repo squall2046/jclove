@@ -34,7 +34,7 @@ export class SidebarComponent implements OnInit {
     this.app.main.headText = tab.name;
     this.app.sidebar.show = false;
 
-    this.router.navigate([tab.path]);
+    // this.router.navigate([tab.path]);
 
     if (tab.name === "Ranking") {
       // this.userService.rankingEvent();
