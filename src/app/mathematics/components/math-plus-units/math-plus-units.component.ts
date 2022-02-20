@@ -15,7 +15,6 @@ export class MathPlusUnitsComponent implements OnInit {
   math: any;
   modal: Modal;
   profile: User;
-  user: User[] = [];
 
   audio = "";
   previousGif = "0";
@@ -31,11 +30,28 @@ export class MathPlusUnitsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.math = this.mathService.math;
-    this.profile = this.profileService.profile;
+    this.getUpdatedProfile();
     this.reload();
     // console.log(15 % 7, 8 % 7, 2 % 7);
   }
+
+
+  getUpdatedProfile() {
+    this.profileService.postProfile().subscribe(res => {
+      this.profileService.profile = { ...res[0] };
+      this.profile = this.profileService.profile;
+    });
+  };
+
+
+  reload() {
+    this.math = this.mathService.math;
+    this.math.ansCorrect = false;
+    this.mathService.math.unitRandom = Math.floor(Math.random() * 9) + 1;
+    this.mathService.math.unitRandomTwo = Math.floor(Math.random() * 9) + 1;
+    this.mathService.math.space[8].fill = "";
+  }
+
 
   checkStar() {
     // console.log(this.profile);
@@ -56,8 +72,7 @@ export class MathPlusUnitsComponent implements OnInit {
 
     // update rewards in database
     this.profileService.updateRewards().subscribe(res => {
-      this.user = res;
-      console.log("subscribe:", this.user[0].rewards);
+      this.getUpdatedProfile();
     });
   }
 
@@ -68,13 +83,6 @@ export class MathPlusUnitsComponent implements OnInit {
     } else {
       this.previousGif = this.currentGif;
     }
-  }
-
-  reload() {
-    this.mathService.math.unitRandom = Math.floor(Math.random() * 9) + 1;
-    this.mathService.math.unitRandomTwo = Math.floor(Math.random() * 9) + 1;
-    this.mathService.math.space[8].fill = "";
-    this.math.ansCorrect = false;
   }
 
   playAudio() {

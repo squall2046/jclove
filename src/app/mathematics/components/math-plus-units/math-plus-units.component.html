@@ -1,6 +1,6 @@
 <div class="math-units">
     <main class="main">
-        <aside class="rewards">
+        <aside class="rewards" *ngIf="profile">
             <span *ngFor="let rainbow of profile.rewards.rainbows">
                 <span class="material-icons reward-rainbow f-rainbow"> looks </span>
             </span>

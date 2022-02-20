@@ -31,10 +31,32 @@ export class MathPlusTensComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.math = this.mathService.math;
-    this.profile = this.profileService.profile;
-    // console.log(15 % 7, 8 % 7, 2 % 7);
+    this.getUpdatedProfile();
     this.reload();
+  }
+
+  getUpdatedProfile() {
+    this.profileService.postProfile().subscribe(res => {
+      this.profileService.profile = { ...res[0] };
+      this.profile = this.profileService.profile;
+    });
+  };
+
+  reload() {
+    this.math = this.mathService.math;
+    this.mathService.math.tenRandom = Math.floor(Math.random() * 9) + 10;
+    this.mathService.math.unitRandom = Math.floor(Math.random() * 9) + 1;
+
+    this.mathService.math.space.forEach(space => {
+      space.fill = "";
+    });
+    // // if this.space is object:
+    // const space = Object.entries(this.space)
+    // space.forEach(([sp]) => {
+    //   this.space[sp].fill = "";
+    // });
+    this.math.answered = false;
+    this.math.ansCorrect = false;
   }
 
   checkStar() {
@@ -64,9 +86,13 @@ export class MathPlusTensComponent implements OnInit {
     // });
 
     // update rewards in database
+    console.log(this.profileService.profile);
+
     this.profileService.updateRewards().subscribe(res => {
       this.user = res;
       console.log("subscribe:", this.user[0].rewards);
+    console.log(this.profileService.profile);
+
     });
   }
 
@@ -77,22 +103,6 @@ export class MathPlusTensComponent implements OnInit {
     } else {
       this.previousGif = this.currentGif;
     }
-  }
-
-  reload() {
-    this.mathService.math.tenRandom = Math.floor(Math.random() * 9) + 10;
-    this.mathService.math.unitRandom = Math.floor(Math.random() * 9) + 1;
-
-    this.mathService.math.space.forEach(space => {
-      space.fill = "";
-    });
-    // // if this.space is object:
-    // const space = Object.entries(this.space)
-    // space.forEach(([sp]) => {
-    //   this.space[sp].fill = "";
-    // });
-    this.math.answered = false;
-    this.math.ansCorrect = false;
   }
 
   playAudio() {

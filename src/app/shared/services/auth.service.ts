@@ -29,7 +29,7 @@ export class AuthService {
     if (savedToken) {
       let tokenInfo = JSON.parse(savedToken);
       this.profileService.profile = tokenInfo.user;
-      console.log(this.profileService.profile);
+      // console.log(this.profileService.profile);
       this.loggedIn = true;
     }
 

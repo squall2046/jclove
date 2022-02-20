@@ -39,6 +39,12 @@ export class ProfileService {
     return this.http.post<any>(url, user)
   }
 
+  postProfile(): Observable<User[]> {
+    let url = "/api/profile";
+    return this.http.post(url,this.profile).pipe(
+      map(response => response as User[]))
+  }
+
   updateRewards(): Observable<User[]> {
     let url = "/api/profile/rewards";
     return this.http.put(url, this.profile, this.httpOptions).pipe(

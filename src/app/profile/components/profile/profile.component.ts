@@ -15,6 +15,14 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.profile = this.profileService.profile;
+    this.getUpdatedProfile();
   }
+
+  getUpdatedProfile() {
+    this.profileService.postProfile().subscribe(res => {
+      this.profileService.profile = { ...res[0] };
+      this.profile = this.profileService.profile;
+      console.log(this.profile);
+    });
+  };
 }

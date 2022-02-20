@@ -75,6 +75,25 @@ module.exports = function (app, jwt) {
   //     .catch(err => res.status(422).json(err));
   // });
 
+   // =============== get profile data from mongodb ===============
+   app.post("/api/profile", (req, res) => {
+    // console.log("user:", req.body);
+    db.User.findOne(
+      { username: req.body.username }
+    )
+      .then(dbModel => {
+        let jsonFile = [];
+        jsonFile.push(dbModel);
+        res.json(jsonFile);
+
+        console.log("==> update rewards: ", jsonFile, "\n")
+      })
+      // .then(user => {
+      //   res.redirect('/profile');
+      // })
+      .catch(err => res.status(422).json(err));
+  });
+
   // =============== update rewards data from mongodb ===============
   app.put("/api/profile/rewards", (req, res) => {
     // console.log("user:", req.body);
