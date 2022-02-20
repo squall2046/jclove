@@ -16,7 +16,8 @@
 
         <article class="question-table">
             <div class="space">{{math.unitRandom}}</div>
-            <div class="space">+</div>
+            <div class="space" *ngIf="mathOperation==='plus'">+</div>
+            <div class="space" *ngIf="mathOperation==='minus'">-</div>
             <div class="space">{{math.unitRandomTwo}}</div>
             <div class="space">=</div>
             <div class="space space-border" *ngIf="!math.space[8].fill"> ? </div>

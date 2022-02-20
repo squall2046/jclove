@@ -13,6 +13,7 @@ import { User } from '../../../shared/models/user.model';
 })
 export class MathPlusUnitsComponent implements OnInit {
   math: any;
+  mathOperation: string;
   modal: Modal;
   profile: User;
 
@@ -20,8 +21,10 @@ export class MathPlusUnitsComponent implements OnInit {
   previousGif = "0";
   currentGif = "1";
   extraGif = "../../../../assets/images/gif/balloon.png"
-  trueGif = "../../../../assets/images/gif/olaf2.gif";
-  falseGif = "../../../../assets/images/gif/olaf3.gif";
+  // trueGif = "../../../../assets/images/gif/olaf2.gif";
+  // falseGif = "../../../../assets/images/gif/olaf3.gif";
+  trueGif = "../../../../assets/images/gif/toade1.gif";
+  falseGif = "../../../../assets/images/gif/toad9.gif";
 
   constructor(
     private mathService: MathematicsService,
@@ -47,9 +50,27 @@ export class MathPlusUnitsComponent implements OnInit {
   reload() {
     this.math = this.mathService.math;
     this.math.ansCorrect = false;
-    this.mathService.math.unitRandom = Math.floor(Math.random() * 9) + 1;
-    this.mathService.math.unitRandomTwo = Math.floor(Math.random() * 9) + 1;
     this.mathService.math.space[8].fill = "";
+
+    // NOTE: check plus or minus:
+    this.mathOperation = window.sessionStorage.getItem("math-operation");
+    let number1 = Math.floor(Math.random() * 9) + 1;
+    let number2 = Math.floor(Math.random() * 9) + 1;
+    if (this.mathOperation === 'plus') {
+      this.mathService.math.unitRandom = number1;
+      this.mathService.math.unitRandomTwo = number2;
+    } else if (this.mathOperation === 'minus') {
+      if (number1 > number2) {
+        this.mathService.math.unitRandom = number1;
+        this.mathService.math.unitRandomTwo = number2;
+      } else if (number1 === number2) {
+        this.mathService.math.unitRandom = number1;
+        this.mathService.math.unitRandomTwo = number2 - 1;
+      } else {
+        this.mathService.math.unitRandom = number2;
+        this.mathService.math.unitRandomTwo = number1;
+      }
+    }
   }
 
 
@@ -99,12 +120,25 @@ export class MathPlusUnitsComponent implements OnInit {
 
   checkAnswer() {
     let answer: number = parseInt(this.mathService.math.space[8].fill);
-    let expect: number = parseInt(this.math.unitRandom) + parseInt(this.math.unitRandomTwo);
+    let expect: number;
+    // NOTE: check plus or minus:
+    if (this.mathOperation === 'plus') {
+      expect = parseInt(this.math.unitRandom) + parseInt(this.math.unitRandomTwo);
+    } else if (this.mathOperation === 'minus') {
+      expect = parseInt(this.math.unitRandom) - parseInt(this.math.unitRandomTwo);
+    }
     // console.log(expect, answer);
 
     if (expect === answer) {
+      this.trueGif = "../../../../assets/images/gif/toade" + Math.floor(Math.random() * 3 + 1) + ".gif";
+      // Math.floor(Math.random() * 3 + 1) 
+      // 3是指，一共有几个数字要random，
+      // 1是指，第一个数字的最小值是几
+
       // set and play audio:
-      this.audio = "../../../../assets/sound/laugh" + Math.floor(Math.random() * 6) + ".mp3";
+      // this.audio = "../../../../assets/sound/laugh" + Math.floor(Math.random() * 6) + ".mp3";
+      this.audio = "../../../../assets/sound/toadette" + Math.floor(Math.random() * 4 + 1) + ".wav";
+
       this.playAudio();
       // add and check rewards:
       this.profileService.profile.rewards.star++;
@@ -119,7 +153,8 @@ export class MathPlusUnitsComponent implements OnInit {
       }, 3000);
     } else {
       // set and play audio:
-      this.audio = "../../../../assets/sound/sad1.mp3";
+      // this.audio = "../../../../assets/sound/sad1.mp3";
+      this.audio = "../../../../assets/sound/bowser1.wav";
       this.playAudio();
       // no reload question but reload status:
       setTimeout(() => {

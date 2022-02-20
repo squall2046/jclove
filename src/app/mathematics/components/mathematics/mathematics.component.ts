@@ -28,7 +28,9 @@ export class MathematicsComponent implements OnInit {
     //   this.modalCancel());
   }
 
-  modalOn() {
+  modalOn(operation) {
+    // NOTE: set plus or minus:
+    window.sessionStorage.setItem('math-operation', operation);
     const showModal = Object.keys(this.modalService.modal.showModal);
     showModal.forEach(prop => {
       this.modalService.modal.showModal[prop] = false;

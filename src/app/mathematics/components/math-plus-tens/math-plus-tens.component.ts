@@ -13,6 +13,7 @@ import { User } from '../../../shared/models/user.model';
 })
 export class MathPlusTensComponent implements OnInit {
   math: any;
+  mathOperation: string;
   modal: Modal;
   profile: User;
   user: User[] = [];
@@ -21,8 +22,9 @@ export class MathPlusTensComponent implements OnInit {
   previousGif = "0";
   currentGif = "1";
   extraGif = "../../../../assets/images/gif/balloon.png"
-  trueGif = "../../../../assets/images/gif/olaf1.gif";
-  falseGif = "../../../../assets/images/gif/olaf3.gif";
+  // trueGif = "../../../../assets/images/gif/olaf1.gif";
+  trueGif = "../../../../assets/images/gif/toad1.gif";
+  falseGif = "../../../../assets/images/gif/toad9.gif";
 
   constructor(
     private mathService: MathematicsService,
@@ -57,6 +59,7 @@ export class MathPlusTensComponent implements OnInit {
     // });
     this.math.answered = false;
     this.math.ansCorrect = false;
+    this.mathOperation = window.sessionStorage.getItem("math-operation");
   }
 
   checkStar() {
@@ -91,7 +94,7 @@ export class MathPlusTensComponent implements OnInit {
     this.profileService.updateRewards().subscribe(res => {
       this.user = res;
       console.log("subscribe:", this.user[0].rewards);
-    console.log(this.profileService.profile);
+      console.log(this.profileService.profile);
 
     });
   }
@@ -158,14 +161,24 @@ export class MathPlusTensComponent implements OnInit {
     });
 
     let answer: number = parseInt([hundred, ten, unit].join(""));
-    let expect: number = parseInt(this.math.tenRandom) + parseInt(this.math.unitRandom);
+    let expect: number;
+
+    // NOTE: check plus or minus:
+    if (this.mathOperation === 'plus') {
+      expect = parseInt(this.math.tenRandom) + parseInt(this.math.unitRandom);
+    } else if (this.mathOperation === 'minus') {
+      expect = parseInt(this.math.tenRandom) - parseInt(this.math.unitRandom);
+    }
     // console.log(expect, answer);
     if (ten && unit) {
       this.math.answered = true;
     }
     if (expect === answer) {
+      this.trueGif = "../../../../assets/images/gif/toad" + Math.floor(Math.random() * 2 + 1) + ".gif";
+
       // set and play audio:
-      this.audio = "../../../../assets/sound/laugh" + Math.floor(Math.random() * 6) + ".mp3";
+      // this.audio = "../../../../assets/sound/laugh" + Math.floor(Math.random() * 6) + ".mp3";
+      this.audio = "../../../../assets/sound/toad" + Math.floor(Math.random() * 4 + 1) + ".wav";
       this.playAudio();
       // add and check rewards:
       this.profileService.profile.rewards.star++;
@@ -181,7 +194,8 @@ export class MathPlusTensComponent implements OnInit {
     }
     if (expect !== answer && this.math.answered) {
       // set and play audio:
-      this.audio = "../../../../assets/sound/sad1.mp3";
+      // this.audio = "../../../../assets/sound/sad1.mp3";
+      this.audio = "../../../../assets/sound/bowser1.wav";
       this.playAudio();
       // no reload question but reload status:
       setTimeout(() => {

@@ -18,6 +18,7 @@ export class ModalComponent implements OnInit {
   modal: Modal;
   profile: User;
   math: any;
+  mathOperation: string;
 
   constructor(
     private router: Router,
@@ -30,6 +31,7 @@ export class ModalComponent implements OnInit {
     this.modal = this.modalService.modal;
     this.profile = this.profileService.profile;
     this.math = this.mathService.math;
+    this.mathOperation = window.sessionStorage.getItem("math-operation");
   }
 
   modalSubmit() { }

@@ -1,7 +1,7 @@
 <div class="math-tens" (click)="closeSelect()">
     <main class="main">
         <aside>
-            <div class="rewards">
+            <div class="rewards" *ngIf="profile">
                 <span *ngFor="let rainbow of profile.rewards.rainbows">
                     <span class="material-icons reward-rainbow f-rainbow">
                         looks </span>
@@ -22,7 +22,8 @@
                 <table class="question-table">
                     <tr>
                         <td class="unit">{{math.tenRandom}}</td>
-                        <td class="unit">+</td>
+                        <td class="unit" *ngIf="mathOperation==='plus'">+</td>
+                        <td class="unit" *ngIf="mathOperation==='minus'">-</td>
                         <td class="unit">{{math.unitRandom}}</td>
                         <td class="unit">=</td>
                         <td class="unit">?</td>
